@@ -1,0 +1,384 @@
+\chapter{Significance, Cross-Section Measurement, and Systematic Errors}
+In this section we discuss the methods to estimate systematic uncertainties and the statistical techniques used to measure the cross-sectio and determine the statistical signifiance of the result. To calculate the significance and cross-section, a template fit is performed using the BDT distribution for the 1-jet, 2-jet and 3-jet inclusive bins. Although only the 1-jet bin has a good signal to background ratio, the 2-jet and 3-jet inclusive bins are included to constrain the backgrounds, particularly \ttbar. The systematic uncertainties evaluated in this fit are discussed below.
+
+\section{Systematic uncertainties}
+\label{SECTION-SYSTEMATICS}
+The primary sources of systematic error have been estimated using a variety of means. The methods to estimate the systematic effects have been provided by the ATLAS collaboration and the top working group~\cite{TOPCOMMONSYSTEMATICS}. Many of the uncertainties are experimental in nature, such as jet energy resolution(JER), jet reconstruction efficiency, the lepton identification efficiency, the lepton energy scale, the lepton energy resolution, and the effect of pileup and the soft jet cutoff on the missing transverse energy. There are also theoretical sources of uncertainty, such as the \MC\ generator choice, the hadronization and parton showering modeling, the parton distribution function, and the uncertainty of the cross-section calculation for \ttbar\ and diboson production. Our data-driven backgrounds also have uncertainties associated with the yield, as was previously discussed in Sections~\ref{SECTION-QCD-ESTIMATE}-~\ref{SECTION-ZTAUTAU-ESTIMATE}. The impact of these systematics is evaluated for both the shape of the BDT response distribution and the acceptance. The list of systematics and their impact on the cross-section measurement is seen in Table~\ref{TABLE-XS-UNCERTAINTIES}.\\
+
+
+{\noindent{\bf Jet energy scale}}
+
+The jet energy scale uncertainty incorporates several possible sources of uncertainty related to properly measuring the energy of jets~\cite{JES, JESnew, JETUNCERTAINTIES}. The JES uncertainty has both experimental and theoretical components. The experimental components include the uncertainty in the JES calibration method, the calorimeter response, the simulation of the ATLAS detector, and the effect of pileup. The theoretical components are evaluated by comparing two different simulation chains. The ATLAS collaboration produces a software tool {\sc JESUncertaintyProvider}~\cite{JESUNCERTAINTYSOFTWARE} that is applied to simulated events to simulate a 1$\sigma$ variation. To evaluate the uncertainty, a 1$\sigma$ shift is applied to each reconstructed event in both the positive and negative direction, creating a two additional sets of simulated events. The jet energy scale uncertainty is one of the largest uncertainties in this analysis due to both the magnitude of the jet energy scale uncertainty and the importance of jet variables in discrimination against the backgrounds. \\
+
+
+{\noindent{\bf Jet energy resolution}}
+
+The precision with which a given jet's energy is measured has some uncertainty associated with it, referred to here as jet energy resolution (JER)~\cite{JETUNCERTAINTIES}. A mismodeling of this energy resolution can lead to differences in the acceptance rate of events and changes in the final state event kinematics. A software tool {\sc JERProviderTop} applies an additional smearing of the jet energy beyond of the nominal energy smearing.  To estimate the effect of this systematic an additional set of simulated events is created by applying this tool to the set of simulated events prior to event selection. The yields of these simulated events are compared to the nominal simulated events, and half of the difference is taken as a symmetric uncertainty about the nominal value. \\
+
+{\noindent{\bf Jet reconstruction efficiency}}
+
+The efficiency with which the ATLAS reconstruction algorithm correctly identifies jets is another source of systematic uncertainty~\cite{JETUNCERTAINTIES, JRE}. Jet reconstruction can fail for a variety of reasons and such failures can cause an event that would be rejected to be accepted or an event that would be accepted to be rejected. To estimate this uncertainty, the top working group provides a software tool {\sc JetEfficiencyEstimator} which is used to construct an alternate set of simulated events by randomly removing reconstructed jets prior to event selection. The yields of these simulated events are compared to the nominal simulated events, and half of the difference is taken as a symmetric uncertainty about the nominal value. \\
+
+{\noindent{\bf Initial and final state radiation}}
+
+The initial and final state radiation uncertainty is a result of difficulties in modeling events which have radiated particles prior to or immediately after the hard interaction vertex of interest, as shown in Fig.~\ref{FIGURE-THEORY-ISR2} and discussed in Section~\ref{SECTION-THEORY-FEYNMAN}. For example, a gluon could radiate off an interacting quark immediately prior to a \Wtchan\ event, creating a second jet in the event which causes the event to end up in the 2-jet bin instead of the 1-jet bin. These effects occur in both single top and top pair processes. The procedure for estimating this effect is to use several independently created simulated samples generated with different ISR/FSR parameters. For each process studied, six simulated datasets are constructed. These datasets are then filtered through the same event selection process as the nominal datasets.\\
+
+\FIG{ttbarisr}{An example of a Feynman diagram with ISR.}{FIGURE-THEORY-ISR2}
+
+{\noindent{\bf Background cross-sections}}
+
+Two backgrounds have significant theoretical cross-section uncertainties that must be accounted for. The diboson background is given a symmetric 5\% cross-section uncertainty to account for the associated theoretical uncertainties~\cite{Campbell1999}. The largest background, \ttbar, uses an estimated cross-section of 164.57$^{+11.45}_{-15.78}$~pb.~\cite{ATLAS-TTBAR-2010}\\
+
+{\noindent{\bf Parton distribution function}}
+
+Parton distribution functions (PDFs) represent information about the momentum distribution of particles inside an object, specifically the momentum distribution of quarks and gluons in the proton. PDFs are a result of collaboration between several groups of theoretical and experimental high energy physicists. For this analysis three different PDF sets are considered: CTEQ~\cite{cteq6l}, MRST~\cite{springerlink:10} and NNPDF~\cite{PhysRevD.82.014002}. Their impact is evaluated using the recommended reweighting procedure~\cite{ATLAS-TDR}. The full difference in acceptance between the PDF sets with the highest and lowest yields is divided in two and this value is used as the symmetric uncertainty on the nominal dataset.\\
+
+{\noindent{\bf Generator dependence and parton shower modeling}}
+
+There are several different choices of \MC\ generator and parton shower software, as discussed in Section~\ref{SECTION-BACKGROUND-ESTIMATE}. The choice of \MC\ generator and parton shower software affects the shape and yield of the BDT response distribution. The effect of this choice is estimated by generating an additional set of simulated samples for both the \Wt\ and \ttbar\ processes. The difference between the two sets of simulated events is then used as a systematic uncertainty. For \ttbar, the generator dependence is calculated using MCNLO+Herwig and POWHEG+Herwig. The parton showering uncertainty is estimated by comparing POWHEG+Pythia and POWHEG+Herwig. For the \Wt\ signal process, the generator uncertainty compares AcerMC+Herwig and MCNLO+Herwig and the parton showering uncertainty compares AcerMC+Pythia and AcerMC+Herwig.\\
+
+{\noindent{\bf Lepton selection efficiency scale factors}}
+
+The leptons go through several layers of selection before reaching the analysis level. The modeling of these various layers is not perfect, and so each layer has an associated selection efficiency uncertainty. The layers considered in this systematic include the triggering efficiency, the offline reconstruction efficiency, and the identification efficiency. The ATLAS collaboration uses detector performance information to create a set of correction factors to be applied to the nominal dataset. The systematic error corresponds to the uncertainty in these correction factors. In addition, the single top group uses its own isolation criteria which also affects the selection efficiency, and a similar process is applied to the nominal dataset using the results from single top isolation studies. These scale factors are calculated separately for electrons and muons. In general, the selection efficiency for leptons is good, and as a result the effect of this uncertainty is relatively small. \\
+
+{\noindent{\bf Lepton energy scale and resolution}}
+
+The uncertainty in the lepton energy originates from both the estimation of the scale of the energy and in the energy resolution of the ATLAS detector. The ATLAS collaboration provides software which can apply a 1$\sigma$ shift up or down to the $\pT$ scale of the leptons to represent the systematic errors associated with lepton energy. For the electrons, the e/gamma performance group provides the {\sc egammaAnalysisUtils}~\cite{ELECTRONENERGYSYSTEMATICS} for the energy scale and resolution. The scaling applied depends on the electron's $E$, $E_t$, $\eta$, and $\phi$. The energy resolution is estimated by modifying the Gaussian smear that is applied during the event selection using a sigma that is a function of the electron's $E$ and $\eta$. The MCP (Muon Combined Performance) group's {\sc MuonMomentumCorrections} software package~\cite{MUONENERGYSYSTEMATICS} is used for both the energy scaling and resolution for the muons. The scaling is applied to the muon spectrometer (MS) and inner detector (ID) components of the measurement separately using the muon's MS $\pT$, ID $\pT$, CB $\pT$, and $\eta$. The smearing is also applied to the MS and ID components independently using the same input information from the muon. Like the electrons, the muon smearing is applied by modifying sigma of the momentum smearing that is normally applied to the nominal dataset. \\
+
+{\noindent {\bf \MET\ and Pile-up uncertainties}}
+
+The soft jet and cell-out components of the \MET\ calculation (previously discussed in Section~\ref{SECTION-MET}) have been investigated and a software tool ({\sc METTool})~\cite{TOPMET} has been developed by the Jet/EtMiss working group that can apply the uncertainty as seen by detector studies. The uncertainty in the cell-out and soft jet components are evaluated simultaneously with a 10\% uncertainty, and the systematic shift is used to create a new dataset derived from the nominal dataset. An additional systematic representing the uncertainty of the effect of \pileup\ on the \MET\ measurement is assessed using the same tool.\\
+
+%{\noindent {\bf Data-driven background estimates}}
+%
+%The data-driven background estimation methods have their own normalization uncertainty. The method used for calculating these uncertainties is detailed in the description of the method of their respective sections,~\ref{SECTION-QCD-ESTIMATE} for the fakes estimate,~\ref{SECTION-DY-ESTIMATE} for the Drell-Yan estimate, and~\ref{SECTION-ZTAUTAU-ESTIMATE} for the $\Ztt$ estimate. \\
+
+{\noindent {\bf Luminosity}}
+
+The luminosity and its associated uncertainty is determined centrally by the ATLAS collaboration~\cite{ATLAS-LUMI}. A normalization uncertainty of 3.7\% is applied to the simulated background estimates to cover this uncertainty. Additionally, an uncertainty of 3.7\% is added to the final cross-section measurement. This is because the luminosity is used to scale the excess signal observed, thus the measured cross-section is directly dependent on the measured luminosity of the data used.  \\
+
+{\noindent {\bf Summary table}}
+
+The impact of the various systematic uncertainties on the acceptance of the signal and background processes is shown in Tables~\ref{TAB-SYST1} and~\ref{TAB-SYST2}. These tables only contain the effect of the uncertainty on the acceptance, not the full effect on the cross-section measurement. The largest systematic uncertainties on the dominant \ttbar\ background are the jet energy scale, the choice of generator software, the choice of parton shower software, and the \ttbar\ cross-section uncertainty. In general, the overall uncertainty increases as the number of jets increases, which is to be expected given that one of our dominant uncertainties is the jet energy scale. Although the \Ztt\ and \multijet\ backgrounds have the largest percentage uncertainty, they have little impact on the final result because of their small yields compared to the signal and the other background processes.
+
+\begin{table}[!h!tbp] 
+\begin{center} 
+\label{TAB-SYST1}
+\begin{tabular}{lrrrrrr} 
+\hline\hline
+                        &  \Wtchan                &  $t\bar{t}$        &     Diboson &  Z$\rightarrow\tau\tau$ &  Drell-Yan &   Fakes\\
+\hline\hline
+ \multicolumn{7}{c}{{\bf 1-jet exclusive events}}\\
+\hline
+       Jet Energy Scale  &     $^{+1.3}_{-2.4}$ \%  &     $^{+7.7}_{-8.2}$ \%  &     $^{+6.7}_{-5.4}$ \%  &    $-$             &    $-$             &    $-$     \\
+  Jet Energy Resolution  &  $\pm$      1.2\%  &  $\pm$      0.3\%  &  $\pm$      8.7\%  &    $-$             &    $-$             &    $-$           \\
+     Jet Reconstruction  &  $\pm$       1\%   &  $\pm$       1\%   &  $\pm$       1\%   &    $-$             &    $-$             &    $-$           \\
+    Lepton Scale Factor  &  $\pm$      3.0\%  &  $\pm$      3.2\%  &  $\pm$      3.3\%  &    $-$             &    $-$             &    $-$           \\
+      Lepton Resolution  &  $\pm$      0.5\%  &  $\pm$      0.4\%  &  $\pm$      1.3\%  &    $-$             &    $-$             &    $-$           \\
+                ISR/FSR  &  $^{+5.9}_{-4.2}$\% &  $^{+4.8}_{-5.6}$\%  &  $-$  &    $-$             &    $-$             &    $-$           \\
+              Generator  &  $\pm$      2.0\%  &  $\pm$      8.1\%  &        $-$ &    $-$             &    $-$             &    $-$           \\
+          Parton Shower  &  $\pm$      1.4\%  &  $\pm$      9.1\%  &        $-$     &    $-$             &    $-$             &    $-$           \\
+  Normalization to data  &    $-$             &    $-$             &    $-$             &  $\pm$       60\%  &  $\pm$       6.2\%  &  $\pm$ 100\% \\
+ Normalization to theory &    $-$             &  $\pm$      8.3\%  &  $\pm$        5\%  &    $-$             &    $-$             &    $-$ \\  
+\hline
+Total & $^{+7.4}_{-6.4}$ \% & $^{+18}_{-18}$ \% & $^{+13}_{-12}$ \% &  $\pm$       60\%  & $\pm$       6.2\% &  $\pm$ 100\% \\
+\hline\hline
+\end{tabular} 
+\caption{The effect of the individual systematic uncertainties on the acceptance for selected events in the 1-jet bin. This is evaluated by calculating the change in the overall yield of a process when subjected to a $\pm$ 1$\sigma$ shift of the nuisance parameter. The uncertainties from the shape of the systematics are not covered in this Table.}
+\end{center} 
+\end{table}
+
+\begin{table}[!h!tbp] 
+\begin{center} 
+\begin{tabular}{lrrrrrr} 
+\hline\hline
+                        &  \Wtchan                &  $t\bar{t}$        &     Diboson &  Z$\rightarrow\tau\tau$ &  Drell-Yan &  Fakes \\
+\hline\hline
+ \multicolumn{7}{c}{{\bf 2-jet exclusive events}}\\
+\hline
+      Jet Energy Scale   &     $^{+9.5}_{-8.4}$ \%  &     $^{-0.7}_{-0.8}$ \%  &     $^{+30.3}_{-23.7}$ \%  &    $-$             &    $-$             &    $-$ \\
+ Jet Energy Resolution  &  $\pm$      5.5\%  &  $\pm$      1.1\%  &  $\pm$     16.8\%  &    $-$             &    $-$             &    $-$           \\
+    Jet Reconstruction  &  $\pm$        1\%  &  $\pm$       1\%   &  $\pm$       1\%  &    $-$             &    $-$             &    $-$           \\
+   Lepton Scale Factor  &  $\pm$      3.0\%  &  $\pm$      3.0\%  &  $\pm$      2.5\%  &    $-$             &    $-$             &    $-$           \\
+     Lepton Resolution  &  $\pm$      0.4\%  &  $\pm$      0.4\%  &  $\pm$      0.7\%  &    $-$             &    $-$             &    $-$           \\
+               ISR/FSR  &  $^{+1.8}_{-8.3}$\%&  $^{+6.9}_{-1.3}$\%&  $-$  &    $-$             &    $-$             &    $-$           \\
+             Generator  &  $\pm$      5.3\%  &  $\pm$      6.9\%  &      $-$   &    $-$             &    $-$             &    $-$           \\
+         Parton Shower  &  $\pm$      5.6\%  &  $\pm$      2.5\%  &      $-$   &    $-$             &    $-$             &    $-$           \\
+ Normalization to data  &    $-$             &    $-$             &    $-$             &  $\pm$       60\%  &  $\pm$       9.4\%  &  $\pm$       100\%\\
+Normalization to theory &    $-$             &  $\pm$      8.3\%  &  $\pm$        5\%  &    $-$             &    $-$             &    $-$           \\ 
+\hline
+Total & $^{+14}_{-15}$ \% & $^{+14}_{-12}$ \%& $^{+35}_{-30}$ \% &  $\pm$       60\%  &  $\pm$       9.4\%  &  $\pm$       100\%\\
+\hline\hline
+
+ \multicolumn{7}{c}{{\bf 3-jet inclusive events}}\\
+
+\hline
+      Jet Energy Scale  &     $^{+17.7}_{-14.7}$ \%  &     $^{+8.7}_{-6.3}$ \%  &     $^{+40.9}_{-12.9}$ \%  &    $-$             &    $-$             &    $-$           \\
+ Jet Energy Resolution  &  $\pm$      2.5\%  &  $\pm$      2.3\%  &  $\pm$     47.0\%  &    $-$             &    $-$             &    $-$           \\
+%      Jet Energy Scale  &  $^{+22.8}_{-20.2}$\%   &  $^{+12.5}_{-10.2}$\%   &  $^{+63}_{-14}$\%   &    $-$             &    $-$             &    $-$           \\
+% Jet Energy Resolution  &  $\pm$      0.8\%  &  $\pm$      1.1\%  &  $\pm$     23.3\%  &    $-$             &    $-$             &    $-$           \\
+    Jet Reconstruction  &  $\pm$       1\%   &  $\pm$       1\%   &  $\pm$        1\%  &    $-$             &    $-$             &    $-$           \\
+   Lepton Scale Factor  &  $\pm$      3.4\%  &  $\pm$      3.1\%  &  $\pm$      1.8\%  &    $-$             &    $-$             &    $-$           \\
+     Lepton Resolution  &  $\pm$      0.5\%  &  $\pm$      0.4\%  &  $\pm$      1.0\%  &    $-$             &    $-$             &    $-$           \\
+               ISR/FSR  &  $^{+2.7}_{-19.1}$\%   &  $^{+7.5}_{-13.4}$\%   &  $-$        &    $-$             &    $-$             &    $-$           \\
+             Generator  &  $\pm$     17.3\%  &  $\pm$      0.5\%  &  $-$     &    $-$             &    $-$             &    $-$           \\
+         Parton Shower  &  $\pm$     14.1\%  &  $\pm$      0.8\%  &  $-$  &    $-$             &    $-$             &    $-$           \\
+ Normalization to data  &    $-$             &    $-$             &    $-$             &  $\pm$       60\%  &  $\pm$       22\%  &  $\pm$       100\%\\
+Normalization to theory &    $-$             &  $\pm$      8.3\%  &  $\pm$        5\%  &    $-$             &    $-$             &    $-$           \\ 
+\hline
+Total & $^{+29}_{-33}$ \% & $^{+15}_{-17}$ \%& $^{+63}_{-49}$ \% &  $\pm$       60\%  &  $\pm$       22\%  &  $\pm$       100\%\\
+\hline\hline
+\end{tabular} 
+\caption{The effect of the individual systematic uncertainties of the acceptance for selected events in the 2-jet bin and the 3-jet bin. In other words, the change in the overall yield of a process when subjected to a $\pm$ 1$\sigma$ shift of the nuisance parameter. The uncertainties from the shape of the systematics are not covered in this Table.}
+\label{TAB-SYST2}
+\end{center} 
+\end{table}
+
+
+\section{Cross-section and significance measurement}
+
+The primary goal of this analysis is to search for the existence of the single top \Wtchan process and to measure its cross-section. The statistical method used to perform the cross-section measurement is a profile likelihood fit. Profiling is a tool which allows us to use the observed data to estimate the nuisance parameters~\cite{PLRcite,ProfileWiki} thus reducing their uncertainty and its effects on the cross-section measurement. We construct a model of the bins of the BDT response distribution using a likelihood function, parametrizing our systematics as nuisance parameters. The BDT response distributions in the nominal and systematic-shifted datasets are used to estimate the nuisance parameters. The likelihood function is then fit to find the optimal value of the signal strength and to constrain the nuisance parameters. From this model we can extract a fitted cross-section and use pseudoexperiments, simulated experiments constructed using the model, to estimate the associated uncertainty. The modeled likelihood function and constrained nuisance parameters are used to generate pseudoexperiments that are compared to the observed data to give a calculated significance. The details of this procedure are described in depth below.
+
+\subsection{The likelihood function}
+The first step is to construct a likelihood function to model the experiment. The likelihood function is a probability distribution function modeling the probability of seeing the dataset observed as a function of some parametrization of the uncertainties. By maximizing the likelihood function, the set of parameters most consistent with the observed data are obtained. Since we have modeled our systematic uncertainties as parameters in our likelihood function, these uncertainties will be profiled away during the fit. In other words, the likelihood function which depends on $\mu$, $L$, and $\vec{\alpha}$ will become a profile likelihood function which depends only on $\mu$. This profile likelihood function is then maximized to find the most likely value of $\mu$. The likelihood function is:
+
+\begin{equation}
+\begin{split}
+\mathcal{L}(\mu, L, \vec{\alpha}) =  G(L_0 | L, \sigma_L) \times \left\{ \prod_{k=1,Njet} \  \prod_{i=1,Nbin} \text{Pois} \left (\Nobs_{i,k} \, | \, \Nexp_{i,k}(\mu,\vec{\alpha}) \right)\right\} \\
+  \times \prod_{j\in \rm systematic} G(\alpha_{j}|0,1). \\
+%\times G(L_0 | L, \sigma_L)\,  \times \prod_{j\in \rm systematic} G(\alpha_{j}|\sigma_{i,j,k},1)
+\end{split}
+\end{equation}
+
+\noindent
+In the above, $\mu$ is defined as the signal strength (the ratio $\frac{\sigma^{obs}_{Wt}}{\sigma^{SM}_{Wt}}$), $\vec{\alpha}$ is the set of nuisance parameters modeling the strength of the systematic uncertainties (including luminosity), and $L$ is the luminosity. There are three indices which are iterated over. The index $k$ represents the 1-jet, 2-jet, and 3-jet inclusive channels. The index $i$ represents the $i$-th bin of the BDT response template. The nominal distributions of the BDT response in the 1-jet, 2-jet and 3-jet inclusive channels are shown in Fig.~\ref{MEASUREMENT-BDT-RESULT}. Finally, the index $j$ iterates over each of the systematic uncertainties, with three exceptions. The luminosity is covered separately in the profile likelihood function, and the generator and parton shower uncertainties are not continuous, hence they cannot be modeled as Gaussian distributions and must be handled independently, described further below.
+
+\QUADFIGLEG{paper_ll1j_BDTResponse}{paper_ll2j_BDTResponse}{paper_ll3jinc_BDTResponse}{legend}{The BDT classifier output for selected events (a) in the 1-jet bin (b) in the 2-jet bin (c) in the 3-jet inclusive bins. The simulated events are represented by the solid regions, while the data are represented with a black dot.}{MEASUREMENT-BDT-RESULT}
+
+The profile likelihood function contains a Poisson term that represents the probability of seeing the observed number of events given our expectation of the yield. The expected yield is calculated by modeling the total signal and background contribution as a function of the signal strength and nuisance parameters: $\Nexp_{i,k}(\mu,\vec{\alpha}) = s^{exp}_{i,k}(\mu,\vec{\alpha})+b^{exp}_{i,k}(\vec{\alpha})$. The fit to the data ($\Nobs$) is made by adjusting the expected signal and background contribution. There is also a Gaussian term that models the probability of observing a luminosity $L_0$ given the measured luminosity $L$ and its associated uncertainty $\sigma_L$. 
+
+The final set of terms for the systematic uncertainties are Gaussian distributions which model the probability of observing a given value of a given nuisance parameter. This term represents the probability of a nuisance parameter having a particular value. A value of zero corresponds to the nominal value, a value of one corresponds to a +1$\sigma$ shift, a value of negative one corresponds to a -1$\sigma$ shift, and linear interpolation determines the rest of the distribution.  These terms penalize improbably large nuisance parameters, even if they make the expected yields match the observed yields closely. 
+
+\subsection{Cross-section measurement}
+With the experiment modeled, the cross-section is calculated. This is done by finding the minimum of the negative log likelihood function. During this fitting procedure, all nuisance parameters are allowed to float. The signal strength at this minimum value is our measured signal strength. The software used for these fitting procedures is {\sc RooStat}~\cite{ROOSTAT}. 
+
+The fitting of the profile likelihood function procedure determines a fitted parameter value and uncertainty for each of the profiled nuisance parameters. We use these fitted values to assign a new data-driven mean and standard deviation. Naively, one may expect this to give similar results as the +1$\sigma$ and -1$\sigma$ shifts calculated with the methods described above. However, there are reasons to expect that this may lead to more constrained values. A nuisance parameter may have been estimated too conservatively or the event selection criteria may produce a signal region that is less sensitive to this systematic uncertainty than is estimated using selection-independent procedures. The shape of the template distribution itself, in this case the BDT distribution (especially in the background dominated 2 jet and 3+ jet regions), may also provide additional constraints on nuisance parameters. This potential constraining of the nuisance parameters makes profiling effective. 
+
+The impact of the uncertainties on the cross-section measurement must be assessed. In this analysis we initially used a Profile Likelihood Ratio (PLR), but ultimately a different method utilizing pseudoexperiments was selected because the PLR fit was sensitive to fitting failures where the fitting procedure does not converge to a stable set of values. The Profile Likelihood Ratio (PLR) is constructed as a model to calculate the uncertainty of the cross-section. The PLR is defined as:
+
+\begin{equation}
+\rm PLR(\mu) =-2ln\left(\frac{\mathcal{L}(data|\mu,{\vec{\alpha}}_{\mu}) }{ \mathcal{L}(data|\hat{\mu},{\vec{\alpha}}_{\hat{\mu}})}\right),\ \hat{\mu} > 0.
+\end{equation}
+
+\noindent
+Here $\mathcal{L}$ is the likelihood function as defined above. The denominator is the value of likelihood function with the parameters set to the fitted values from the cross-section measurement. The numerator is also the likelihood function, but is not maximized for the optimal value of $\mu$. Instead, various values of $\mu$ are chosen and for each value of $\mu$ the likelihood function is minimized. During this minimization all nuisance parameters are allowed to float except for the generator and parton shower nuisance parameters. This set of floating nuisance parameters are the profiled systematics. The PLR allows constructs a likelihood ratio that is no longer a function of our nuisance parameters. The construction of the PLR profiles the nuisance parameters out of the distribution. This results in the most likely configuration of nuisance parameters given a signal strength. 
+
+%The software used for these fitting procedures is {\sc RooStat}~\cite{ROOSTAT}. 
+
+The resulting PLR function shows the relative likelihood of this $\mu$ compared to the globally fitted $\hat{\mu}$ as a function of $\mu$. Note that the numerator must always be greater than the denominator, and as a result the minimum of the PLR must be at the measured cross section value. 
+
+Figure~\ref{FIGURE-MEAS-EXPLLR} shows the expected shape of the PLR distribution. Expected means that all calculations were done without data, instead using the nominal \MC\ as the ``data'' in the calculation. The red dotted curve is the PLR with only statistical uncertainties included. The solid blue curve is the PLR with all systematic and statistical uncertainties included. The width is proportional to the uncertainty, as discussed in greater detail below. As one would expect, when the systematic uncertainties are added to the PLR, the distribution becomes wider. A similar plot for the observed PLR distribution is shown in Fig.~\ref{FIGURE-MEAS-OBSLLR}. This is the distribution with the observed ATLAS data that is used for the cross-section measurement. Although it is not identical to the expected distribution, the difference is clearly within the uncertainty in the cross-section measurement.
+
+%/msu/data/t3work5/koll/Thesis/noVVshape/results/wt_dilepton_MVA_combined_allsyst_profileLR.eps
+\VLARGEFIG{wt_dilepton_MVA_combined_allsyst_profileLR_exp}{Expected likelihood ratio with only statistical uncertainties (red dashed) and profile likelihood ratio with statistical and a subset of the systematic uncertainties (blue solid) for Wt cross-section measurement. The full set of systematic uncertainties cannot be included because the PLR will not have a smooth shape. The horizontal green lines show the 1$\sigma$, 1.6$\sigma$, and 2$\sigma$ thresholds. This Figure is not used in the final cross-section measurement.}{FIGURE-MEAS-EXPLLR}
+%/msu/data/t3work5/koll/Thesis/20111104_channel_1jBDT_ISRFSRmax/exp/fullShape_123j/results/wt_dilepton_MVA_combined_allsyst_profileLR.eps
+\VLARGEFIG{wt_dilepton_MVA_combined_allsyst_profileLR_obv}{Observed likelihood ratio with only statistical uncertainties (red dashed) and profile likelihood ratio with statistical and a subset of the systematic uncertainties (blue solid) for Wt cross-section measurement. The full set of systematic uncertainties cannot be included because the PLR will not have a smooth shape. The horizontal green lines show the 1$\sigma$, 1.6$\sigma$, and 2$\sigma$ thresholds. This Figure is not used in the final cross-section measurement}{FIGURE-MEAS-OBSLLR}
+
+The uncertainty in the measurement can be calculated by examining the shape of the PLR distribution~\cite{ProfileLikelihoodUncertainty}. Preliminary Figs.~\ref{FIGURE-MEAS-EXPLLR} and~\ref{FIGURE-MEAS-OBSLLR} the 1$\sigma$, 1.6$\sigma$, and 2$\sigma$ thresholds are shown with horizontal green lines. The uncertainty is calculated by locating the intersections between the PLR with the 1$\sigma$ line~\cite{ProfileLikelihoodUncertainty}. However, these Figs. do not represent a final result and only contain a subset of the systematic uncertainties, as including all systematics leads to the fitting failures discussed previously.  These Figs. have been left in for illustrative purposes.
+
+In this analysis fitting the PRL fitting algorithm often fails, leaving a nonsmooth curve which is not useful for extracting an uncertainty from. Instead of using the PRL, we use another method. The uncertainty on the cross-section value is estimated from the profiled nuisance parameters by constructing pseudoexperiments, using the model of our experiment to construct simulated experiements seeded by a random number generator. These pseudoexperiments are used to examine the impact of the varied nuisance parameters on the measured cross-section. To construct the pseudoexperiments, each of the systematic uncertainties profiled is modeled as a Gaussian with a mean and width determined by the constraining procedure. The data and simulated event statistical uncertainties are modeled as Poisson distributions. 
+
+The full profile likelihood fit is applied to each pseudoexperiment to determine a $\mu_{PE}$ value. The mean and RMS of the distribution of the fitted $\mu_{PE}$ values are used as an estimate of the uncertainty of the cross-section from all systematic and statistical uncertainties (except for the parton and generator uncertainties, which are discussed further below).
+
+\VLARGEFIG{obv_muPLR}{Observed distribution of fitted $\mu$ values for the pseudoexperiments generated while fixing all profiled nuisance parameters to their fitted values. The mean and RMS of the distribution is used to calculate the data statistical uncertainty. The histogram is normalized to unit area. }{FIGURE-MEASUREMENT-MUOBS}
+\VLARGEFIG{exp_muPLR}{Expected distribution of fitted $\mu$ values for the pseudoexperiments generated while fixing all systematic nuisance parameters to their fitted values. The mean and RMS of the distribution is used to calculate the data statistical uncertainty. The plot is normalized to unit area.}{FIGURE-MEASUREMENT-MUEXP}
+
+Once this procedure is established, the contribution to the total uncertainty from the individual uncertainties is estimated. For the data statistical uncertainty, the method is applied while fixing the systematic nuisance parameters to their profiled values. A plot of the distribution of the fitted $\mu_{PE}$ values for these pseudoexperiments is shown for the observed data in Fig.~\ref{FIGURE-MEASUREMENT-MUOBS} (expected is shown in Fig.~\ref{FIGURE-MEASUREMENT-MUEXP}). The individual systematic uncertainty contributions is determined by repeating the fit while the uncertainty in question has its nuisance parameter fixed, then subtracting the resulting uncertainty from the total uncertainty in quadrature. Uncertainties less than $5\%$ are denoted as $<5\%$, as this method does not give accurate results for small uncertainties. This procedure gives only the uncertainty on the cross-section measurement, as the measured cross-section itself comes from the profile likelihood fitting. Consequently, the mean of the $\mu_{PE}$ distributions may differ slightly from the fitted cross-section value.
+
+
+\begin{table}[htdp]
+\begin{center}
+   \begin{tabular}{l|c|c|c|c}
+    \hline
+    Source & \multicolumn{4}{c}{$\Delta\sigma/\sigma$ [\%]}\\
+           & \multicolumn{2}{c}{ all jets combined} & \multicolumn{2}{c}{ 1-jet bin only} \\
+           & observed & expected & observed & expected \\
+    \hline \hline
+%    Data statistics                   & +21/-20   & +17/-17  & +15/-15 & +18/-18 \\
+%    MC statistics                     & $<5$      & $<5$     & $<5$    & $<5$    \\
+%    \hline
+%    Lepton energy scale/resolution    & $<5$      & $<5$     & $<5$    & +6/-6    \\
+%    Lepton efficiencies               & +9/-9     & +6/-6    & +11/-11 & +11/-11  \\
+%    Jet energy scale                  & +27/-27   & +14/-14  & +28/-28 & +16/-16 \\
+%    Jet energy resolution             & $<5$      & $<5$     & $<5$    & +6/-6    \\
+%    Jet reconstruction efficiency     & $<5$      & $<5$     & $<5$    & +6/-6    \\
+%
+%    Generator                         & +13/-13   & +10/-10  & +11/-11 & +13/-13   \\
+%    Parton Shower                     & +14/-14   & +15/-15  & +6/-6   & +9/-9 \\
+%
+%    ISR/FSR                           & +7/-7     & +6/-6    & +18/-18 & +17/-17 \\
+%    PDF                               & $<5$      & +6/-6    & $<5$    & $<5$    \\
+%    Pileup                            & +7/-7     & +7/-7    & +10/-10 & +10/-12 \\
+%    $t\bar{t}$ cross-section          & +8/-8     & +6/-6    & +14/-14 & +12/-12 \\
+%    DiBoson cross-section             & $<5$      & +5/-5    & $<5$    &  $<5$   \\
+%    Drell-Yan estimate                & $<5$      & $<5$     & $<5$    &  $<5$   \\
+%    Fake lepton estimate              & $<5$      & $<5$     & $<5$    &  $<5$   \\
+%    $Z\to\tau\tau$ estimate           & $<5$      & $<5$     & $<5$    &  $<5$   \\
+%    \hline
+%    Luminosity                        & +10/-10   & +6/-6    & +13/-13 & +8/-8 \\
+%
+%    All systematics                   & +40/-40   & +28/-28  & +40/-40 & +30/-30 \\
+%%    All prof systematics             & +34/-35   & +22/-22  & +38/-38 & +26/-26 \\
+%    \hline\hline
+%    Total                             & +46/-46   & +33/-33  & +43/-43 & +35/-35 \\
+    Data statistics                   & +17/-17   & +17/-17  & +15/-15 & +18/-18 \\
+    MC statistics                     & $<5$      & $<5$     & $<5$    & $<5$    \\
+    \hline
+    Lepton energy scale/resolution    & $<5$      & $<5$     & $<5$    & +6/-6    \\
+    Lepton efficiencies               & +7/-7     & +6/-6    & +11/-11 & +11/-11  \\
+    Jet energy scale                  & +16/-16   & +14/-14  & +28/-28 & +16/-16 \\
+    Jet energy resolution             & $<5$      & $<5$     & $<5$    & +6/-6    \\
+    Jet reconstruction efficiency     & $<5$      & $<5$     & $<5$    & +6/-6    \\
+
+    Generator                         & +10/-10   & +12/-12  & +11/-11 & +13/-13   \\
+    Parton Shower                     & +15/-15   & +14/-14  & +6/-6   & +9/-9 \\
+
+    ISR/FSR                           & +5/-5     & +6/-6    & +18/-18 & +17/-17 \\
+    PDF                               & $<5$      & +6/-6    & $<5$    & $<5$    \\
+    Pileup                            & +10/-10   & +7/-7    & +10/-10 & +10/-12 \\
+    $t\bar{t}$ cross-section          & +6/-6     & +6/-6    & +14/-14 & +12/-12 \\
+    Diboson cross-section             & +6/-6     & +5/-5    & $<5$    &  $<5$   \\
+    Drell-Yan estimate                & $<5$      & $<5$     & $<5$    &  $<5$   \\
+    Fake dilepton estimate              & $<5$      & $<5$     & $<5$    &  $<5$   \\
+    $Z\to\tau\tau$ estimate           & $<5$      & $<5$     & $<5$    &  $<5$   \\
+    \hline
+    Luminosity                        & +7/-7   & +7/-7    & +13/-13 & +8/-8 \\
+    All systematics                   & +29/-29   & +29/-29  & +40/-40 & +30/-30 \\
+%    All prof systematics             & +34/-35   & +22/-22  & +38/-38 & +26/-26 \\
+    \hline\hline
+    Total                             & +34/-34   & +33/-33  & +43/-43 & +35/-35 \\
+    \hline\hline
+   \end{tabular}
+ \caption{Breakdown of the full uncertainty on the \ensuremath{Wt}-channel cross-section measurement. Unlike Tables~\ref{TAB-SYST1} and~\ref{TAB-SYST2}, the percentages listed here represent the uncertainty from both the normalization and the shape of the distribution. The uncertainty from the parton shower and generator systematics are calculated independently as described in the text.}
+\label{TABLE-XS-UNCERTAINTIES}
+\end{center}
+\end{table}
+
+The contributions from the parton shower and generator systematic uncertainties must be calculated independently, as these uncertainties are not continuous and cannot be profiled. Instead, ATLAS has a recommended procedure~\cite{WOUTER} to be used. For each discrete systematic, the full profile likelihood fit is performed for each of its options. The difference between the fitted cross-sections is taken as the cross-section uncertainty associated with this systematic. The cross-section uncertainty breakdown is shown Table~\ref{TABLE-XS-UNCERTAINTIES}. The largest systematic uncertainty contributions come from the JES, generator and parton shower uncertainties.
+
+The fitted nuisance parameters are shown in Table~\ref{TABLE-MEASUREMENT-FIT}. A fit value of zero indicates the nuisance parameter remains at the nominal value. An uncertainty of less than one indicates the profiling has constrained the uncertainty. The \multijet\ nuisance parameter is fitted to a value that, combined with its large (100\%) uncertainty, leads to a nearly 0\% normalization. Although this is not ideal, the \multijet\ yield contributes $< 1\%$ to the overall yield in the 1-jet bin and even less in the 2-jet and 3-jet inclusive bins means that its contribution to the cross-section uncertainty is negligible. Because of how small the impact of this uncertainty is, it is not investigated further. 
+
+The largest improvement is gained by the constraining the JES, \ttbar\ normalization, and ISR/FSR uncertainties. Although these uncertainties are significantly constrained by the fitting procedure, they are still among the largest uncertainties, as shown in Table~\ref{TABLE-XS-UNCERTAINTIES}, particularly JES with a 16\% observed uncertainty.
+
+\begin{table}[htdp]
+\begin{center}
+   \begin{tabular}{|l|c|l|c}
+    \hline
+ Nuisance parameter & Fitted value \\
+    \hline \hline
+ ISR/FSR &0.75$\pm$0.52             \\
+ PDF &0.01$\pm$0.99                \\
+\hline
+ JES  & -0.47$\pm$ 0.42            \\
+ JER  & -0.01$\pm$ 0.67            \\
+ Jet Reco. eff.  & 0.01 $\pm$ 0.74 \\
+ LSF  & 0.01 $\pm$ 0.92           \\
+\hline
+ $t\bar{t}$ normalization  & 0.16 $\pm$ 0.68        \\
+ DY normalization    & -0.75 $\pm$ 0.93        \\
+ VV normalization    &-0.13$\pm$0.99            \\
+ Fake dilepton normalization  &-0.95$\pm$0.99         \\
+ $Z\tau\tau$ normalization  &-0.64$\pm$0.78   \\
+\hline
+ MC stat. & 0.00 $\pm$ 0.99        \\
+ Lumi & 0.00 $\pm$ 0.99           \\
+    \hline
+   \end{tabular}
+ \caption{The fitted nuisance parameters and their uncertainties are shown here. }
+\label{TABLE-MEASUREMENT-FIT}
+\end{center}
+\end{table}
+
+The uncertainty contribution from each of these systematics is shown in Table~\ref{TABLE-XS-UNCERTAINTIES}. The right hand side shows the uncertainties from a fitting using only the 1-jet bin, while the left hand side shows uncertainties from fitting all of the jet bins. By comparing the two sides the benefit of including the 2-jet and 3-jet inclusive bins is clear, reducing the overall uncertainty from 43\% to 34\%. Although the parton shower uncertainty is increased by adding these bins, the decrease in the jet energy scale, \ttbar\ normalization, and ISR/FSR uncertainties has a greater impact on the overall uncertainty. The uncertainty contributed by the generator and parton shower systematic uncertainties are added in quadrature to the systematic uncertainty calculated from the profile likehood fit to give an overall uncertainty, shown below. The uncertainty from the luminosity is applied not only on the final cross-section measurement, but also to the normalization of the simulated backgrounds. Consequently, the impact of this uncertainty on the cross-section measurement is larger than the 3.7\% applied to the luminosity.
+
+\begin{equation}
+\sigma(pp\rightarrow Wt + X) = 16.8 ^{+2.9}_{-2.9} \mathrm{(stat)} ^{+4.9}_{-4.9} \mathrm{(syst)}~pb
+\end{equation}
+
+\noindent
+This value is consistent with the Standard Model prediction for the cross-section.
+
+\begin{equation}
+\sigma(pp\rightarrow Wt + X)_{NNLL} = 15.7 \pm 1.1\ pb
+\end{equation}
+
+\subsection{Significance calculation}
+In addition to the fitted cross-section measurement we also measure the statistical significance with which we can claim rejection of the null hypothesis (i.e. the background-only hypothesis. To determine this significance pseudo-experiments (PEs) are generated with both the Standard Model and background-only hypotheses. The nuisance parameters discussed previously are modeled as Gaussian distributions with a mean equal to their nominal value and a standard deviation equal to 1$\sigma$. The parton shower and generator systematic uncertainties are now also modeled using a Gaussian distribution with a mean equal to their nominal value and a standard deviation equal to the difference between the nominal and the alternate set of simulated events generated. For the profiled nuisance parameters the nominal and standard deviations used are the same ones derived from the profile likelihood fitting procedure, allowing the advantages of the profiling discussed above to be applied to the significance calculation. For each PE, the log likelihood function is minimized while allowing the nuisance parameters to float, excluding the parton shower and generator uncertainties (which are set to their nominal values). A test statistic $q_{\mu}$ is defined:
+
+\begin{equation}
+q_{\mu}=-2ln\left(\frac{\mathcal{L}(data|\mu,\vec{\alpha}_{\mu})}{\mathcal{L}(data|0,\vec{\alpha}_{0})}\right).
+\end{equation}
+
+\noindent
+Here $\alpha_{\mu}$ and $\alpha_0$ are the maximum likelihood estimators for the Standard Model and background-only hypotheses. 
+
+The results of these PEs are shown in Fig.~\ref{FIGURE_PESIGNIFICANCE}. The curve on the right hand side is made up of the PEs from the background-only hypothesis. The curve on the left hand side is made up of the PEs from the signal+background hypothesis. The two vertical lines that are close to each other are the observed and expected $q_{\mu}$ values. The expected and observed $q_{\mu}$ values are both in the center of the left curve, consistent with the signal+background hypothesis. 
+
+The p-value is then computed by evaluating the fraction of the background-only PEs that have a value more extreme than the one observed. This p-value is the estimate for the probability, given the background hypothesis, of a given experiment to give a result greater than or equal to the result observed in the data. The p-value is used to calculate the significance in standard deviations Z using the the Gaussian probability distribution:
+
+%taking the ratio of $N_{q_{\mu}^{PE} < q_{\mu}^{Data}}^{PE}/N_{total}^{PE}$. 
+\begin{equation}
+p=\int_{Z}^{\inf}\frac{1}{\sqrt{2\pi}}exp(-x^2/2)dx.
+\end{equation}
+
+\noindent
+Using this method we calculate an expected p-value of 0.00036 for the result with an associated 3.4$\sigma$ significance. The final observed p-value is 0.00044 with an associated significance of 3.3$\sigma$. This is greater than 3$\sigma$, making this the first analysis with evidence of the \Wtchan. 
+
+The signifance without profiling was not calculated, but we estimate how much of an impact the profiling made by examining the cross-section divided by the uncertainty on the cross-section. With profiling this value is $3.0\sigma$. We compare this value to the same ratio but with the JES constraining removed. This removal is done by scaling the JES uncertainty contribution by the constraint factor (1.0/0.42 in this case) and use this new estimated uncertainty to calculate the total uncertainty. This gives us a ratio of $2.1\sigma$, much less than the profiled result of $3.0\sigma$.
+
+%\begin{table}[htdp]
+%\begin{center}
+%   \begin{tabular}{|l|c|l|c}
+%    \hline
+%Observed significance with profiling & Observed signifiance without profiling JES (estimated) \\
+%    \hline \hline
+% 3.3$\sigma$ &   2.4$\sigma$  \\
+% \hline
+%   \end{tabular}
+% \caption{The gain from profiling the JES systematic uncertainty. }
+%\label{TABLE-MEASUREMENT-SIG}
+%\end{center}
+%\end{table}
+
+\VLARGEFIG{paper_PESIG}{Significance estimation using pseudo-experiments as described in the text. The continuous line is the $q_{\mu}$ distribution of background only pseudo-experiments, the dashed line curve is the $q_{\mu}$ distribution of Standard Model hypothesis pseudo-experiments, and the red line is the $q_{\mu}$ of data.}{FIGURE_PESIGNIFICANCE}
+
+\section{Measurement of top quark width and lifetime}
+
+We also measure three other Standard Model parameters. One of the parameters is the CKM matrix element $|V_{tb}|$. To make this measurement, it is assumed that the off-diagonal CKM matrix elements $|V_{ts}|$ and $|V_{td}|$ are much smaller than $|V_{tb}|$. We do not require any assumption about the top quark decay. This is a well motivated assumption, consistent with other measurements of these matrix elements~\cite{PDG}. The $|V_{tb}|$ element is calculated by dividing the measured cross-section by the theoretical cross-section calculated using a top mass of 172.5 GeV. Using $\rm \sigma_{Wt}^{theory} = 15.7\times |V_{tb}|^{2}~pb$~\cite{SGTOP-XS2}, a value for $|V_{tb}|$ is obtained:
+
+\begin{equation}
+|V_{tb}| = 1.03^{+0.16}_{-0.19}.
+\end{equation}
+
+\noindent
+In this calculation the experimental and theoretical uncertainties have been added in quadrature. This measurement has a slightly larger uncertainty than the other direct measurements that have been made such as the ATLAS t-channel analysis result of $|V_{tb}|=1.13^{+0.14}_{-0.19}$~\cite{TCHAN-ATLAS}. However, our result is consistent with them and the current world average of direct and indrect measurements of $0.89 \pm 0.07$~\cite{PDG}.
+
+The top quark width and lifetime can also be determined from the \Wtchan cross-section measurement~\cite{D0TopWidth:2010}. Using the linear dependence of the top quark width on the single top \Wtchan cross-section, the top quark width is related to the cross-section measurement by $\Gamma_{t}^{obs.} = \Gamma_{t}^{SM} \times \frac{\sigma^{obs.}_{Wt}}{\sigma^{SM}_{Wt}}$. Here $\Gamma_{t}^{SM}$ = 1.3~GeV has been calculated and has uncertainties negligible relative to the cross-section measurement uncertainties~\cite{TOPWidth:1993}. From this we calculate the top quark width as
+
+\begin{equation}
+\Gamma_{t}^{obs.} = 1.4\pm 0.5~\rm GeV.
+\end{equation}
+
+\noindent
+From this measurement we can also calculate the top quark lifetime, which is related simply to the width. 
+
+\begin{equation}
+\tau_{t} = \frac{\hbar}{\Gamma_{t}}
+\end{equation}
+
+\begin{equation}
+\tau_{t}=(4.7^{+1.2}_{-1.2})\times 10^{-25}~s
+\end{equation}
+
+\noindent
+Prior to this analysis, D0 and CDF made direct measurements of the top width~\cite{CDF-topwidth,D0-topwidth}. CDF measured a width $0.3\ GeV < \Gamma_t < 4.4\ GeV$ at a 68\% CL, and D0 measured a width of $1.99^{+0.69}_{-0.55}\ GeV$. Our indirectly measured values are consistent with the values observed at CDF and D0.

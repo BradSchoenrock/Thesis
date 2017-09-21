@@ -1,0 +1,91 @@
+\chapter{Analysis}
+\label{SECTION-ANALYSIS} 
+
+After the $Z$-boson, the top-quark, the $W$-boson from the top-quark decay, and the neutrino from the $W$-decay are reconstructed as described in Chapter~\ref{SECTION-OBJ} they were used to help separate \tz~from the various backgrounds. The energies and positions of each of these objects in our detector, as well as the multiplicity of the objects, was used to achieve this seperation. The decisions made in the preselection and cut flow were informed by the kinematics of the \tz~process. The \tz~Feynman diagram is shown in Figure~\ref{FIGURE-tZ}. 
+
+
+\section{Preselection}
+\label{SECTION-PRESELECTION}
+
+One goal in setting up an analysis is to understand the background model in relation to the observed data. To acomplish this defining characteristics of the signal region were determined in order to limit the number of monte carlo samples needed. Because the signal has three leptons and a $Z$-boson, cuts on the number of leptons and $Z$-mass (for instance) were applied to limit any contribution from certain low lepton multiplicity non $Z$-boson sources ($W$-boson+jets, multijets, etc...). 
+
+The following cuts were optimized to improve agreement between data and the background model while maintaining as much signal statistics as possible. 
+
+\begin{itemize}
+\item Exactly 3 leptons with \PT \textgreater~ 10GeV.
+\item At least one OSSF pair.
+\item 80GeV \textless~ Z mass \textless~ 100GeV. Figure~\ref{TRIPFIG3}
+\item Leading lepton \PT \textgreater~ 40 GeV. Figure~\ref{TRIPFIG1}
+\item Second lepton \PT \textgreater~ 20GeV. Figure~\ref{TRIPFIG1}
+\item Third lepton \PT \textgreater~ 10GeV. Figure~\ref{TRIPFIG1}
+\item 2, 3, or 4 jets with \PT \textgreater~ 25GeV. Figure~\ref{TRIPFIG2}
+\item Leading jet \PT \textgreater~ 40GeV. Figure~\ref{TRIPFIG2}
+\item Exactly 1 b-jet at 85\% WP. Figure~\ref{TRIPFIG2}
+\item MET \textgreater~ 20GeV. If the Transverse \textless~ 40GeV then MET \textgreater~ 40GeV is required. Figure~\ref{TRIPFIG3} Figure~\ref{TRIPFIG3}
+\end{itemize}
+
+\TRPFIGLEG{LeadingLeptonPt}{SecondLeptonPt}{ThirdLeptonPt}{Lepton \PT~ for leading (a), second (b), and third (c) leptons with preselection applied except the cuts on the variable shown.}{TRIPFIG1}
+
+\TRPFIGLEG{njet}{nbjet}{LeadingJetPt}{Number of jets (a), number of b-jets (b), and \PT~of the leading jet (c) with preselection applied except the cuts on the variable shown. At least one jet was required at this level.}{TRIPFIG2}
+
+\TRPFIGLEG{METvsWtmSignal}{METvsWtmData}{Zmass}{Further histograms with preselection applied except the cuts on the variable shown. Invariant mass of the $Z$-boson (c), two dimentional map of transverse mass of the $W$-boson vs MET for the signal (a), and two dimentional map of transverse mass of the $W$-boson vs MET for the data (b).}{TRIPFIG3}
+
+
+\section{Control Regions}
+\label{SECTION-CONTROL-REGIONS}
+here i need to add Z+jets control region and ttbar control region descriptions and histograms
+
+
+
+
+
+
+\section{Cut Flow}
+\label{SECTION-SELECTION-CUTS}
+
+Once the preselection region is defined our goal is to improve the sensitivity of the analysis. We do this by searching for variables where the shape of the signal significantly differs from the shape of one or all of the backgrounds and evaluating its effect on the value $S/\sqrt{B}$. $S/\sqrt{B}$ is used as the variable to optimize because it ensures both strong signal to background ratios while also ensuring that we limit the contribution of statistical errors. Many distributions were considered for various reasons, but distributions of special interest are the angular variables and top-quark mass shown in Figure~\ref{FIGURE-TRIPFIG-FINAL2}. The distributions with the best discriminating power are used for this analysis and the degree to which each of these cuts improve $S/\sqrt{B}$ is shown in Table~\ref{tab:eventyield}. Those are the $W$-boson transverse mass, the \eta~value of the leading non b-jet, and the angle between the b-jet and the leading non b-jet shown in Figure~\ref{sixfig}. Those variables were then re-optimized sequentially to show that any correlations were minor, and to ensure optimal sensitivity. 
+
+\begin{table} [ht!]
+\setlength{\tabcolsep}{2pt}
+\footnotesize
+\centering
+\begin{tabular}{ l | r | r | r | r }
+\hline
+\hline
+Process & Preselection & Wtm cut applied & LeadNonBjetEta cut applied & full selection \\ 
+\hline
+$t\bar{t}$ & 104.03  & 28.12 & 14.96 & 10.39 \\ 
+single top-quark & 3.58 & 1.03 & 0.49 & 0.34 \\ 
+$ttV$ & 0.92 & 3.12 & 1.03 & 0.61\\ 
+$Z$ + jets & 186.45 & 5.33 & 2.30 & 1.75\\ 
+Diboson & 14.91 & 12.85 & 5.18 & 3.30\\ 
+\hline
+$tZ$ & 3.30 & 4.26 & 3.22 & 2.89\\ 
+\hline
+Total Expected & 313.19 & 54.70 & 27.19 & 19.28 \\ 
+Data Observed & 272.00 & 62.00 & 29.00 & 22.00 \\ 
+\hline
+ S/B & 0.01 & 0.08  & 0.13 & 0.18 \\ 
+ S/sqrtB & 0.19 & 0.60 & 0.66 & 0.71\\ 
+\hline
+\hline
+\end{tabular}
+\caption{Event yields after various stages of analysis.}
+\label{tab:eventyield}
+\end{table}
+
+\TRPFIGLEG{W_transverse_mass}{LeadingNonb-jetEta}{b-jet+LeadingNonb-jetdR}{Variables with full selection applied except the cut on this variable.}{label}
+
+
+Once we have applied the full cut flow we are left with the remaining distributions to analyze. These are meant to represent the kinematics of events selected by this analysis. The application of the full selection takes us from having approximately one signal event in 100 to nearly 1 signal event in 5. These efforts will greatly improve the sensitivity of our analysis as shown in the next chapter. 
+
+\SIXFIG{FinalLeadingLeptonPt}{FinalSecondLeptonPt}{FinalThirdLeptonPt}{WtransM}{LeadNonb-jetEta}{LASTANGLE}{Lepton \PT~ for leading, second, and third leptons with full selection applied as well as histograms of the three cuts made to finalize selection with full selection applied.}{sixfig}
+
+\DBLFIG{Finalnjet}{Number of jets with full selection applied.}{FIGURE-NJET}{FinalLeadingJetPt}{Leading Jet Pt with full selection applied.}{FIGURE-LEADINGJETPT}
+
+\DBLFIG{nelec}{Histograms of number of electrons. Note that because we require three leptons exactly these histograms are mirrors of each other by definition.}{FIGURE-NELEC}{nmuon}{Histograms of number of muons. Note that because we require three leptons exactly these histograms are mirrors of each other by definition.}{FIGURE-NMUON}
+
+
+\QUAFIG{TopPolOpt}{TopPolHel}{Whelicity}{HISTO-TOPMASS}{Variables which display properties of the top quark and its decay with full selection applied.}{FIGURE-TRIPFIG-FINAL2}
+
+

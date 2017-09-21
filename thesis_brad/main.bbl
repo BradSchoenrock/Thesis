@@ -1,0 +1,457 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{10}
+
+\bibitem{SGTOP-XS}
+N.~Kidonakis, {\em {Top quark pair and single top production at Tevatron and
+  LHC energies}\/},  July, 2010.
+
+\bibitem{Kant:2014oha}
+P.~Kant, O.~M. Kind, T.~Kintscher, T.~Lohse, T.~Martini, S.~Mölbitz, P.~Rieck,
+  and P.~Uwer, {\em {HatHor for single top-quark production: Updated
+  predictions and uncertainty estimates for single top-quark production in
+  hadronic collisions}\/},
+  \href{http://dx.doi.org/10.1016/j.cpc.2015.02.001}{Comput. Phys. Commun. {\bf
+  191} (2015)  74--89},
+\href{http://arxiv.org/abs/1406.4403}{{\tt arXiv:1406.4403 [hep-ph]}}.
+%%CITATION = ARXIV:1406.4403;%%.
+
+\bibitem{Timeline}
+T.~E. online, {\em {The Standard Model of high energy physics Years from
+  concept to discovery}\/},  July, 2012.
+
+\bibitem{SGTOP-DIAG}
+A.~Heinson, {\em Feynmann Diagrams for Top Physics Talks and Notes\/},  Oct,
+  2011.
+
+\bibitem{JAXO}
+D.~Binosi and L.~Theußl, {\em JaxoDraw: A graphical user interface for drawing
+  Feynman diagrams\/},
+  \href{http://dx.doi.org/10.1016/j.cpc.2004.05.001}{Computer Physics
+  Communications {\bf 161} (2004) no.~1-2, 76 -- 86}.
+  \url{http://www.sciencedirect.com/science/article/pii/S0010465504002115}.
+
+\bibitem{Campbell:2013yla}
+J.~Campbell, R.~K. Ellis, and R.~Rontsch, {\em {Single top production in
+  association with a Z boson at the LHC}\/},
+  \href{http://dx.doi.org/10.1103/PhysRevD.87.114006}{Phys.Rev. {\bf D87}
+  (2013)  114006},
+\href{http://arxiv.org/abs/1302.3856}{{\tt arXiv:1302.3856 [hep-ph]}}.
+%%CITATION = ARXIV:1302.3856;%%.
+
+\bibitem{LHCchain}
+A.~Horvath, {\em {The LHC experiments and the preaccelerators.}\/},  Nov, 2009.
+
+\bibitem{LHC-Tunnel}
+M.~Brice, {\em {First LHC magnets installed. Installation du premier aimant du
+  LHC}\/},  Apr, 2005.
+
+\bibitem{ATLAS-LUMI}
+{ATLAS Collaboration}, {\em Updated Luminosity Determination in $pp$ Collisions
+  at $\sqrt{s}=7$~TeV using the ATLAS Detector\/},  ATLAS-CONF-2011-011 (2011)
+  .
+
+\bibitem{ATLAS-OPEN}
+M.~Brice, {\em {Installing the ATLAS calorimeter}\/},  Nov, 2005.
+
+\bibitem{Pequenao:1505342}
+J.~Pequenao and P.~Schaffner, {\em {An computer generated image representing
+  how ATLAS detects particles}\/},  Jan, 2013.
+
+\bibitem{Figure-Atlas}
+J.~Pequenao, {\em {Computer generated image of the whole ATLAS detector}\/},
+  Mar, 2008.
+
+\bibitem{ATLAS-EXP}
+{ATLAS Collaboration}, {\em The ATLAS Experiment at the CERN Large Hadron
+  Collider\/},  JINST {\bf 3} (2008)  S08003.
+
+\bibitem{ASalzburger}
+A.~Salzburger, {\em {The ATLAS Track Extrapolation Package}\/},  Dec, 2007.
+
+\bibitem{ATLAS-Endcap-magnet}
+C.~A. M.~M. Brice, {\em {Preparation for the lowering of the second Magnet End
+  Cap Toroid into ATLAS cavern side C }\/},  Jul, 2007.
+
+\bibitem{Figure-InnerDetector}
+J.~Pequenao, {\em {Computer generated image of the ATLAS inner detector}\/},
+  Mar, 2008.
+
+\bibitem{Figure-Calo}
+J.~Pequenao, {\em {Computer Generated image of the ATLAS calorimeter}\/},  Mar,
+  2008.
+
+\bibitem{Figure-Muon}
+J.~Pequenao, {\em {Computer generated image of the ATLAS Muons subsystem}\/},
+  Mar, 2008.
+
+\bibitem{ATLAS-TGC-wheel}
+C.~Marcelloni, {\em {Installation of the first of the big wheels of the ATLAS
+  muon spectrometer, a thin gap chamber (TGC) wheel. Installation de la
+  première des grandes roues du ATLAS spectromètre à muons, une roue
+  TGC}\/},  Sep, 2006.
+
+\bibitem{Griffiths}
+D.~Griffiths, {\em Introduction to Elementary Particles}.
+\newblock Wiley-VCH Verlag GmbH \& Co. KGaA, Weinheim, 2004.
+
+\bibitem{QFT-PS}
+M.~E. Peskin and D.~V. Schroeder, {\em An Introduction to Quantum Field
+  Theory}.
+\newblock Westview Press, 1995.
+
+\bibitem{QFT-IZ}
+C.~Itzykson and J.-B. Zuber, {\em Quantum Field Theory}.
+\newblock McGraw-Hill, 1980.
+
+\bibitem{Aad:2012tfa}
+{ATLAS} Collaboration, G.~Aad et al., {\em {Observation of a new particle in
+  the search for the Standard Model Higgs boson with the ATLAS detector at the
+  LHC}\/},  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.020}{Phys. Lett.
+  {\bf B716} (2012)  1--29},
+\href{http://arxiv.org/abs/1207.7214}{{\tt arXiv:1207.7214 [hep-ex]}}.
+%%CITATION = ARXIV:1207.7214;%%.
+
+\bibitem{GROUPTHEORY}
+J.~A. Gallian, {\em Contemporary Abstract Algebra}.
+\newblock Houghton Mifflin Company, 2002.
+
+\bibitem{GROUPTHEORY2}
+W.-K. Tung, {\em Group Theory in Physics}.
+\newblock World Scientific Publishing Co. Pte. Ltd., 1985.
+
+\bibitem{topmass}
+{T.M. Liss, F. Maltoni, and A. Quadt}, {\em The Top Quark\/},  tech. rep.,
+  Particle Data Group, 2015.
+
+\bibitem{TOPWidth:1993}
+{M. Jezabek J. Kuhn}, {\em {Top quark width: Theoretical update}\/},  Phys.
+  Rev. D {\bf 48} (1993)  .
+
+\bibitem{CDF-topwidth}
+{CDF Collaboration}, {\em Direct Top-Quark Width Measurement at CDF\/},
+  Physical review letters {\bf 105} (2010) no.~23, 232003.
+
+\bibitem{D0-topwidth}
+{D0 Collaboration}, {\em Determination of the width of the top quark\/},
+  Physical review letters {\bf 106} (2011) no.~2, 022001.
+
+\bibitem{sgtopvtb}
+A.~Heinson, A.~Belyaev, and E.~Boos, {\em Single top quarks at the Fermilab
+  Tevatron\/},  Physical Review D {\bf 56} (1997) no.~5, 3114.
+
+\bibitem{Top-CDF}
+{CDF Collaboration}, {\em Observation of Top Quark Production in
+  $\overline{\mathit{p}}\mathit{p}$ Collisions with the Collider Detector at
+  Fermilab\/},  \href{http://dx.doi.org/10.1103/PhysRevLett.74.2626}{Phys. Rev.
+  Lett. {\bf 74} (1995)  2626 -- 2631}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.74.2626}.
+
+\bibitem{Top-D0}
+{D0 Collaboration}, {\em Observation of the Top Quark\/},
+  \href{http://dx.doi.org/10.1103/PhysRevLett.74.2632}{Phys. Rev. Lett. {\bf
+  74} (1995)  2632--2637}.
+  \url{http://link.aps.org/doi/10.1103/PhysRevLett.74.2632}.
+
+\bibitem{SGTOP-D0}
+{D0 Collaboration}, {\em {Observation of Single Top Quark Production}\/},
+  \href{http://dx.doi.org/10.1103/PhysRevLett.103.092001}{Phys.Rev.Lett. {\bf
+  103} (2009)  092001},
+\href{http://arxiv.org/abs/0903.0850}{{\tt arXiv:0903.0850 [hep-ex]}}.
+%%CITATION = ARXIV:0903.0850;%%.
+
+\bibitem{SGTOP-CDF}
+{CDF Collaboration}, {\em {First Observation of Electroweak Single Top Quark
+  Production}\/},
+  \href{http://dx.doi.org/10.1103/PhysRevLett.103.092002}{Phys.Rev.Lett. {\bf
+  103} (2009)  092002},
+\href{http://arxiv.org/abs/0903.0885}{{\tt arXiv:0903.0885 [hep-ex]}}.
+%%CITATION = ARXIV:0903.0885;%%.
+
+\bibitem{D0TopWidth:2010}
+{D0 Collaboration}, {\em Determination of the width of the top quark\/},  Phys.
+  Rev. Lett. {\bf 106} (2011)  022001.
+
+\bibitem{Schilling:2012dx}
+F.-P. Schilling, {\em {Top Quark Physics at the LHC: A Review of the First Two
+  Years}\/},
+  \href{http://dx.doi.org/10.1142/S0217751X12300165}{Int.J.Mod.Phys. {\bf A27}
+  (2012)  1230016},
+\href{http://arxiv.org/abs/1206.4484}{{\tt arXiv:1206.4484 [hep-ex]}}.
+%%CITATION = ARXIV:1206.4484;%%.
+
+\bibitem{TCHAN-ATLAS}
+{ATLAS Collaboration}, {\em Observation of t Channel Single Top-Quark
+  Production in pp Collisions at $sqrt{s} = 7$ TeV with the ATLAS detector\/},
+  Tech. Rep. ATLAS-CONF-2011-088, CERN, Geneva, Jun, 2011.
+
+\bibitem{Aad:2012xca}
+{ATLAS} Collaboration, G.~Aad et al., {\em {Evidence for the associated
+  production of a $W$ boson and a top quark in ATLAS at $\sqrt{s}=7$ TeV}\/},
+  \href{http://dx.doi.org/10.1016/j.physletb.2012.08.011}{Phys.Lett. {\bf B716}
+  (2012)  142--159},
+\href{http://arxiv.org/abs/1205.5764}{{\tt arXiv:1205.5764 [hep-ex]}}.
+%%CITATION = ARXIV:1205.5764;%%.
+
+\bibitem{Linac2}
+E.~Boltezar, H.~Haseroth, W.~Pirkl, T.~Sherwood, U.~Tallgren, P.~Tetu,
+  D.~Warner, and M.~Weiss, {\em The New CERN 50MeV Linac\/},  Proc. 1979 Linear
+  Accelerator Conference {\bf BNL 51134} (1979) no.~66, .
+
+\bibitem{PSB}
+B.~Mikulec, A.~Blas, C.~Carli, A.~Findlay, K.~Hanke, G.~Rumolo, and J.~Tan,
+  {\em {LHC Beams from the CERN PS Booster}\/}, .
+
+\bibitem{PS}
+M.~e.~a. Barnes, {\em {The PS complex as proton pre-injector for the LHC:
+  design and implementation report}}.
+\newblock CERN, Geneva, 2000.
+
+\bibitem{SPS}
+P.~Collier and B.~Goddard, {\em PREPARATION OF THE SPS AS LHC INJECTOR}.
+\newblock CERN, Geneva, 1998.
+
+\bibitem{LHC-TDR}
+O.~S. Brüning, P.~Collier, P.~Lebrun, S.~Myers, R.~Ostojic, J.~Poole, and
+  P.~Proudlock, {\em {LHC Design Report}}.
+\newblock CERN, Geneva, 2004.
+
+\bibitem{LHC}
+O.~S. Brüning, P.~Collier, P.~Lebrun, S.~Myers, R.~Ostojic, J.~Poole, and
+  P.~Proudlock, {\em {LHC Design Report}}.
+\newblock CERN, Geneva, 2004.
+
+\bibitem{TevatronLumi}
+V.~Papadimitriou, {\em Luminosity determination at the Tevatron\/},  LHC Lumi
+  Days {\bf LHC Workshop on LHC Luminosity Calibration
+  CERN-Proceedings-2011-001} (2011)  90--95,
+  \href{http://arxiv.org/abs/http://arxiv.org/abs/1106.5182v1}{{\tt
+  1106.5182:http://arxiv.org/abs/1106.5182v1}}.
+
+\bibitem{LUMIPLOTS}
+{ATLAS Collaboration}, {\em ATLAS Luminosity Public Results\/},
+  \url{https://twiki.cern.ch/twiki/bin/view/AtlasPublic/LuminosityPublicResult%
+s#Multiple_Year_Collision_Plots}.
+
+\bibitem{MAGNET}
+{ATLAS} Collaboration, {\em {ATLAS magnet system: Technical Design Report, 1}}.
+\newblock Technical Design Report ATLAS. CERN, Geneva, 1997.
+
+\bibitem{INNERDET}
+{ATLAS Collaboration}, {\em ATLAS inner detector technical design report\/},
+  CERN/LHCC (1997)  97--16.
+
+\bibitem{PIXEL}
+G.~e.~a. Aad, {\em {ATLAS pixel detector electronics and sensors}\/},  J.
+  Instrum. {\bf 3} (2008)  P07007.
+
+\bibitem{PIXEL-DET}
+{ATLAS Collaboration}, {\em ATLAS pixel detector electronics and sensors\/},
+  Journal of Instrumentation {\bf 3} (2008) no.~07, P07007.
+
+\bibitem{SCT}
+A.~e.~a. Abdesselam, {\em The barrel modules of the ATLAS semiconductor
+  tracker\/}, .
+
+\bibitem{SCT_Barrel}
+A.~Abdesselam and T.~Akimoto, {\em {The Barrel Modules of the ATLAS
+  SemiConductor Tracker}\/},  Tech. Rep. ATL-INDET-PUB-2006-005.
+  ATL-COM-INDET-2006-009. CERN-ATL-COM-INDET-2006-009, CERN, Geneva, Jul, 2006.
+
+\bibitem{SCT_Endcap}
+A.~Abdesselam and F.~Anghinolfi, {\em {The ATLAS semiconductor tracker end-cap
+  module}\/},  Nucl. Instrum. Methods Phys. Res., A {\bf 575} (2007) no.~3,
+  353--389.
+
+\bibitem{jackson91}
+J.~D. Jackson, {\em Classical Electrodynamics}.
+\newblock John Wiley \& Sons, Inc., New Jersey, USA, 3~ed., 1991.
+
+\bibitem{TRT}
+A.~Bingül, {\em The ATLAS TRT and its Performance at LHC\/},  Journal of
+  Physics: Conference Series {\bf 347} (2012) no.~1, 012025.
+
+\bibitem{TRT_Barrel}
+{ATLAS Collaboration}, {\em The ATLAS TRT barrel detector\/},  Journal of
+  Instrumentation {\bf 3} (2008) no.~02, P02014.
+
+\bibitem{TRT_Endcap}
+{ATLAS Collaboration}, {\em The ATLAS TRT end-cap detectors\/},  Journal of
+  Instrumentation {\bf 3} (2008) no.~10, P10003.
+
+\bibitem{Wigmans}
+R.~Wigmans, {\em Calorimetry - Energy Measurement in Particle Physics}.
+\newblock Oxford University Press, 2000.
+
+\bibitem{TILE}
+{ATLAS Collaboration}, {\em ATLAS tile calorimeter: Technical design report}.
+\newblock CERN, 1996.
+
+\bibitem{Proudfoot:2006tr}
+J.~Proudfoot,
+{\em {Hadron Calorimetry at the LHC}\/}, .
+%%CITATION = SSI-2006-L012 ETC.;%%.
+
+\bibitem{EMCAL_Barrel}
+B.~A. et. al., {\em Construction, assembly and tests of the \{ATLAS\}
+  electromagnetic barrel calorimeter\/},  Nuclear Instruments and Methods in
+  Physics Research Section A: Accelerators, Spectrometers, Detectors and
+  Associated Equipment {\bf 558} (2006) no.~2, 388 -- 418.
+
+\bibitem{EMCAL_Endcap}
+A.~E. L. A. E. C.~G. et. al., {\em Construction, assembly and tests of the
+  ATLAS electromagnetic end-cap calorimeters\/},  Journal of Instrumentation
+  {\bf 3} (2008) no.~06, P06002.
+
+\bibitem{EMCAL_Presampler}
+M.~A. et. al., {\em Construction and test of the first two sectors of the ATLAS
+  barrel liquid argon presampler\/},  Nuclear Instruments and Methods in
+  Physics Research Section A: Accelerators, Spectrometers, Detectors and
+  Associated Equipment {\bf 479} (2002) no.~2-3, 316 -- 333.
+
+\bibitem{Green:1221848}
+D.~Green, {\em {At the leading edge: the ATLAS and CMS LHC experiments}}.
+\newblock World Scientific, Singapore, 2010.
+
+\bibitem{TDR1}
+{ATLAS} Collaboration, {\em {ATLAS detector and physics performance: Technical
+  Design Report, 1}}.
+\newblock Technical Design Report ATLAS. CERN, Geneva, 1999.
+\newblock Electronic version not available.
+
+\bibitem{ATLAS-TDR}
+{ATLAS Collaboration}, {\em Expected performance of the ATLAS
+  experiment-detector, trigger and physics\/},  tech. rep., CERN, 2008.
+
+\bibitem{DETECTORS}
+T.~Ferbel, {\em Experimental Techniques in High Energy Physics}.
+\newblock Addison-Wesley Publshing Company, Inc., 1987.
+
+\bibitem{TrigProposal}
+T.Berger-Hryn'ova and K.~Nagano, {\em Trigger Menu Strategy for Run 2\/}, .
+
+\bibitem{ATLASTDAQ}
+A.~M. et~al., {\em The ATLAS Data Acquisition and High Level Trigger system\/},
+  .
+
+\bibitem{Electrons}
+{\em {Expected electron performance in the ATLAS experiment}\/},  Tech. Rep.
+  ATL-PHYS-PUB-2011-006, CERN, Geneva, Apr, 2011.
+
+\bibitem{ElEffiRecomm}
+{E Gamma group}, {\em {Efficiency Measurements}\/}, .
+
+\bibitem{ELECTRON-RECO}
+{ATLAS Collaboration}, {\em Electron reconstruction\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/ElectronReconst%
+ruction}.
+
+\bibitem{Muons}
+{\em {Preliminary results on the muon reconstruction efficiency, momentum
+  resolution, and momentum scale in ATLAS 2012 pp collision data}\/},  Tech.
+  Rep. ATLAS-CONF-2013-088, CERN, Geneva, Aug, 2013.
+
+\bibitem{Aad:2016jkr}
+{ATLAS} Collaboration, G.~Aad et al., {\em {Muon reconstruction performance of
+  the ATLAS detector in proton–proton collision data at $\sqrt{s}$ =13
+  TeV}\/},  \href{http://dx.doi.org/10.1140/epjc/s10052-016-4120-y}{Eur. Phys.
+  J. {\bf C76} (2016) no.~5, 292},
+\href{http://arxiv.org/abs/1603.05598}{{\tt arXiv:1603.05598 [hep-ex]}}.
+%%CITATION = ARXIV:1603.05598;%%.
+
+\bibitem{AntiKt}
+M.~Cacciari, G.~Salam, and G.~Soyez, {\em The anti-kt jet clustering
+  algorithm\/},  Journal of High Energy Physics {\bf 2008} (2008) no.~04, 063.
+
+\bibitem{ATL-PHYS-PUB-2015-022}
+{\em {Expected performance of the ATLAS $b$-tagging algorithms in Run-2}\/},
+  Tech. Rep. ATL-PHYS-PUB-2015-022, CERN, Geneva, Jul, 2015.
+\newblock \url{http://cds.cern.ch/record/2037697}.
+
+\bibitem{MET}
+{ATLAS Collaboration}, {\em {Performance of Missing Transverse Momentum
+  Reconstruction in Proton-Proton Collisions at 7 TeV with ATLAS}\/},
+  \href{http://dx.doi.org/10.1140/epjc/s10052-011-1844-6}{Eur.Phys.J. {\bf C72}
+  (2012)  1844}.
+
+\bibitem{TOPCOMMONOBJECTS}
+{ATLAS Collaboration}, {\em Top common object selection criteria\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopCommonObject%
+s2011rel16}.
+
+\bibitem{TOPMET}
+{ATLAS Collaboration}, {\em MissingEt calculation recommendation\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopETmissLiaiso%
+n_EPS#Recommendations_for_Calculating}.
+
+\bibitem{JES}
+{ATLAS Collaboration}, {\em Jet energy scale and its systematic uncertainty in
+  proton-proton collisions at $\sqrt{s} = 7$ TeV in ATLAS 2010 data\/},  Tech.
+  Rep. ATLAS-CONF-2011-032, CERN, Geneva, Mar, 2011.
+
+\bibitem{JESnew}
+{ATLAS Collaboration}, {\em {Jet energy measurement with the ATLAS detector in
+  proton-proton collisions at $\sqrt{s} = 7$ TeV}\/},
+  \href{http://arxiv.org/abs/1112.6426}{{\tt arXiv:1112.6426 [hep-ex]}}.
+submitted to European Physical Journal C.
+%%CITATION = ARXIV:1112.6426;%%.
+
+\bibitem{ROOSTAT}
+L.~Moneta, K.~Belasco, K.~Cranmer, S.~Kreiss, and M.~Wolf, {\em The RooStats
+  Project\/},  \href{http://arxiv.org/abs/arXiv:1009.1003}{{\tt
+  arXiv:arXiv:1009.1003}}.
+
+\bibitem{JETUNCERTAINTIES}
+{ATLAS Collaboration}, {\em Jet uncertainties\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/JetUncertaintie%
+s2011}.
+
+\bibitem{TOPCOMMONSYSTEMATICS}
+{ATLAS Collaboration}, {\em Top systematic uncertainties\/},
+  \url{https://twiki.cern.ch/twiki/bin/view/AtlasProtected/TopSystematicUncert%
+ainties2011rel16}.
+
+\bibitem{JESUNCERTAINTYSOFTWARE}
+{ATLAS Collaboration}, {\em Jet Energy Scale uncertainty provider\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/JESUncertaintyP%
+rovider?rev=54}.
+
+\bibitem{JRE}
+{ATLAS Collaboration}, {\em Jet Reconstruction Efficiency\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopJetReconstru%
+ctionEfficiency}.
+
+\bibitem{ELECTRONENERGYSYSTEMATICS}
+{ATLAS Collaboration}, {\em Energy Rescaler\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/EnergyRescaler}.
+
+\bibitem{MUONENERGYSYSTEMATICS}
+{ATLAS Collaboration}, {\em Muon energy and momentum systematics\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/MCPAnalysisGuid%
+elinesEPS2011}.
+
+\bibitem{PLRcite}
+G.~Cowan, K.~Cranmer, E.~Gross, and O.~Vitells, {\em Asymptotic formulae for
+  likelihood-based tests of new physics\/},  The European Physical Journal
+  C-Particles and Fields {\bf 71} (2011) no.~2, 1--19.
+
+\bibitem{ProfileWiki}
+{ATLAS Collaboration}, {\em Top Profiling Checks\/},
+  \url{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/TopProfilingChe%
+cks}.
+
+\bibitem{KS}
+F.~J. Massey, {\em The Kolmogorov-Smirnov Test for Goodness of Fit\/},  Journal
+  of the American Statistical Association {\bf 46} (1951) no.~253, 68--78.
+
+\bibitem{ProfileLikelihoodUncertainty}
+O.~E. Barndorff-Nielsen and D.~D.~R. Cox, {\em Inference and asymptotics},
+  vol.~52.
+\newblock Chapman \& Hall/CRC, 1994.
+
+\bibitem{BAT}
+A.~Caldwell, D.~Kollar, and K.~Kroninger, {\em {BAT - The Bayesian Analysis
+  Toolkit}\/},  \href{http://dx.doi.org/10.1016/j.cpc.2009.06.026}{Comput.
+  Phys. Commun. {\bf 180} (2009)  2197--2209},
+\href{http://arxiv.org/abs/0808.2552}{{\tt arXiv:0808.2552 [physics.data-an]}}.
+%%CITATION = 0808.2552;%%.
+
+\end{thebibliography}\endgroup

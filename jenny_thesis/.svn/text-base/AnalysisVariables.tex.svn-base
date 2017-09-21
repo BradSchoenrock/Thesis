@@ -1,0 +1,149 @@
+\chapter{Event Yields and Discriminating Variables}~\label{chap:variables}
+%Add more variables?  NJets, PDGID, Wt, met, etc?
+In the full data set, it is impossible to distinguish the signal from the immense background.  To make an accurate measurement of the cross-section, we need to apply more selections that will reduce the background and isolate the single-top $t$-channel signal.  In this chapter we discuss the yields after the preselection and the effect of the b-tagging preselection requirement.  We will also outline the variables considered to achieve additional signal discrimination and demonstrate the agreement between data and MC using the preselection with and without the b-tagging requirement.
+
+\section{Event Yields}
+After applying the preselection, data-based normalization and models for multijets and W+jets, as well as additional event corrections, we obtain the the inital analysis yields which may be compared to data.  The pretag yields by process are as given in Table~\ref{tab:pretag_eventyields} and the yields after preselection (i.e. including b-tagging) are given in Table~\ref{tab:presel_eventyields}.  The signal divided by background (S/B) is only about 0.1 after the preselection, but improved by about a factor of 10 from the pretag yields, showing the importance of the b-tagging selection.  The yields are given in the different analysis channels which will be considered in Section~\ref{sec:channels}, based on the number of jets and charge of the lepton.
+
+\begin{table}[!h!tpb]
+  \begin{center}
+     \begin{tabular}{lrr|rr}
+    \hline \hline
+        &\multicolumn{2}{c|}{2 Jets} &\multicolumn{2}{c} {3 Jets}  \\
+        & Lepton + & Lepton -  & Lepton + & Lepton -  \\
+
+    \hline \hline
+    $t$-channel             & 1230	& 678	& 816	& 455  \\
+    \hline                                                                       
+    $t\bar t$, Other top    & 1730	& 1680	& 3510	& 3510  \\
+    $W$+light jets          & 103000	& 64800	& 26600	& 16000  \\
+    $W$+heavy flavor jets  & 35400	& 30800	& 10800	& 8920  \\
+    $Z$+jets, Diboson       & 10200	& 9580	& 3560	& 3500  \\
+    Multijets (e)           & 6960      & 7930  & 3160   & 2830 \\
+    Multijets ($\mu$)       & 3300      & 3500  & 800    & 860 \\
+    \hline    
+    TOTAL Exp               & 162000	& 119000 & 49200 & 36100  \\
+    S/B                     & 0.01	& 0.01	 & 0.02	 & 0.01  \\
+    \hline \hline
+    DATA                    & 162148	& 117010 & 46830 & 34925  \\
+    \hline \hline
+    \end{tabular}
+ \caption{Event yields for the two-jets and three-jets tag positive and negative lepton-charge channels after the 
+preselection, except for the b-tagging selection. The multijets and $W$+jets backgrounds are normalized to the data, all other samples are normalized to theory cross-sections.  Lepton types (muon and electron) are combined unless otherwise noted.
+\label{tab:pretag_eventyields}}
+  \end{center}
+\end{table}
+%mu 2j +,-: 1.446  1.489
+%mu 3j +,-:5.49 5.68
+%el 2j +,-:1.361 1.453
+%el 3j +,-:5.57 5.27
+
+\begin{table}[!h!tpb]
+  \begin{center}
+     \begin{tabular}{lrr|rr}
+    \hline \hline
+        &\multicolumn{2}{c|}{2 Jets} &\multicolumn{2}{c} {3 Jets}  \\
+        & Lepton + & Lepton -  & Lepton + & Lepton -  \\
+
+    \hline \hline
+    $t$-channel             & 611    & 327     & 399     & 221        \\   
+    \hline                                                                       
+    $t\bar t$, Other top    & 805     & 781     & 1720    & 1730 \\
+    $W$+light jets          & 544     & 308     & 183     & 154 \\
+    $W$+heavy flavor jets   & 3100    & 2630    & 1350   & 1020 \\
+    $Z$+jets, Diboson       & 175     & 150     & 92      & 83 \\
+    Multijets (e)           & 365     & 342     & 279     & 295 \\
+    Multijets ($\mu$)       & 221     & 215     & 139     & 135 \\
+    \hline    
+    TOTAL Exp               & 5820    & 4750	& 4160	  & 3630 \\
+    S/B                     & 0.12    & 0.07	& 0.11	  & 0.06 \\
+    \hline \hline
+    DATA                    & 5912    & 4701    & 4016    & 3491 \\
+    \hline \hline
+    \end{tabular}
+ \caption{Event yields for the two-jets and three-jets tag positive and negative lepton-charge channels after the 
+preselection. The multijets and $W$+jets backgrounds are normalized to the data, all other samples are normalized
+to theory cross-sections.  Lepton types (muon and electron) are combined unless otherwise noted.
+\label{tab:presel_eventyields}}
+  \end{center}
+\end{table}
+
+%    $t$-channel             & 611.583    & 327.256     & 398.966     & 220.826        \\   
+%    \hline                                                                       
+%    $t\bar t$, Other top    & 804.597     & 781.424     & 1719     & 1725.17 \\
+%    $W$+light jets          & 544.46     & 307.552     & 183.111     & 154.058 \\
+%    $W$+heavy flavor jets  & 3098.38     & 2630.49     & 1351.56     & 1016.22 \\
+%    $Z$+jets, Diboson       & 174.985     & 149.737     & 92.1761     & 82.8742 \\
+%    Multijets (e)           & 221.546     & 215.149     & 139.373     & 134.711 \\
+%    Multijets ($\mu$)       & 365.511     & 342.367     & 279.477    &  295.386 \\
+%    \hline    
+%   TOTAL Exp              & 5821.06	& 4753.98	& 4163.66	& 3629.25 \\
+
+%name     2jet+     2jet-        3jet+        3jet-
+%QCDmu     365.511     342.367     279.477     295.386
+%QCDel     221.546     215.149     139.373     134.711
+%Zjets,WW,WZ     10195.7     9583.26     3556.53     3493.58
+%WjetLQ     102526     64813.6     26582.6     16009.1
+%WjetC,BB,CC     35368.9     30838.5     10835.7     8917.16
+%top     1727.35     1676.37     3510.67     3512.38
+%t-channel     1230.11     678.089     815.872     455.067
+%data,default     162148     117010     46830     34925
+
+\section{Discriminating Variables}
+%Add more variables?  NJets, PDGID, Wt, met, etc?
+Because the signal divided by the background is only 0.1 after applying the preselection, we would like to apply more selections that will reduce the background and isolate the single-top $t$-channel signal.  There are many variables considered in this analysis, about 80 in total.  We consider the \pt~and $\eta$ of all of the particles, as well as differences in the $\eta$, $\phi$ and $R$ quantities.  For example, we consider the $|\Delta\eta(\rm b, j_{u})|$, the $\Delta R$ between the leading untagged jet and the b-tagged jet.  We also consider the angles between various particles, as well as the invariant mass of several particle combinations, including all of the jets in the event ($M(\mathrm{All Jets})$) and the b-quark, lepton and neutrino ($M_{top}(\rm l\nu b)$).  This last is the reconstructed top quark mass (note that we use the reconstructed neutrino Z momentum, see Section~\ref{sec:Neutrinos}).  We also consider the transverse mass of the W and the sum of the \pt~of all the particles in the event (using \met~for the neutrino), called $H_{T}$.  Finally, we use the number of jets, the number of b-tagged jets, and the charge of the lepton to define analysis channels.  The lepton type, muon or electron, is not used for this purpose, so analysis channels contain a combination of the lepton types.
+
+The variables used in this analysis are shown in the following figures.  The first set of figures shows the distributions using the preselection requirements except b-tagging (pretag) for 2 jets (Figure~\ref{fig:Plot_2NoTag}) and for 3 jets (Figure~\ref{fig:Plot_3NoTag}).  This first set includes a band showing the jet energy scale uncertainty.
+In these figures and others, ``other top'' refers to the $s$-channel and $Wt$ single-top contributions.  The $W$+jets heavy flavor includes $Wc$, $Wc\bar c$, and $Wb\bar b$ jets
+
+ \begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jetpretag__wflavorTopJet1_mass.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jetpretag__wflavorJet2_Jet_eta.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jetpretag__wflavorHt_Jet1Jet2LeptonMissingEt.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jetpretag__wflavorDeltaEta_Jet1Jet2.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/Plot_Legend_JES.eps}
+\vspace{-0.49cm}
+ \caption{Discriminating variables for the pretag sample for two-jets events. Hatched bands show the jet energy scale uncertainty. The last bin contains the sum of the events in that bin or higher. Other top refers to the $s$-channel and $Wt$ single-top contributions.}
+ \label{fig:Plot_2NoTag}
+ \end{figure}
+
+
+ \begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jetpretag__wflavorTopJet1_mass.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jetpretag__wflavorJet2_Jet_eta.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jetpretag__wflavorHt_AllJetsLeptonMissingEt.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jetpretag__wflavorInvariantMass_AllJets.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/Plot_Legend_JES.eps}
+\vspace{-0.49cm}
+ \caption{Discriminating variables for the pretag sample for three-jets events. Hatched bands show the jet energy scale uncertainty. The last bin contains the sum of the events in that bin or higher. Other top refers to the $s$-channel and $Wt$ single-top contributions.}
+ \label{fig:Plot_3NoTag}
+ \end{figure}
+
+Figures~\ref{fig:Plot_2Tag} and ~\ref{fig:Plot_3Tag} show the same distributions
+after the requirement of exactly one $b$-tagged jet in the event for 2 or 3 jet samples.
+
+ \begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jet1tag__wflavorTopBJet1_mass.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jet1tag__wflavorUJet1_Jet_eta.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jet1tag__wflavorHt_Jet1Jet2LeptonMissingEt.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_2jet1tag__wflavorDeltaEta_BJet1UJet1.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/Plot_Legend.eps}
+\vspace{-0.49cm}
+ \caption{Discriminating variables for the preselection sample for two-jets events. The last bin contains the sum of the events in that bin or higher. Other top refers to the $s$-channel and $Wt$ single-top contributions.}
+ \label{fig:Plot_2Tag}
+ \end{figure}
+
+\begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jet1tag__wflavorTopBJet1_mass.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jet1tag__wflavorUJet1_Jet_eta.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jet1tag__wflavorHt_AllJetsLeptonMissingEt.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/PaperFinal_MCtchannorm_3jet1tag__wflavorInvariantMass_AllJets.eps}
+ \includegraphics[width=0.49\textwidth]{figures/variables/Plot_Legend.eps}
+\vspace{-0.49cm}
+ \caption{Discriminating variables for the preselection sample for three-jets events.  The last bin contains the sum of the events in that bin or higher. Other top refers to the $s$-channel and $Wt$ single-top contributions.}
+ \label{fig:Plot_3Tag}
+ \end{figure}

@@ -1,0 +1,894 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\def\atlasnote#1{\def\mydocversion{{\large ATL-#1}}}
+\def\preprint#1{\def\mydocversion{{\large #1}}}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Instructions:
+%
+% Give the journal name, if appropriate
+% \journalname{Phys. Lett. B}
+%
+% Uncomment the relevant line
+% \atlasdraft    for drafts
+% \preprint       for preprints
+%
+% Draft version:     uncomment the line below and give the version number
+% \atlasdraft{2.0}
+%
+% Uncomment for an ATLAS note
+%\atlasnote{PHYS-PUB-2007-XXX}
+%
+% Uncomment for a preprint
+% \preprint{CERN-PH/2006-000}
+%
+% Give date: \today for drafts, a fixed date for final papers
+%\def\thedate{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+
+\newcommand{\atlas}{ATLAS}
+\newcommand{\fb}{fb$^{-1}$}
+\newcommand{\pb}{pb$^{-1}$}
+\newcommand{\Wt}{$Wt$-channel}
+\newcommand{\tchan}{$t$-channel}
+\newcommand{\schan}{$s$-channel}
+\newcommand{\ckm}{CKM}
+\newcommand{\vtb}{$V_{tb}$}
+\newcommand{\btag}{$b$-tag}
+\newcommand{\tz}{$tZ$}
+\newcommand{\ttz}{$t\bar{t}Z$}
+%\newcommand{\ttbar}{$t\bar{t}~$}
+%\newcommand{\DeltaR}{$\Delta R$}
+%\newcommand{\Wbb}{$Wbb$}
+%\newcommand{\Wbbjets}{Wbb}
+%\newcommand{\Wcjets}{Wc+jets}
+%\newcommand{\Wccjets}{Wcc+jets}
+%\newcommand{\Wjets}{\ensuremath{W + jets}}
+\newcommand{\PT}{$p_T$}
+%\newcommand{\met}{$E_{T}$}
+%\newcommand{\ljets}{l+jets}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some useful naming conventions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FB}{$\rm fb^{-1}$}
+\newcommand{\PB}{$\rm pb^{-1}$}
+%\newcommand{\MT}{$\rm m_t$}
+\newcommand{\ETA}{$\rm \eta$}
+%\newcommand{\MET}{$\rm mE_T$}
+%\newcommand{\pt}{$p_T$}
+%\newcommand{\PT}{$\rm {\it{p}}_{\rm T}$}
+\newcommand{\GEV}{$\rm GeV$}
+\newcommand{\GEVC}{$\rm GeV/c$}
+\newcommand{\GEVCC}{$\rm GeV/c^2$}
+\newcommand{\MGEV}{$\rm GeV/c^2$}
+\newcommand{\TTB}{$\rm t\bar{t}~$}
+%\newcommand{\ttbar}{$\rm t\bar{t}~$}
+%\newcommand{\ttbarLJET}{$\rm t\bar{t}\to l\nu b~jjb$}
+%\newcommand{\ttbarDIL}{$\rm t\bar{t}\to l^+l^-\nu\bar{\nu}b\bar{b}$}
+%\newcommand{\ttbarDILEP}{$\rm t\bar{t}\to l^+l^-\nu\bar{\nu}b\bar{b}$}
+%\newcommand{\ttbarDITAU}{$\rm t\bar{t}\to \tau^+\tau^- \nu\bar{\nu}b\bar{b}$}
+%\newcommand{\ttbarTAUJET}{$\rm t\bar{t}\to \tau\nu b~jjb$}
+%\newcommand{\WQQ}{$\rm WQ\bar{Q}$}
+%\newcommand{\WJETS}{$W+jets$}
+%\newcommand{\WZ}{$\rm WZ\to l\nu b\bar{b}$}
+%\newcommand{\Wt}{\ensuremath{Wt}}
+%\newcommand{\SCH}{$\rm s-$}
+%\newcommand{\TCH}{$\rm t-$}
+%\newcommand{\SCH}{$W^*~$}
+%\newcommand{\TCH}{$Wg~$}
+%\newcommand{\TANBETA}{$\rm \tan\beta$}
+%\newcommand{\HIGGS}{$\rm H^{\pm}$}
+%\newcommand{\ttbar}{$\rm t\bar{t}~$}
+%\newcommand{\Wtchan}{\ensuremath{Wt}-channel}
+%\newcommand{\schan}{$s$-channel}
+%\newcommand{\tchan}{$t$-channel}
+%\newcommand{\Wprime}{\ensuremath{W^{\prime}}}
+%\newcommand{\WprimeL}{\ensuremath{W^{\prime}_{L}}}
+%\newcommand{\WprimeR}{\ensuremath{W^{\prime}_{R}}}
+%\newcommand{\Wprimechan}{$W^{\prime} \to t\bar{b}$}
+%\newcommand{\pb}{\ensuremath{pb}}
+%\newcommand{\Z}{$Z+jets$}
+%\newcommand{\lumi}{200 $\rm pb^{-1}$}
+%\newcommand{\pt}{$p_T$}
+%\newcommand{\ttbar}{$t\bar{t}$}
+%\usepackage{amsmath}
+%\usepackage{xspace}
+%\usepackage{rotating}
+%\newcommand{\vstrike}[1]{\ensuremath{\text{#1}\hspace{-.5em}|\hspace{.2em}}\xspace}
+%\newcommand{\slasher}[1]{\ensuremath{\not\!\text{#1}}\xspace}
+%\newcommand{\met}{$\slasher E_T$}
+%\newcommand{\met}{mET}
+%\newcommand{\LUMI}{$\rm 20.3~fb^{-1}$}
+%\newcommand{\Lumi}{\ensuremath{\mathcal{L}}}
+%\newcommand{\TTbar}{\ensuremath{t\bar{t}}}
+%\newcommand{\ttbarchan}{\TTbar}
+%\newcommand{\Zee}{$\rm Z\to e+e-$}
+%\newcommand{\Zmm}{$\rm Z\to \mu+\mu-$}
+%\newcommand{\Ztt}{\ensuremath{\Zboson \to \tau\tau}}
+%\newcommand{\multijet}{fake dilepton}
+\newcommand{\MC}{Monte Carlo}
+%\newcommand{\Nobs}{\ensuremath{N^{\text{obs}}}}
+%\newcommand{\Nexp}{\ensuremath{N^{\text{exp}}}}
+\newcommand{\pileup}{pile-up}
+\newcommand{\MADGRAPH}{{\sc MADGRAPH}}
+\newcommand{\POWHEG}{{\sc POWHEG}}
+\newcommand{\HERWIG}{{\sc HERWIG}}
+\newcommand{\Pythia}{{\sc Pythia}}
+\newcommand{\ALPGEN}{{\sc ALPGEN}}
+\newcommand{\MCNLO}{{\sc MC@NLO}}
+\newcommand{\AcerMC}{{\sc AcerMC}}
+\newcommand{\GEANT}{{\sc GEANT4}}
+%\newcommand{\Zjets}{\ensuremath{\Zboson + jets}}
+%\newcommand{\qc}{\rowcolor{orange!20}}
+%\newcommand{\bc}{\rowcolor{purple!20}}
+%\newcommand{\lc}{\rowcolor{green!20}}
+%\newcommand{\bstar}{\ensuremath{b*}}
+%\newcommand{\HT}{\ensuremath{H_{T}}}
+\newcommand{\figwidth}{14 cm}
+\newcommand{\figlandwidth}{21.5 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Some useful definitions for the Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \FIG{filename(no extension)}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\FIG}[3]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \includegraphics[width=\figwidth]{figures/#1}
+    \end{center}
+    \caption{\normalsize{{#2}}
+      \label{#3}}
+  \end{figure}
+}
+\newcommand{\FIGLAND}[3]{
+  \begin{figure}[htbp]
+     \begin{center}
+      \begin{sideways}
+	\includegraphics[width=\figlandwidth]{figures/#1}
+      \end{sideways}
+    \end{center}
+%    \end{sideways}
+    \caption{\normalsize{{#2}}
+      \label{#3}}
+   \end{figure}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \SMALLFIG{filename(no extension)}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SMALLFIG}[3]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{7cm}{
+          \includegraphics[width=6.0cm]{figures/#1}
+        }
+        \parbox{6cm}{
+          \caption{\normalsize{#2}
+            \label{#3}
+        }}
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \MEDIUMFIG{filename(no extension)}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\MEDIUMFIG}[3]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{9cm}{
+          \includegraphics[width=9.0cm]{figures/#1.eps}
+        }
+        \parbox{6cm}{
+          \caption{\normalsize{#2}
+            \label{#3}
+        }}
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \MEDIUMFIG{filename(no extension)}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\LARGEFIG}[3]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{11cm}{
+          \includegraphics[width=11cm]{figures/#1}
+        }
+        \parbox{4cm}{
+          \caption{\normalsize{#2}
+            \label{#3}
+        }}
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+}
+\newcommand{\VLARGEFIG}[3]{
+  \begin{figure}[htbp]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{15cm}{
+          \includegraphics[width=15.0cm]{figures/#1}
+        }
+      \end{sloppypar}
+        \parbox{13cm}{
+          \caption{\normalsize{#2}
+            \label{#3}
+        }}
+    \end{center}
+  \end{figure}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \DBLFIG{filename1(no ext.)}{legend1}{label1}{filename2}{legend2}{label2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DBLFIG}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{7.5cm}{
+          \mbox{
+            \includegraphics[width=7.0cm]{figures/#1.eps}
+          }
+          %\caption{{\footnotesize {\it #2} }
+          \caption{ \normalsize{#2}
+            \label{#3}}
+        }
+        \hspace{0.5cm}
+        \parbox{7.5cm}{
+          \mbox{
+            \includegraphics[width=7.0cm]{figures/#4.eps}
+          }
+          %\caption{{\footnotesize {\it #5} }
+          \caption{ \normalsize #5
+            \label{#6}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\DBLFIGALT}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{10.5cm}{
+          \mbox{
+            \includegraphics[width=10.0cm]{figures/#1.eps}
+          }
+          %\caption{{\footnotesize {\it #2} }
+          \caption{ \normalsize{#2}
+            \label{#3}}
+        }
+        \hspace{0.5cm}
+        \parbox{10.5cm}{
+          \mbox{
+            \includegraphics[width=10.0cm]{figures/#4.eps}
+          }
+          %\caption{{\footnotesize {\it #5} }
+          \caption{ \normalsize #5
+            \label{#6}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\AKIRADBLFIG}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{7.5cm}{
+          \mbox{
+            \includegraphics[width=7.0cm]{figures/samples/#1.eps}
+          }
+          \caption{ \normalsize{#2}
+            \label{#3}}
+        }
+        \hspace{0.5cm}
+        \parbox{7.5cm}{
+          \mbox{
+            \includegraphics[width=5.5cm]{figures/samples/#4.eps}
+          }
+          %\caption{{\footnotesize {\it #5} }
+          \caption{ \normalsize #5
+            \label{#6}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ZUTDBLFIG}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{7.5cm}{
+          \mbox{
+            \includegraphics[width=7.0cm]{figures/#1}
+          }
+          \caption{ {#2}
+            \label{#3}}
+        }
+        \hspace{0.5cm}
+        \parbox{7.5cm}{
+          \mbox{
+            \includegraphics[width=7.0cm]{figures/#4}
+          }
+          %\caption{{\footnotesize {\it #5} }
+          \caption{\normalsize #5
+            \label{#6}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \TRPFIG{filename1}{filename2}{filename3}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\TRPFIGANGL}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=4.5cm,angle=#6]{figures/#1.eps}
+          }
+          \mbox{
+            \includegraphics[width=4.5cm,angle=#6]{figures/#2.eps}
+          }
+          \mbox{
+            \includegraphics[width=4.5cm,angle=#6]{figures/#3.eps}
+          }
+          %\caption{{\footnotesize {\it #4} }
+          \caption{ \normalsize #4
+            \label{#5}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\TRPFIG}[5]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=4.9cm]{figures/#1.eps}
+          }
+          \mbox{
+            \includegraphics[width=4.9cm]{figures/#2.eps}
+          }
+          \mbox{
+            \includegraphics[width=4.9cm]{figures/#3.eps}
+          }
+          %\caption{{\footnotesize {\it #4} }
+          \caption{ \normalsize #4
+            \label{#5}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\DBLFIGLEG}[4]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#1.eps}
+      }
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#2.eps}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #3
+        \label{#4}}
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\TRPFIGLEG}[5]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1.eps}
+      }
+      \subfigure[]{    
+        \includegraphics[width=7.5cm]{figures/#2.eps}
+      }
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#3.eps}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #4
+        \label{#5}}
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\QUADFIGLEG}[6]{
+  \begin{figure}[phtb]
+     \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1.eps}
+      }
+      \subfigure[]{    
+        \includegraphics[width=7.5cm]{figures/#2.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#3.eps}
+      }
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#4.eps}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #5
+        \label{#6}}
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\SEPTFIGLEG}[9]{
+  \begin{figure}[phtb]
+     \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1.eps}
+      }
+      \subfigure[]{    
+        \includegraphics[width=7.5cm]{figures/#2.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#3.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#4.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#5.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#6.eps}
+      }
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#7.eps}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #8
+        \label{#9}}
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\FIVEFIGLEG}[7]{
+  \begin{figure}[phtb]
+     \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1.eps}
+      }
+      \subfigure[]{    
+        \includegraphics[width=7.5cm]{figures/#2.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#3.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#4.eps}
+      }
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#5.eps}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #6
+        \label{#7}}
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\SEXFIGLEG}[8]{
+  \begin{figure}[phtb]
+     \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1.eps}
+      }
+      \subfigure[]{    
+        \includegraphics[width=7.5cm]{figures/#2.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#3.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#4.eps}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#5.eps}
+      }
+      \subfigure{
+        \includegraphics[width=7.5cm]{figures/#6.eps}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #7
+        \label{#8}}
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\TRIPLEFIG}[5]{
+	\begin{figure}[phtb]
+        	\begin{center}
+                \begin{sloppypar}
+                 \parbox{10.0cm}{
+                    \mbox{
+                     \includegraphics[width=9.cm]{figures/#1.eps}
+                      }
+                     \mbox{
+                       \includegraphics[width=9.cm]{figures/#2.eps}
+                           }
+                     \mbox{
+                       \includegraphics[width=9.cm]{figures/#3.eps}
+                           }
+                    %\caption{{\footnotesize {\it #4} }
+                    \caption{ \normalsize #4
+                    \label{#5}}
+                    }
+                 \end{sloppypar}
+                 \end{center}
+                \end{figure}
+                \vskip0.1cm}
+\newcommand{\DBLFIGL}[4]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.0cm]{figures/#1}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.0cm]{figures/#2}
+      }
+      %\caption{{\footnotesize {\it #4} }
+      \caption{ \normalsize #3
+        \label{#4}}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \QUAFIG{filename1}{filename2}{filename3}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\QUAFIG}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#1}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#2}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#3}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#4}
+          }
+          %\caption{{\footnotesize {\it #5} }
+          \caption{ \normalsize #5
+            \label{#6}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \QUAFIG{filename1}{filename2}{filename3}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\QUAFIGEPS}[6]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#1}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#2}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#3}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#4}
+          }
+          %\caption{{\footnotesize {\it #5} }
+          \caption{\normalsize #5
+            \label{#6}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+
+
+\newcommand{\TRPFIGEPS}[5]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#1}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#2}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#3}
+          }
+          \hspace{0.5cm}
+          %\mbox{
+          \caption{\normalsize #4
+            \label{#5}}
+          %      }
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \PENTAFIG{filename1}{filename2}{filename3}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\PENTAFIG}[7]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#1}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#2}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#3}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#4}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#5}
+          }
+          \caption{ \normalsize{#6
+              \label{#7} }
+        }}
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\PENTAFIGCUST}[7]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#2}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#3}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#4}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#5}
+      }
+       \caption{ \normalsize{#6
+          \label{#7} }
+      }
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\SEXFIGCUST}[8]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#1}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#2}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#3}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#4}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#5}
+      }
+      \subfigure[]{
+        \includegraphics[width=7.5cm]{figures/#6}
+      }
+      \caption{ \normalsize{#7
+          \label{#8} }
+      }
+      
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+% \begin{figure}[ht]
+%    \centering%%
+%
+%	\begin{subfigure}[b]{0.3\textwidth}{
+%            \includegraphics[width=7.5cm]{figures/#1}}
+%
+%	\begin{subfigure}[b]{0.3\textwidth}{
+%            \includegraphics[width=7.5cm]{figures/#2}}
+%
+%	\begin{subfigure}[b]{0.3\textwidth}{
+%            \includegraphics[width=7.5cm]{figures/#3}}
+%
+%	\begin{subfigure}[b]{0.3\textwidth}{
+%            \includegraphics[width=7.5cm]{figures/#4}}
+%
+%	\begin{subfigure}[b]{0.3\textwidth}{
+%            \includegraphics[width=7.5cm]{figures/#5}}
+%
+%        \caption{ \normalsize{#6}       \label{#7}
+%        }
+%
+%
+%  \end{figure}
+%  \vskip0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% To use it, just type:
+%% \SIXFIG{filename1}{filename2}{filename3}{legend}{label}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SIXFIG}[8]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#1.eps}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#2.eps}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#3.eps}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#4.eps}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#5.eps}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm]{figures/#6.eps}
+          }
+          \caption{ #7
+            \label{#8}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\SIXFIGRT}[9]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=7.5cm, angle=#9]{figures/#1.eps}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm, angle=#9]{figures/#2.eps}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm, angle=#9]{figures/#3.eps}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm, angle=#9]{figures/#4.eps}
+          }
+          \mbox{
+            \includegraphics[width=7.5cm, angle=#9]{figures/#5.eps}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=7.5cm, angle=#9]{figures/#6.eps}
+          }
+          \caption{ #7
+            \label{#8}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm}
+\newcommand{\EIGHTFIG}[9]{
+  \def\tempa{#1}
+  \def\tempb{#2}
+  \def\tempc{#3}
+  \def\tempd{#4}
+  \def\tempe{#5}
+  \def\tempf{#6}
+  \def\tempg{#7}
+  \def\temph{#8}
+  \def\tempi{#9}
+  \EIGHTFIGcont
+}
+\newcommand{\EIGHTFIGcont}[1]{
+  \begin{figure}[phtb]
+    \begin{center}
+      \begin{sloppypar}
+        \parbox{16.0cm}{
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempa}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempb}
+          }
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempc}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempd}
+          }
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempe}
+          }
+          \hspace{0.5cm}
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempf}
+          }
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\tempg}
+          }
+          \hspace{2.5cm}
+          \mbox{
+            \includegraphics[width=6.5cm]{figures/\temph}
+          }
+          \caption{ \tempi
+            \label{#1}}
+        }
+      \end{sloppypar}
+    \end{center}
+  \end{figure}
+  \vskip0.1cm
+}
+

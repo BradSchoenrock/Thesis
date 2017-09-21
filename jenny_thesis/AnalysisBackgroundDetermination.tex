@@ -1,0 +1,113 @@
+\chapter{Modeling the Signal and the Backgrounds}\label{chap:bkgd}
+In order to study single-top $t$-channel production, we need to know what the standard model version of this should look like in our data.  This is actually quite a complicated task, to simulate all of the standard model processes and also how these different particles interact with the detector.  The Monte Carlo (MC) techniques that were used in this analysis to simulate ``data'' were discussed in Chapter~\ref{chap:MC}.  Here, we discuss the data-based estimates we use for the multijets normalization and kinematic shapes, as well as how the W+jets normalization and heavy flavor fractions are obtained from data.
+
+\section{Multijet Estimation}\label{sec:multijets} 
+%from Kathrin:
+%for QCD we use a JetTauEtmiss stream
+%as we are looking for jets and use jet triggers
+Multijets (sometimes colloquially referred to as QCD) are difficult to simulate in quantities necessary to be useful in analyses.  This is a process with a very large cross-section and a very, very small proportion of events left after cuts, relative to the starting yield.  It just isn't feasible to generate MC for this background.
+
+We do, however, have a lot of multijets in our rejected data sample, in our off-signal region.  We can make use of this to select a relatively pure sample of multijet events which is used for both kinematic shapes and to determine the normalization (i.e. how many multijet events are actually in the preselection sample).  There are several ways to form such a region.  For instance, one could require the leptons to not be tight or not be isolated, keep the other selections and cuts the same, and end up with an orthogonal multijets sample.  This particular method, however, suffers from too much contamination from W+jets events.
+
+The method chosen for this analysis is the ``jet-electron'' method.  In this method, the usual electron trigger is replaced by a jet trigger.  Correspondingly the data stream is replaced by the JetTauEtmiss stream (the main analysis uses muon and electron streams).  The triggered jet must also have a high EM fraction, so most of the energy is deposited in the EM calorimeter, and at least 4 tracks, to avoid including photon conversions.  All other selections and cuts are unchanged.  This sample is used to determine the kinematic shapes.  Because of the low statistics due to increasing trigger thresholds as the data taking has progressed, the shapes before the b-tagging selection are used for distributions after b-tagging as well.  Checks have been performed which show that the shapes are indeed similar.
+
+The overall normalization is found by fitting to a kinematic distribution.  The \met~distribution is usually used, although the transverse W mass has been used as a cross-check and to help determine the uncertainty on our multijets estimate, which is 50\%.  The yields are given in Table~\ref{tab:QCD}.
+
+\begin{table}[!h]
+  \begin{center}
+    \begin{tabular}{lcccc}
+      \hline
+      \hline
+      & \multicolumn{2}{c}{Pretag events} & \multicolumn{2}{c}{Tagged events} \\
+      Jet bin & e channel & $\mu$ channel & e channel & $\mu$ channel \\
+      \hline
+      1-jet & $ 24000 \pm 12000$ & $ 12000 \pm 6000 $   & $ 320 \pm 160  $ & $ 290 \pm 145$ \\
+      2-jet & $ 15000  \pm 7500$ & $ 6800 \pm 3400 $   & $ 710 \pm 355  $ & $ 440 \pm 220$ \\
+      3-jet & $ 6000  \pm 3000$ & $ 1700 \pm 850 $    & $ 580 \pm 290  $ & $ 270  \pm 135 $ \\
+      \hline
+      \hline
+    \end{tabular}
+    \caption{\label{tab:QCD} Estimate of multijet yields for the pretag and preselection samples for different number of jet selections, separated by lepton type.}
+  \end{center}
+\end{table}
+
+\section{W+jets Estimation}\label{sec:wjets} 
+%CITE W+jets flavour not well understood..?
+The W+jets process is a large background for this analysis after preselection and is not especially well understood in the MC, particularly the heavy flavor fractions.  For this reason, we use the data to determine the overall W+jets normalization as well as the normalization of the separate flavor W+jet productions. These are W+light jets, W+cjets, W+c$\bar{c}$jets and W+b$\bar{b}$jets.  The last two are combined together for the purposes of this normalization.  
+
+The method used here is called the ``cut and count'' method.  This method was first developed during the ATLAS \ttbar~redisovery~\cite{ttbarPaper}, although not used due to low statistics, and has been used in each data-based single-top note~\cite{ATLAS-CONF-2011-027,ATLAS-CONF-2011-088,ATLAS-CONF-2011-101}.  The general idea is to form a series of equations involving off-signal regions which can then be solved for the scale factors of interest (to scale each W+jets MC sample).  The scaling is done based on the number of jets and the W+jets MC flavor, which is based on what type of quark the W+jets event is associated with, light (lq), c, $c\bar{c}$ or  $b\bar{b}$.
+
+First, the overall W+jets normalization is determined as a function of the number of jets in the event using the sample before b-tagging is applied, the pretag sample.  The scale factor is determined as:
+
+\begin{equation} \frac{N_{W+jets, data}}{N_{W+jets, MC}} = \frac{N_{data} - N_{multijets} - N_{Non-W+jets, MC}}{N_{W+jets, MC}} \end{equation}
+
+The overall normalization scale factors are given in Table~\ref{wjetoverallnorm}.
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+W+1jet & W+2jets & W+3jets \\
+\hline
+$0.966\pm0.001$ & $0.914\pm0.002$ & $0.879\pm0.004$ \\
+\hline
+\end{tabular}
+\caption{Scale factors for the overall normalization factor used to normalize MC to data for W+jets.  The uncertainties are statistical only.}
+\label{wjetoverallnorm}
+\end{center}
+\end{table}
+
+The normalization of the individual flavor scale factors involves additional equations.  We use three different off-signal regions for this: 2 jet pretag, 1 jet 1 b-tag, and 2 jets 1 b-tag.  This last region contains part of the final analysis signal region, so that this portion is subtracted off before doing the estimate of the W+jets scale factor.  It is also possible to use the 1 jet pretag bin and include a different combination of regions, so that this equation will also be shown, although it is not used.
+
+We will solve a series of equations for the flavor fractions, $F_{b\bar{b}2},~F_{c2},$~and~$F_{lq2}$, where $F_{c\bar{c}2}$ and $F_{b\bar{b}2}$ are assumed to be the same (one scale factor for both processes).  These can then be converted into different bins using MC assumptions.  These flavor fractions we solve for are all from the 2 jet pretag selections and will be propagated later on into other regions.  $F_{c2}$ for example is, where W+jets refers to all W+jets flavors combined:
+\begin{equation} F_{c2} = \frac{N_{c2}^{pretag}}{N_{W+jets 2}^{pretag}} \end{equation}
+Here, N is the number of events, 2 indicates two jets, and the letters refer to the different flavors (lq is light quarks).  W+jets refers to all W+jets MC events.
+
+The set of four equations are written as follows, where in this analysis we make use of the last three.  The equations state that the total data minus background (i.e. non-W+jets) is the same as the sum of the MC W+jet samples separated by flavor.  In these equations, the superscripts p and t mean pretag and b-tagged samples.  All other quantities use MC pretag values except the b-tagging probabilities P, which use both MC tag and pretag information, and N's are from the data minus the non W+jets MC yields and multijets estimate.  Specific definitions of quantities follow these equations:
+
+\begin{eqnarray*}
+N^{p}_1 &=& N^{p}_1 \cdot (k_{b\bar{b}2to1} \cdot F_{b\bar{b}2} +  k_{c\bar{c}tob\bar{b}} \cdot k_{b\bar{b}2to1} \cdot F_{b\bar{b}2}  + k_{c2to1} \cdot F_{c2} + k_{lq2to1} \cdot F_{lq2})\\
+N^{p}_2 &=& N^{p}_2 \cdot (F_{b\bar{b}2} +  k_{c\bar{c}tob\bar{b}} \cdot F_{b\bar{b}2}  + F_{c2}  + F_{lq2}) \\
+N^{t}_1 &=& N^{p}_1 \cdot (P_{b\bar{b}1}\cdot k_{b\bar{b}2to1} \cdot F_{b\bar{b}2} +  k_{c\bar{c}tob\bar{b}} \cdot P_{b\bar{b}1} \cdot k_{b\bar{b}2to1} \cdot F_{b\bar{b}2}  \\
+&&+ P_{c1} \cdot  k_{c2to1} \cdot F_{c2} + P_{lq1}  \cdot k_{lq2to1} \cdot F_{lq2}) \\
+N^{t}_2 &=& N^{p}_2 \cdot ( P_{b\bar{b}2}\cdot F_{b\bar{b}2} +  k_{c\bar{c}tob\bar{b}} \cdot P_{b\bar{b}2} \cdot F_{b\bar{b}2}  + P_{c2} \cdot F_{c2} + P_{lq2} \cdot F_{lq2})
+\end{eqnarray*}
+
+In the equations above, the P's are the b-tagging probability where the number of jets and jet flavor are specified by the subscripts.  They are used to convert the b-tagged (tag) sample flavor fractions (F) to the pretag versions we are solving for.  For instance,
+\begin{equation}P_{b\bar{b},1} = \frac{N_{wb\bar{b}, 1jet, tag}}{N_{wb\bar{b}, 1jet, pretag}} \end{equation}
+which means that
+\begin{equation}N^{tag}_{c2} = N^{pretag}_{c2} \cdot P_{c2} \cdot F_{c2} \end{equation}
+
+The k's in the equations are the ratio of yields in different number-of-jet bins or, in one case($k_{c\bar{c}tob\bar{b}}$), the flavor, and are always determined using the pretag sample.  They are conversion factors. For example,
+%below is confirmed, 1 jet pretag was used for HCP Paper analysis for conversion factors
+\begin{equation}k_{b\bar{b}2to1} = \frac{N_{wb\bar{b}, 1jet, pretag}}{N_{wb\bar{b},2jet, pretag}} ~~~\textrm{and} ~~~k_{b\bar{b}toc\bar{c}} = \frac{N_{wc\bar{c}, 1jet, pretag}}{N_{wb\bar{b},1jet, pretag}}\end{equation}
+Finally, the N's in the equation represent the number of data minus background (where background is non-W+jets MC and multijets) events for the given bin and sample specified by p1 for pretag, 1 jet bin; p2 for pretag 2 jet bin; t1 for 1 b-tag (preselection) 1 jet bin; and t2 for 1 b-tag (preselection) 2 jet bin.
+
+Note that the N's are the only data based quantities in the flavor fraction determination.  The P's and k's are taken from the values in Monte Carlo.  Thus, there are three (or four) equations and three unknowns, meaning a solution may be found with simple algebra.  These F's are then propagated into other number of jet bins.  When these values are combined with the overall W+jets normalization factors discussed earlier, the final W+jets scale factors for this analysis are obtained (WSF).
+
+The equation used to form the scale factors for the two jet bin (which doesn't involve extra propagation) is given below in Equation~\ref{eq:propwsf}.  The F/F portion is the flavor fraction scaling and the N/N portion at the end of the equation is the overall W+jets normalization.  N's are data minus the non W+jets MC yields and multijets estimate as before, unless specified to be the MC W+jets estimate.  All quantities are pretag:
+\begin{equation}\label{eq:propwsf}
+ WSF_{c, 2} = \frac{N_{c, 2}}{N_{c, 2}^{MC}} =  \frac{F_{c, 2} \cdot N_{Wjets, 2}}{F^{MC}_{c, 2} \cdot N_{Wjets, 2}^{MC}}
+\end{equation}
+To find the scale factors in other bins, the three jet bin in particular, we use the following formula (Equation~\ref{eq:propwsf2}), shown here for the 3 jet c scale factor, where all quantities are pretag:
+\begin{equation}\label{eq:propwsf2}
+ WSF_{c, 3} = \frac{F_{c, 2} \cdot N_{Wjets, 3}}{F^{MC}_{c, 2} \cdot (N_{b\bar{b}, 3}^{MC} +N_{c\bar{c}, 3}^{MC} +N_{c, 3}^{MC}\cdot WSF_{c, 2}  +N_{lq, 3}^{MC} )}
+\end{equation}
+
+The final scale factor (WSF) values are shown in Table~\ref{tab:KFactor_comb_final} for the various number of jet bins and W+jets flavor types.  These are the values used to adjust the W+jets normalization in the analysis.
+
+\begin{table}[!h!tpb]
+  \begin{center}
+    \begin{tabular}{lccc}
+      \hline \hline
+        Jet Bin &   $WSF_{b\bar{b}}$ &  $WSF_{light}$    &  $WSF_{c}$ \\\hline
+        $W$+1jet   &1.361$\pm$0.090$\pm$1.066  &0.908$\pm$0.004$\pm$0.270& 1.273$\pm$0.040$\pm$0.449\\
+        $W$+2jet   &1.252$\pm$0.090$\pm$0.864  &0.835$\pm$0.004$\pm$0.230& 1.172$\pm$0.004$\pm$0.302\\
+        $W$+3jet   &1.182$\pm$0.090$\pm$0.854  &0.788$\pm$0.004$\pm$0.369& 1.106$\pm$0.004$\pm$0.443\\
+      \hline
+      \hline
+    \end{tabular}
+  \caption{Correction factor WSF for each $W$+jets flavor for the muon and electron samples combined, with statistical (first) and systematic (second) uncertainties.
+  \label{tab:KFactor_comb_final} }
+  \end{center}
+\end{table}

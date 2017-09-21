@@ -1,0 +1,215 @@
+%% Before beginning to type your dissertation, read the formatting guide, 
+%% which can be found at http://grad.msu.edu/etd/docs/formattingguide.pdf
+%% Also get the latest version of  msuphddissertation.cls and the template file
+%% at http://www.math.msu.edu/~weil/MSU_Ph.D._Dissertation.zip
+%% Send questions to weil@math.msu.edu
+
+\documentclass{msuphddissertation}
+\graphicspath{{figures/}}
+%\usepackage{todo}
+%\usepackage[hide]{todo}
+%\usepackage{epstopdf}
+\usepackage{lineno}
+\usepackage{subfigure}
+\usepackage{modatlasstyle}
+\usepackage{amsmath,amssymb,amsthm,paralist}
+\usepackage{extra_definitions}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{authblk}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{units}
+\usepackage{bigstrut}
+\usepackage{url}
+%\usepackage{ulem}
+\usepackage[table]{xcolor}
+\renewcommand\bibname{BIBLIOGRAPHY}
+%\usepackage{hyperref}
+%% Include other packages you wish to use except setspace. 
+%% That package is loaded automatically.
+%% IMPORTANT: Load only those packages you know you will use.
+%% Some packages can cause conflicts resulting in improper formatting.
+\author{James Koll} %% Put your name in full as it is officially recognized by Michigan State University here.
+\title{Evidence for the associated production of a W boson and a top quark at ATLAS} %% Put the title of your dissertation here.
+\munit{}
+%\munit{High Energy Physics} %% Put the name of the field of your degree (NOT department or division, or college) here.
+%% For example Dynamical Systems, Psychology, String Theory, etc.
+
+%% Put additional preamble items here.
+%%%%%% LANDSCAPE %%%%%%
+%% Put a page you want in landscape inside the environment msulandscape, 
+%% which is defined in msuphddissertation.cls. No extra package is needed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%  NOTE   %%%%%%%%%%%%%%
+%% PREPARING A DISSERTATION WITH THIS CLASS FILE DOES NOT %%%
+%% GUARANTEE THAT THE GRADUATE SCHOOL WILL APPROVE IT %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% WARNING %%%%%%%%%%%%%%%
+%% The Graduate School requires that all text, including superscripts %%
+%% and subscripts at all levels, as well as that in imported %%
+%% graphics files be in 12 point. For that reason it's recommended %%
+%% that no text be part of any imported files. %%
+
+%% Once your document has been filed with the Graduate School,
+%% if you wish to produce a version of it whose subscripts and superscripts
+%% are in traditional smaller proportion, remove the "%" sign 
+%% in front of following command. 
+%\DeclareMathSizes{12}{12}{10}{8}
+%% If your document has footnotes, remove the "%" sign 
+%% in front of following command. 
+%\renewcommand{\footnotesize}{\small}
+%% To single space your document, remove the 
+%% two commands \begin{doublespace}
+%% and \end{doublespace below.
+
+\begin{document}
+
+\maketitlepage %%This command will produce the title page of your thesis.
+\begin{abstract}
+This thesis discusses a search for the Standard Model single top \Wtchan\ process. An analysis has been performed searching for the \Wtchan\ process using 4.7 $fb^{-1}$ of integrated luminosity collected with the ATLAS detector at the Large Hadron Collider. A boosted decision tree is trained using machine learning techniques to increase the separation between signal and background. A profile likelihood fit is used to measure the cross-section of the \Wtchan\ process at $\sigma(pp\rightarrow Wt + X) = 16.8 ^{+2.9}_{-2.9} \mathrm{(stat)} ^{+4.9}_{-4.9} \mathrm{(syst)}~pb$, consistent with the Standard Model prediction. This fit is also used to generate pseudoexperiments to calculate the significance, finding an observed (expected) 3.3$\sigma$ (3.4$\sigma$) excess over background.
+
+
+%formatted for stupid proquest
+%This thesis discusses a search for the Standard Model single top Wt-channel process. An analysis has been performed searching for the Wt-channel process using 4.7 fb<super>-1<\super> of integrated luminosity collected with the ATLAS detector at the Large Hadron Collider. A boosted decision tree is trained using machine learning techniques to increase the separation between signal and background. A profile likelihood fit is used to measure the cross-section of the Wt-channel process at 16.8 &plusmn;2.9 (stat) &plusmn; 4.9(syst) pb, consistent with the Standard Model prediction. This fit is also used to generate pseudoexperiments to calculate the significance, finding an observed (expected) 3.3 &sigma; (3.4 &sigma;) excess over background.
+
+%% Type your abstract here. An abstract is REQUIRED and limited to two pages.
+%% The abstract must not include any figures.
+\end{abstract}
+
+%% If you wish to have a copyright page, remove the "%" in front of  \begin{copyrt}
+%% and remove the "%" in front of \end{copyrt}.
+%% The mandatory form of the Copyright will be generated automatically. 
+%% A copyright statement is optional.
+
+%\begin{copyrt}
+%\end{copyrt}
+
+%% If you wish to have a dedication, remove the "%" in front of
+%\begin{dedication}
+%% and remove the "%" in front of 
+%\end{dedication}
+%% A dedication must be single-spaced and 
+%% centered on the page.  Both will be done automatically. 
+
+%\begin{dedication} 
+%% Type your dedication here. A dedication is optional.
+%\end{dedication}
+%% If you wish to have an acknowledgment, remove the "%" in front of  \begin{acknowledgment}
+%% and remove the "%" in front of  \end{acknowledgment}  
+\begin{acknowledgment}
+I am immensely thankful for the amazing people who have helped and encouraged me as I worked on this dissertation. I'd like to express deep gratitude to my advisor, Jim Linnemann, for all of his mentorship. I'd also like to give special thanks to Huaqiao Zhang for his patience in working with me on this analysis and teaching me so much about HEP. I would also like to thank Reinhard Schwienhorst for working with me from day one of my time at MSU.
+
+It is almost impossible to name all of my fellow students and coworkers who have helped me both as physicists and friends. Thank you to James Kraus, for showing me the ropes while we muddled through L1Calo upgrade planning. A massive debt is also owed to the students who have graduated before me for all the times they helped me, and for raising the bar so very high, especially Sarah Heim, Jenny Holzbauer, and Jeremiah Holzbauer.  I'd also like to thank Emily Johnson, Brad Schoenrock, and Patrick True, who volunteered their time to review my dissertation, to act as a sounding board for my ideas, and, most importantly, to listen to me complain. 
+
+I'd like to acknowledge the people who made this dissertation possible in a myriad of indirect ways. Thank you to Dennis Hewett, for giving me the passion for physics that led me here. Thank you to my favorite cat Elly for putting up with the upsetting lack of belly rubs over the last year. Most importantly, I cannot thank my parents enough for instilling in me a love for science and supporting me in everything I do.
+
+%% Type your acknowledgment here. An acknowledgment is optional.
+\end{acknowledgment}
+\newpage
+%% If you wish to have a preface, remove the "%" in front of  \begin{preface}
+%% and remove the "%" in front of  \end{preface}  
+%\begin{preface}
+%% Type your acknowledgment here. An acknowledgment is optional.
+%\end{preface}
+
+\TOC
+
+%% If your document contains tables, remove the "%" in front of 
+%%  the following line.
+\listoftables
+
+%% If your document contains figures, remove the "%" in front of
+%% the following line.
+\LOF
+%% If any of your figures contain color, you must
+%% include the following disclaimer in the caption of your first figure.
+%% "For interpretation of the references to color in this and all other figures, 
+%% the reader is referred to the electronic version of this dissertation."
+
+%%%% LIST OF SYMBOLS AND ABBREVIATIONS %%%%
+%% Such a list is possible using the environment
+%% abbreviationskey
+%% at the place in the document where you wish the list to appear.
+% The list will be included in the TOC as KEY TO SYMBOLS AND ABBREVIATIONS
+%%%%%%%%%%
+
+\newpage
+\pagenumbering{arabic}
+\begin{doublespace}
+%\linenumbers
+
+\input{Introduction}
+\input{WtTheory}
+\input{AtlasExperiment}
+\input{ObjectDefinition}
+\input{EventSelection}
+\input{BackgroundEstimate}
+\input{BoostedDecisionTree}
+\input{Measurement}
+\input{Conclusion}
+%\newpage
+%\vspace*{\fill}
+%\begin{center}
+%\Huge \textbf{APPENDICIES}
+%\end{center}
+%\vfill
+\newpage
+\appendix
+\input{ControlRegions}
+\input{BPrimeSearch}
+%\newpage
+%\appendix
+%\part*{Appendices}
+%\addcontentsline{toc}{part}{Appendices}
+%\input{ControlRegions}
+%\input{BPrimeSearch}
+%\clearpage
+%\newpage
+%% Put the body of your dissertation here. 
+%% DO NOT include  the bibliography
+%% If you wish to include one or more appendices, remove the "%" from the 
+%% following eight (8) lines.
+%\newpage
+%\vspace*{\fill}
+%\begin{center}
+%\Huge \textbf{APPENDICIES}
+%\end{center}
+%\vfill
+%\newpage
+%\appendix
+%%To start your first appendix, which will be labeled as Appendix A  
+%% just type \chapter{<appendix 1 name>}
+%%%%%%% A NOTE ABOUT APPENDICES %%%%%%%%%
+%% Some appendices may be single spaced such as survey examples or letters.
+%% Contact the Graduate School for details.
+%% To single space an appendix first remove the % from 
+%% the following two lines.
+% \end{doublespace}
+% \chapter{<appendix  name>}
+%% After entering the appendix remove the % from 
+%% the following line
+% \begin{doublespace}
+%% Any text entered now will be double spaced.
+\end{doublespace}
+
+%%Bibliography 
+
+\bibliographystyle{atlasnote}
+%\bibliographystyle{unsrt}
+\bibliography{bibmain}
+
+%% A bibliography is required. It may be made using BibTeX.
+%% If it's made from scratch,
+%% remove the "%" in front of \begin{thebibliography}{???}
+%% replacing the ??? with the appropriate entry and 
+%% remove the "%" in front of \end{thebibliography}
+% \begin{thebibliography}{???}
+%%  Enter the bibliography here.
+% \end{thebibliography}
+\end{document}

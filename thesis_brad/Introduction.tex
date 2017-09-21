@@ -1,0 +1,188 @@
+\chapter{Introduction}
+\label{SECTION-INTRO}
+
+High energy physics is concerned with obtaining the most fundamental understanding of the universe. In practice this means categorizing all fundamental particles and their interactions in order to understand what the world is made of. Assorted scientific fields question what the world is made of in various detail. Chemistry asks which atoms and molecules comprise the things around us, nuclear physics investigates what makes up atoms and how atoms are formed, and high energy physics is studying what we currently think are the most fundamental particles in existence. In order to understand high energy physics we need a mathematical framework to describe the elementary particles and their interactions. This framework is referred to as the Standard Model (SM). 
+
+
+\section{The Standard Model}
+\label{SECTION-THEORY-SM}
+
+The SM of high energy physics has been among the most successful theories of the past century. It has been tested again and again and has encountered few unexplained anomalies. It started as an effort to combine the fundamental forces we know into one overarching theory. Electricity and magnetism had been combined into electromagnetism long ago and in the last century the SM was developed. Electromagnetism was combined with weak interactions, followed by the inclusion of the Higgs mechanism and strong interactions to form the SM we know today~\cite{Griffiths,QFT-PS,QFT-IZ}. 
+
+\LARGEFIG{StdMdl-wheel}{The SM of high energy physics.}{FIGURE-STDMDL}
+%\LARGEFIG{StdMdl}{The SM of high energy physics~\cite{Figure-StdMdl}.}{FIGURE-STDMDL}
+
+The SM particles we have found are classified based on their properties and interactions and shown in Figure~\ref{FIGURE-STDMDL}. One way we can classify particles is by their spin. A particle with half integer spin is called a fermion while a particle with integer spin is a boson. All discovered fundamental particles are either spin 0, spin $\frac{1}{2}$ or spin 1. We further break down the fermions into two categories, the first set are the leptons which can be charged (electron, muon, and tau) to interact with the electroweak force, and three neutral neutrinos which only interact via the weak force. The other type of fermion is the quark. Quarks interact via the weak, electromagnetic, and strong forces. The strong force, at low energies, imparts color confinement onto individual quarks which binds them together in mesons (quark antiquark pairs) or baryons (three quark systems such as the proton or neutron). Quarks also interact electromagnetically and weakly like their charged leptonic counterparts. The vector bosons (spin 1) moderate the forces involved in the Standard Model. The gluon interacts via the strong force, the photon interacts electromagnetically, and the $W^\pm$ and $Z$~bosons only interact weakly. The final particle we have is the recently discovered Higgs boson which took nearly 50 years to discover. A history of particle discovery can be seen in Figure~\ref{FIGURE-TIMELINE}~\cite{Aad:2012tfa}. 
+
+\VLARGEFIG{Timeline}{History of high energy physics illustrating the time it took from theorizing the existence of the particles until discovery~\cite{Timeline}.}{FIGURE-TIMELINE}
+
+A deeper understanding of the SM can be obtained through the Lagrange density~\cite{QFT-PS}
+ 
+%\mathscr{L}
+\begin{equation}
+\begin{split}%\begin{multline}
+\mathscr{L} = &-\frac{1}{2}tr[G_{\mu \nu}G^{\mu \nu}] -\frac{1}{4} F_{\mu \nu} F^{\mu \nu}-\frac{1}{2\xi}(\delta ^\mu A_\mu)^2 \\
+&+ i \bar{\psi} [ \cancel{D} -m] \psi + \psi_i y_{ij} \psi_j \phi +h.c. +|D_\mu \phi|^2 - V(\phi)
+\end{split}%\end{multline}
+\label{EQUATION-STDLAG}
+\end{equation}
+
+Where $\psi$ is the Dirac field, $A_\mu$ is the electromagnetic potential, $\xi$ represents a gauge fixing choice, ($\xi$=0 is Landau gauge, while $\xi$=1 is Feynman gauge), $\phi$ is the Higgs field, $y_{ij}$ are the Yukawa couplings, $\cancel{D}$ is defined through Dirac slash notation as 
+
+\begin{equation}
+\cancel{D}=\gamma_\mu D^\mu
+\end{equation}
+
+\begin{equation}
+D^\mu=\delta^\mu -ieA^\mu
+\end{equation}
+
+$F_{\mu \nu}$ is the electromagnetic field tensor defined as 
+
+\begin{equation}
+F_{\mu \nu}=\delta_\mu A_\nu - \delta_\nu A_\mu = 
+\left( \begin{array}{cccc}
+0 & -E_x & -E_y & -E_z \\
+E_x & 0 & -B_z & B_y \\
+E_y & B_z & 0 & -B_x \\
+E_z & -B_y & B_x & 0 \end{array} \right) 
+\end{equation}
+
+and $G_{\mu\nu}$ is the QCD field tensor defined as 
+
+\begin{equation}
+G_{\mu\nu}=\frac{\lambda_a}{2} G_{\mu\nu}^a=\frac{i}{g}[D_\mu ,D_\nu]
+\end{equation}
+\begin{equation}
+G_{\mu\nu}^a=\delta_\mu A_\nu^ a - \delta_\nu A_\mu^a + g f^{abc} A_{\mu b} A_{\nu c}
+\end{equation}
+
+The SM Lagrangian in equation \ref{EQUATION-STDLAG} contains a lot of information on the SM in one concise equation. The first three terms in the Lagrange density formula contains the strong and electroweak forces, the fourth term describes how the particles interact with these fields, the fifth term and its Hermetian conjugate($h.c.$) describes how the fermions get their masses (note the $\phi$ dependence means that the Higgs contributes but does not define their masses), the next to last term describe how the Higgs gives mass to the bosons, and the final term is the Higgs potential~\cite{Griffiths,QFT-PS,QFT-IZ}. 
+
+This formulation represents a group with a $SU(3) \times SU(2) \times U(1)$ symmetry. The $SU(3)$ represents the strong force, with the threefold symmetry in color charge. Every group G has a set of generators S which is the smallest subset of G through which the combinations of these generators and their inverses can recover every element of G. The eight generators of this $SU(3)$ symmetry correspond to the various color combinations of the gluon which can be mathematically represented by the Gell-Mann matrices. While no independent weak theory has been formulated to date, the $SU(2) \times U(1)$ represents the electroweak force which unified electricity, magnetism, and the weak forces whose generators can be represented by the Pauli matrices. The Higgs mechanism breaks this symmetry and this phenomenon is known as electroweak symmetry breaking. The broken combination of the $SU(2) \times U(1)$ symmetry has the massive $W^+$, $W^-$, and $Z^0$ bosons while the unbroken $U(1)$ has the massless photon~\cite{GROUPTHEORY,GROUPTHEORY2}. 
+
+\section{Feynman Diagrams}
+\label{SECTION-FEYNMANN-DIAGRAMS}
+
+Thanks to Richard Feynman we can obtain an intuitive understanding of particles and their interactions through Feynman diagrams. We can view these pictures as having direct correlation with the processes involved and even set up the relevant equations to compute their contributions to the overall cross-section. In these diagrams we compact the spacial dimensions into one vertical axis while time is represented on the horizontal axis. %A classic example is Bhabha scattering in Figure~\ref{FIGURE-baba}.
+
+%\MEDIUMFIG{BaBa}{Bhabha scattering~\cite{JAXO}.}{FIGURE-baba}
+
+%In Figure~\ref{FIGURE-baba} the electron and positron meet, annihilate into a photon or $Z$~boson, and then decay into an electron positron pair. Notice that the electron lines have a directionality to them. The arrow pointing forward in time is the particle (electron) while the arrow pointing backward in time is interpreted as the antiparticle (the positron). Diagrams with loops and/or diagrams which have gluons radiating from the incoming quarks (known as initial state radiation or ISR) or have gluons radiating from the outgoing particles (known as final state radiation FSR) that still have the same underlying event structure are known as higher order diagrams, which can be seen in Figure~\ref{FIGURE-babaloop} or~\ref{FIGURE-OneLoopbaba}. 
+
+%This Feynman diagram represents the annihilation term in the Bhabha scattering process but, when doing calculations, there is another term that corresponds to one electron emitting a photon and the other electron absorbing it (Moller scattering). Together these diagrams will give a LO calculation of the cross-section for Bhabha scattering. There are also diagrams with loops and/or diagrams which have initial state radiation(ISR) or final state radiation(FSR) that still have the same underlying event structure as seen in Figure~\ref{FIGURE-babaloop} or~\ref{FIGURE-OneLoopbaba}. 
+
+%\SMALLFIG{babaloop}{An example of an NLO diagram for Bhabha scattering~\cite{Actis:2009uq}.}{FIGURE-babaloop}
+
+%\FIG{OneLoopbaba}{Examples of NNLO diagrams for Bhabha scattering with loops and real emissions~\cite{Actis:2009uq}.}{FIGURE-OneLoopbaba}
+
+The cross-section for a particular process is defined as the ratio of number of particles scattered in a certain way per unit time ($dN(t)$) to number of particles passing through a defined area per unit time ($n$), see equation~\ref{EQUATION-xsecs}. 
+
+\begin{equation}
+d\sigma (t)=dN(t)/n 
+\label{EQUATION-xsecs}
+\end{equation}
+
+\begin{equation}
+N_{events}=\sigma \int L(t) dt
+\label{EQUATION-NEV}
+\end{equation}
+
+\begin{equation}
+ L(t)=f* \frac{n_1 n_2}{4\pi \sigma_x \sigma_y} 
+\label{EQUATION-LUMIN}
+\end{equation}
+
+Informally this is how probable that process is to be created in each interaction. The standard unit for cross-section is the Barn ($10^{-24}\ cm^{2}$) but we commonly use picobarn or femtobarn to describe cross-sections. Consequently we define the beam intensity, or luminosity ($L$), in inverse picobarns or inverse femtobarns. That way we can easily calculate the expected number of events by equation \ref{EQUATION-NEV}. Luminosity can be calculated from the beam parameters of the accelerator by equation~\ref{EQUATION-LUMIN} where $n_1$ and $n_2$ are the number of particles in each beam, and $\sigma_x$ and $\sigma_y$ are the Gaussian RMS beam sizes in their respective directions.~\cite{QFT-PS}
+
+
+%\subsection{The Higgs Boson}
+%\label{SECTION-HIGGS}
+
+%The most recently discovered particle was the Higgs Boson. on July 2, 2012 D0 and CDF at the Tevatron announced they had evidence of a particle resembling the SM Higgs boson with a mass of approximately 125 GeV~\cite{d0higgs}~\cite{tevatron-bbbar}. Two days later the \atlas and CMS experiments jointly announced the discovery of a particle resembling the SM Higgs boson with a mass of approximately 125 GeV that has since been verified to be the SM Higgs boson. The excess in \atlas data (solid line) at 125 GeV can be seen as distinctly above the one standard deviation band (green) and the two standard deviation band (yellow) away from the expected background only hypothesis (dashed line inside the bands) in Figure~\ref{FIGURE-HIGGS-DISC}~\cite{Higgs\atlas}~\cite{HiggsCMS}. 
+
+%\VLARGEFIG{HiggsDisc}{A graph showing an excess in \atlas data above the expected limit without the Higgs boson at 125 GeV~\cite{HiggsATLAS}.}{FIGURE-HIGGS-DISC}
+
+%\VLARGEFIG{Timeline}{History of high energy physics illustrating the time it took from theorizing the existence of the particles until discovery~\cite{Timeline}.}{FIGURE-TIMELINE}
+
+%This concluded a nearly five decade search that stands as the longest search for a fundamental particle that has been discovered. The history of fundamental particle discovery can be seen in Figure~\ref{FIGURE-TIMELINE}. The Theory of electroweak symmetry breaking and the subsequent search for the Higgs started with the work by Nambu and Goldstone in 1960 which predicted the massless Nambu-Goldstone boson as a consequence of electroweak symmetry breaking~\cite{PhysRev.117.648}. Anderson pointed out in 1963 that in non-relativistic theories these massless Nambu-Goldstone bosons could be reparametrize to give rise to massive bosons~\cite{PhysRev.130.439}. All that was left was to show that this could be done in relativistic theories as well, and that was accomplished independently by Higgs~\cite{Higgs:1964ia}~\cite{Higgs:1964pj}~\cite{Higgs:1966ev}, Englert and Brout~\cite{Englert:1964et}, and Guralnik Hagen and Kibble~\cite{Guralnik:1964eu} in 1964. In 2013 Peter Higgs and Francois Englert shared the Nobel prize ``for the theoretical discovery of a mechanism that contributes to our understanding of the origin of mass of subatomic particles, and which recently was confirmed through the discovery of the predicted fundamental particle, by the \atlas and CMS experiments at CERN's Large Hadron Collider''. 
+
+
+\section{Top-Quark Physics}
+\label{SECTION-TOP-PHYSICS}
+
+The top-quark is of specific interest to this field and in particular this thesis. It has a mass that makes it the heaviest fundamental particle that we know of today, $173.21 \pm 0.51 \pm 0.71 GeV$, which is heavier than most atoms~\cite{topmass}.
+
+
+ Due to the top-quark's large natural width (defined as the probability per unit time that a particle decays) it is the only quark with an observed decay lifetime ($10^{-25}$ s) shorter than the strong timescale ($10^{-24}$ s)~\cite{TOPWidth:1993,CDF-topwidth,D0-topwidth}. 
+
+\begin{equation}
+\tau_t = \frac{\hbar}{\Gamma_t}
+\end{equation}
+
+\begin{equation}
+\Gamma_t = - \frac{1}{N} \frac{dN}{dt}
+\end{equation}
+
+\noindent Because of this, and the fact that the \ckm~matrix element \vtb~(\vtb~corresponds to the strength of the top-quark flavor changing to bottom quark through a weak decay) is approximately equal to 1, the top-quark almost always decays into a $W$-boson and a $b$-quark before it hadronizes into a jet~\cite{sgtopvtb}~\cite{QFT-PS}. 
+
+The top-quark was originally discovered through pair production at the Tevatron in 1995~\cite{Top-CDF},~\cite{Top-D0}. Later the production of a single top-quark was discovered at the Tevatron~\cite{SGTOP-D0}~\cite{SGTOP-CDF} and its width measured~\cite{CDF-topwidth}~\cite{D0-topwidth}~\cite{D0TopWidth:2010}. These production channels have also been investigated at the LHC~\cite{Schilling:2012dx}.
+
+There are three channels of single top-quark physics that have been studied at the LHC. They are \tchan, \schan, and associated production (also referred to as \Wt). The largest contribution to single top is \tchan, followed by \Wt, with \schan~being the smallest of the three. Being the largest, \tchan~was observed first and has been observed independently~\cite{TCHAN-ATLAS}. Evidence of \Wt~has also been achieved in \atlas~\cite{Aad:2012xca}. Cross-sections for the different single top-quark processes at a pp collider with $\sqrt{s} = 8~TeV$ are given in Table~\ref{TABLE-THEORY-SGTOP-XS}. $\sqrt{s}$ is the center of mass energy of the proton-proton collision. At the LHC high energies make gluons in the proton more prevalent when compared to energetic quarks so a look into the initial states of these processes in figures~\ref{FIGURE-tchan},~\ref{FIGURE-Wtchan}, and~\ref{FIGURE-schan} reveal the hierarchical nature of their cross-sections. 
+
+\SMALLFIG{tchan}{Feynman diagram for the \tchan~single top-quark process~\cite{SGTOP-DIAG}.}{FIGURE-tchan}
+\MEDIUMFIG{Wtchan}{Feynman diagrams for the \Wt~single top-quark process~\cite{SGTOP-DIAG}.}{FIGURE-Wtchan}
+\SMALLFIG{schan}{Feynman diagram for the \schan~single top-quark process~\cite{SGTOP-DIAG}.}{FIGURE-schan}
+
+\tchan has an initial state of an energetic gluon as well as a light quark, \Wt~has an initial state of an energetic gluon as well as an energetic b-quark (which will be harder to get from a proton when compared to a light quark which is naturally in a proton), and \schan~has an energetic antiquark in its initial state making it difficult to produce at the LHC. While small at the LHC \schan~was not so disfavored at the Tevatron due to the fact that it was a proton anti-proton collider, making  energetic anti-quarks more prevalent. 
+
+\begin{table}[!h!tbp] 
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+\tchan &   216.99 +9.04 -7.71 pb\\
+\hline
+\Wt  &  84.4 +5.00 -6.80 pb \\
+\hline
+\schan &  10.32  +0.40 -0.36  pb \\
+\hline
+\end{tabular}
+\label{TABLE-THEORY-SGTOP-XS}
+\caption{The cross-section for the production for the different modes of single top-quark production at the LHC at $\sqrt{s} = 8$ TeV~\cite{SGTOP-XS}~\cite{Kant:2014oha}}
+\end{center}
+\end{table}
+
+\section{tZ Associated Production}
+\label{SECTION-TZ}
+
+The production of a top-quark in association with a $Z$~boson has been, until now, unconsidered at the LHC. The Feynman diagram for \tz~can be seen in Figure~\ref{FIGURE-tZ}. The related \ttz~cross section has been able to be measured and although the uncertainty is quite high the top-quark+$Z$-boson processes are a potentially fruitful process to investigate~\ref{ATLAS-CONF-2016-003}. The competitive rate of the \tz~process suggests that it should be visible in the 8 TeV data set as seen in Figure~\ref{FIGURE-TZRATES}. From this we see that unlike \ttbar~and single top-quark, \tz~and \ttz~are much closer in cross-section and stay closer throughout the range of center of mass energies. This means that single top-quark analyses must provide stringent \ttbar~rejection, while the effort in background removal for \tz~will not be as dependant on rejecting \ttz. The \tz~signature investigated includes three charged leptons, missing transverse energy, and two jets one of which may be \btag ged~\cite{Campbell:2013yla}. 
+
+Several truth level histograms can be seen in Figures~\ref{TruthJetFig} and~\ref{TruthObjFig}. Some noteable features of \tz~is the disparity between the eta of the light jet vs. b-quark, the higher \PT~of the light jet compared to the b-quark, the similarity in \PT~of leptons from the $Z$-boson and $W$-boson, and the \PT~of the neutrino which will manifest as MET. 
+
+\LARGEFIG{tZ}{Feynman diagram for the \tz~associated production going to three leptons~\cite{JAXO}.}{FIGURE-tZ}
+
+\QUAFIG{LightJetPt}{LightJetEta}{bQuarkPt}{bQuarkEta}{Truth information drawn from Madgraph simulation of $tZ$. Light jet \PT~and $\eta$ as well as b-quark \PT~and $\eta$. }{TruthJetFig}
+
+\SIXFIG{ZLepPt}{WLepPt}{ZbosonPt}{WbosonPt}{TopQuarkPt}{NuPt}{Truth information drawn from Madgraph simulation of $tZ$. The \PT~of other objects in \tz.}{TruthObjFig}
+
+\VLARGEFIG{TZRATES}{Top-Quark pair and single top-quark cross-sections with and without accompanying $Z$ boson~\cite{Campbell:2013yla}.}{FIGURE-TZRATES}
+
+\tz~can be considered a background to several SM processes. Monotop-quark production is one of these involving a top-quark and large missing transverse energy. Single top-quark produced in association with a Higgs boson is a relevant thing to look for to probe the coupling of a Higgs boson to the top-quark. One can also consider \tz~as a background to Flavor Changing Neutral Current (FCNC) decays from \ttbar~where one of the top-quarks decays to a $Z$ boson and a light quark. Aside from being a background to many new physics searches \tz~is also important to measure and has the added bonus of probing the coupling of the top-quark with a $Z$ boson~\cite{Campbell:2013yla}. 
+
+For this analysis a cut and count method is used. By examining the kinematics of the particles as we have begun to do in Figures~\ref{TruthJetFig} and~\ref{TruthObjFig} regions of phase space can be created to isolate background regions to ensure proper data modeling through simulation as well as isolating the \tz~signal to improve sensitivity for a statistical analysis. 
+
+
+%\section{\tz~Beyond The Standard Model}
+%\label{SECTION-THEORY-BSM}
+
+
+
+%\section{Beyond The Standard Model}
+%\label{SECTION-THEORY-BSM}
+
+%The Standard Model, through all its successes,does not explain all phenomena observed. Perhaps the oldest phenomena not explained by the SM is gravity. The best theory of gravity to date is general relativity, which is incompatible with the Standard Model. More recently dark matter and dark energy have been found to comprise approximately 95\% of all matter in the universe. We currently do not know what dark matter is, but there is a popular opinion that it takes the form of a gravity only interacting particle. This is the Weakly Interacting Massive Particle (WIMP) theory. The neutrino sector also holds mysteries. According to the SM neutrinos are massless, but the observation of neutrino oscillation confirms that neutrinos do have mass. In the SM neutrino masses can be added, but they must be extremely small and its not clear if their masses come from the Higgs mechanism as the other particles do.~\cite{2009APS..HAW.KD010C}
+
+%Another confusing observation is that our universe has a lot of matter, but not so much antimatter. The SM predicts equal parts matter and antimatter upon creation, and has no sufficient explanation concerning the lack of antimatter observed. The final phenomena i will discuss here is the top-quark anti-top-quark forward backward asymmetry (denoted $A_{FB}$). D0 and CDF at the Tevatron noticed that $A_{FB}$ was dramatically higher than the SM predicted value.~\cite{Aaltonen:2008hc}~\cite{Berger:2011ua}~\cite{Baumgart:2013yra}. The LHC is a proton-proton collider as opposed to the Tevatron's proton-antiproton collider, meaning this could not be studied further at the LHC. 
+
+%There are several theories to account for the shortcomings of the SM as well as to extend it to cover other hypothetical particles. Some of these include SUSY, technicolor, Kaluza-Klien theory, string theory, M-theory, extra dimensions, and modified gravity. Each of these attempt to move one step closer to a Theory Of Everything(TOE) that will describe every aspect of the composition of the universe.  
+%(more here)

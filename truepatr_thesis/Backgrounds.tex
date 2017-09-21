@@ -1,0 +1,116 @@
+\chapter{Background Simulation}
+\label{SECTION-BG}
+
+In order to devise and optimize the analysis strategy both signal and background events are modeled. Most of these events are simulated using Monte Carlo (MC) techniques where each event is generated, showered and hadronized, run through a detector simulation, and reconstructed using a variety of software packages. The exception to this are the W+jets and multijet backgrounds which are modeled using either partially or wholely data driven techniques as described in Sections~\ref{SECTION-BG-DD-WJETS} and~\ref{SECTION-BG-DD-QCD} respectively.
+
+\section{Monte Carlo simulation}
+\label{SECTION-BG-MC}
+The MC simulation of events is broken down into four stages. Event generation simulates the initial physics event and its decay. Showering and hadronization simulate the formation of jets from any bare quarks or gluons in the generated events. Detector simulation models the interaction of the physics event with the ATLAS detector using  a \GEANT~\cite{GEANT4} simulation of the ATLAS detector, resulting in a detector response for the event. The final step is event reconstruction where the same algorithms used to analyze data events are applied to the simulated detector responses to build analysis objects.
+
+There are a plethora of software packages available to perform MC simulation of events, and these packages make a variety of different assumptions and simplifications of the physics they are simulating. This leads to the situation that different packages are able to more accurately simulate different physics processes and careful consideration and investigation is necessary to ensure the simulations used in the analysis are as accurate as possible. Since \Wprimechan\ is a single top process it was extremely useful to consult the extensive work already done comparing the different MC generator and showering programs for each process by the ATLAS single top group. 
+
+For all processes except \Wprime\ the current group recomendation has been used. For the \Wprime\ signal processes the \MADGRAPH~\cite{MADGRAPH} generator has been used due to its ease of implementation and handling of spin correlations of decays. The \Wprime\ events were showered with \Pythia~\cite{PYTHIA} similar to most of the background signals. Table~\ref{TABLE-BG-MC} shows which programs were chosen to simulate each sample's generation and showering~\cite{MADGRAPH}~\cite{PYTHIA}~\cite{POWHEG}~\cite{HERWIG}~\cite{ALPGEN}~\cite{ACERMC}. With the exception of the data driven methods described in Section~\ref{SECTION-BG-DD}, the background and signal samples are normalized using their theoretical cross-sections ($\sigma$), the total luminosity (\Lumi), and a k-factor (k) which estimates the higher order corrections to the cross-section. Equation~\ref{EQ-BG-NORM} gives the normalized number of events expected for each sample (N). The cross-section and k-factor values for the signal and background samples are  given in Table~\ref{TABLE-BG-SIGNAL} and Table~\ref{TABLE-BG-MC} respectively.
+
+\begin{equation}
+\label{EQ-BG-NORM}
+N = k\sigma\Lumi
+\end{equation}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|cc|cc|}
+\hline
+\Wprime\ Mass [GeV] & \WprimeL\ $\sigma$ [pb] & \WprimeL\ k & \WprimeR\ $\sigma$ [pb] & \WprimeR\ k \\[1mm]
+\hline
+500 & 12.333 & 1.3684 & 17.510 & 1.2906 \\[1mm]
+750 & 2.7223 & 1.3144 & 3.7174 & 1.2779 \\[1mm]
+1000 & 0.81915 & 1.2564 & 1.0652 & 1.2796 \\[1mm]
+1250 & 0.28025 & 1.2405 & 0.37278 & 1.2260 \\[1mm]
+1500 & 0.10618 & 1.2202 & 0.13932 & 1.2183 \\[1mm]
+1750 & 0.043693 & 1.1893 & 0.055667 & 1.2062 \\[1mm]
+2000 & 0.018551 & 1.1774 & 0.023718 & 1.1740 \\[1mm]
+2250 & 0.0082073 & 1.1638 & 0.010283 & 1.1669 \\[1mm]
+2500 & 0.0038171 & 1.1512 & 0.0046794 & 1.1485 \\[1mm]
+2750 & 0.0018512 & 1.1529 & 0.0021970 & 1.1522 \\[1mm]
+3000 & 0.00095811 & 1.1687 & 0.0011035 & 1.1592 \\[1mm]
+\hline
+\end{tabular}
+\caption{Cross-sections and k-factors for generated \Wprime\ samples.}
+\label{TABLE-BG-SIGNAL}
+\end{center}
+\end{table}
+
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{|l|cc|rr|}
+\hline
+Process & $\sigma$ [pb] & k & Generator & Showering \\[1mm]
+\hline 
+single top s-channel & 1.6424 & 1.1067 & \POWHEG\ & \Pythia\ \\[1mm]
+single top t-channel & 25.750 & 1.1042 & \AcerMC\ & \Pythia\ \\[1mm]
+single top Wt-channel & 20.461 & 1.0933 & \POWHEG\ & \Pythia\ \\[1mm]
+$t\bar{t}$ & 114.51 & 1.1992 & \POWHEG\ & \Pythia\ \\[1mm]
+W+lf & 31994 & 1.133 & \ALPGEN\ & \Pythia\ \\[1mm]
+W+c & 1126.0 & 1.52 & \ALPGEN\ & \Pythia\ \\[1mm]
+W+cc & 403.44 & 1.133 & \ALPGEN\ & \Pythia\ \\[1mm]
+W+bb & 133.99 & 1.133 & \ALPGEN\ & \Pythia\ \\[1mm]
+Z+jets & 2804.4 & 1.229 & \ALPGEN\ & \HERWIG\ \\[1mm] %Alpgen+Pythia in v11
+diboson & 17.075 & 1.7223 & \HERWIG\ & \HERWIG\ \\[1mm]
+\hline
+\end{tabular}
+\caption{Simulated background samples with associated cross-sections, k-factors, generating programs and showering programs.}
+\label{TABLE-BG-MC}
+\end{center}
+\end{table}
+
+
+\section{Data driven estimates} 
+\label{SECTION-BG-DD}
+While the above method works well to simulate many background processes, it is sometimes useful to use control regions of data to estimate some backgrounds. For W+jets it is necessary to correct the overall normalization as well as the relative abundance of the simulated samples based on the flavor associated jet. Multijets has a very high rate of occurence and a very low acceptance making it very difficult to predict, so this analysis uses the matrix method to estimate this background from data.
+
+\subsection{W+jets normalization} 
+\label{SECTION-BG-DD-WJETS}
+The W+jets samples in this analysis are globally normalized using the charge asymmetry method in the region $m(W')\ <\ 330\ GeV$. This region has a signal contamination $<$ 5\% for all signal mass points considered in the analysis. This method normalizes the W+jets sample in each analysis channel using the theoretical asymmetry ratio $r_{MC} = \frac{W^{+}}{W^{-}}$ to account for the observed asymmetry in data. The ratio between the observed asymmetery and the expected asymmetry is applied as a normalization factor to the entire channel, as shown in Equation~\ref{EQ-BG-DD-WJETS}.
+
+\begin{equation}
+\label{EQ-BG-DD-WJETS}
+N_{W^{+}} + N_{W^{-}} = \frac{r_{MC} + 1}{r_{MC} - 1}(D^{+} - D^{-})
+\end{equation}
+
+\noindent
+$N_{W^{+}}\ +\ N_{W^{-}}$ is the normalized W+jets yield and $D^{+}$ and $D^{-}$ are the number of data events with positive and negative leptons respectively. The fraction of W+jets composed by W+lf, W+c, W+cc, and W+bb is determined by simultaneously varying the fraction of the total W+jets sample each sub-channel composes and fitting the MET distribution. For this fit the W+cc and W+bb samples are merged into a single W+hf sample and so they recieve the same normalization factor. The normalization factors for each sample are given in Table~\ref{TABLE-BG-DD-WJETS}.
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{|l|cccc|}
+\hline
+Process & 2jets 1tag & 2jets 2tag & 3jets 1tag & 3jets 2tag \\[1mm]
+\hline 
+W+lf & 0.941462 & 1.31867 & 0.883688 & 1.96718 \\[1mm]
+W+c & 0.801521 & 1.12266 & 0.752335 & 1.67477 \\[1mm]
+W+cc & 1.39795 & 1.95806 & 1.31217 & 2.92102 \\[1mm]
+W+bb & 1.39795 & 1.95806 & 1.31217 & 2.92102 \\[1mm]
+\hline
+\end{tabular}
+\caption{W+jets normalization factors.}
+\label{TABLE-BG-DD-WJETS}
+\end{center}
+\end{table}
+
+\subsection{Multijets estimate} 
+\label{SECTION-BG-DD-QCD}
+The contribution of the multijet process to this analysis is estimated using the matrix method. The matrix method uses data events which have passed the event selection in Chapter~\ref{SECTION-SELECTION} except with a loose lepton which has relaxed requirements compared to the tight lepton required for the signal region. Both the loose and tight lepton are defined in Chapter~\ref{SECTION-OBJ}. For both electrons and muons
+
+\begin{equation}
+\label{EQN-BG-DD-QCD1}
+N^{loose} = N^{loose}_{real} + N^{loose}_{fake}
+\end{equation}
+\begin{equation}
+\label{EQN-BG-DD-QCD2}
+N^{tight} = \epsilon_{real}N^{loose}_{real} + \epsilon_{fake}N^{loose}_{fake}
+\end{equation}
+
+\noindent
+where N is the number of data events containing a lepton of the indicated type. $\epsilon_{real} = \frac{N^{tight}_{real}}{N^{loose}_{real}}$ and $\epsilon_{fake} = \frac{N^{tight}_{fake}}{N^{loose}_{fake}}$ are the conversion efficiencies for loose leptons to tight leptons. $\epsilon_{real}$ is estimated using the tag and probe method on $Z \rightarrow ll$ events, while $\epsilon_{fake}$ is estimated using a multijets enhanced data sample where the lepton isolation criteria have been removed. With the total number of events with loose and tight leptons known from the dataset, Equation~\ref{EQN-BG-DD-QCD1} and Equation~\ref{EQN-BG-DD-QCD2} can be inverted and combined with the fakes conversion efficiency to solve for $N^{tight}_{fake}$ which is the multijets estimate for the analysis.

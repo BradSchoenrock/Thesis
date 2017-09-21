@@ -1,0 +1,98 @@
+\chapter{Object Reconstruction and Definitions}
+\label{SECTION-OBJDEF}
+The ATLAS detector is immensely complicated, and therefore the raw data received from the subdetectors must be refined before it can be analyzed properly. The goal of object reconstruction is to turn the disparate set of observed interactions into recognizable and well defined physical objects. The end object is considered likely to be a member of the class we assign it. For example, in our detector we may combine measurements with electron-like activity into one reconstructed electron object. This is not guaranteed to be an electron object in reality due to the detector resolution and error, but is likely to be (>90\% in the case of electrons). In this section details will be given about the reconstruction and selection of the objects important to this analysis: electrons, muons, jets and neutrinos (Missing transverse energy). The definitions given here are defined by the ATLAS collaboration. 
+
+\section{Electrons}
+\label{SECTION-DEFINEELECTRONS}
+Identifying and reconstructing electrons is critical to creating an accurate picture of a collision event. Measurements from both of the calorimeters and the inner detector tracking systems are used to reconstruct electrons. 
+
+Electrons are reconstructed primarily using a seeding algorithm~\cite{ELECTRON-RECO}. Seeding algorithms start by finding candidate objects, and building up a fully reconstructed object around that. The particular algorithm used in the calorimeter is called a sliding window algorithm, which works by constructing a rectangular region of the calorimeter of a fixed size and then is moved to maximize the energy within. Once a candidate region is defined, a matching track is searched for which must be consistent not only with the location in the detector observed, but also with the measured energy calculated. Having both of these two checks ensures accurate track matching. 
+
+Electrons can also be reconstructed by the ``softe'' algorithm. The softe algorithm uses seeds from the tracking system instead of from the calorimeter. The seeding track must have $\pT > 2\ GeV$ and a significant number of hits in the inner detector. This track is then matched to an EM cluster in the calorimeter. The softe algorithm is more sensitive to low $\pT$ electrons and electrons in jets, while the standard algorithm is better at detecting high $\pT$ isolated electrons. 
+
+Electrons are given an associated quality level that indicates how likely it is that the reconstructed electron object was the result of an electron in the detector. A loose electron is defined a set of cuts using information about hadronic leakage and the shower-shape from the middle of the EM calorimeter layer. Loose electrons have high acceptance, but poor background rejection. A tight electron is defined by a complex set of cuts using the full information from the calorimeter layers and the inner detector tracking. It is designed to have high acceptance and good background rejection. Analysis level selection uses the the most stringent tight electrons, while a loose electron definition is used for sideband cross checks and background estimates.
+
+Electrons in this analysis are required to pass an additional set of stringent selection cuts beyond the tight electron definition. They must have been identified as an electron by either the calorimeter seeding algorithm alone or both the calorimeter seeding algorithm and the tracking algorithm. The transverse energy of the electron uses the energy of the seeding calorimeter cluster and is defined as $E_T = (cluster\ E) / cosh (track\ \eta)$, where $cluster\ E$ is the energy of electron as measured by the calorimeter. The transverse energy of the cluster must satisfy the energy threshold $E_T > 25\ GeV$. Reconstructed electrons are also required to lie within the high efficiency region excluding the calorimeter crack region.
+
+\begin{equation}
+|\eta(cluster)| < 2.47,\ excluding\ 1.37 < |\eta(cluster)| <1.52
+\end{equation}
+
+\noindent
+A jet can often look like an electron if a significant amount of energy is deposited in the EM calorimeter. These cases are identified and corrected by looking at the isolation variable, or the surrounding energy, both in the nearby areas of the electromagnetic calorimeter and in the hadronic calorimeter behind the selected region. As jets leave a much wider and deeper footprint in the detector, excess energy in these regions is indicative of a jet. A useful variable for evaluating isolation is $Etcone20$, defined as the transverse energy deposited in the calorimeter in a cone of half opening angle size 0.2 minus the energy due to the electron. An isolation criterion of $Etcone20 < 3.5\ GeV$ is required of all selected electrons. 
+
+During the data-taking period there was a significant problem in one particular region of the LAr calorimeters, leaving a hole in the detector. This malfunction was eventualy repaired and later events in our dataset do not have this problem, leaving approimately 43\% of our data affected. The region affected was $0.20 < eta < 1.65$ and $-0.99 < \phi < -0.39$. To compensate for this malfunction events during this time that have jets in this region are rejected. Additionally simulated events are chosen randomly in proportion to the time this malfunction was present, and in these events if an electron or jet is in the affected region the event is discarded.
+
+\section{Muons}
+\label{SECTION-DEFINEMUONS}
+Muons are the other lepton of interest to this analysis. As explained in Section~\ref{SECTION-ATLAS-MUON}, a large portion of the ATLAS detector is dedicated to identifying and measuring the properties of muons. As a result, muons are reconstructed accurately. ATLAS uses many algorithms to reconstruct the muons, but for this analysis just one of these algorithms is used for selection.
+
+The algorithm, ``MuId combined''~\cite{noteM1}, identifies pairs of inner detector and muon spectrometer tracks using a global fitting procedure. This fit takes into account both the magnetic fields in the detector and the material effects of the detector.
+
+Each selected muons must pass a stringent set of required track quality cuts: 
+
+\begin{list}{$\bullet$} {}
+\item Either the number of hits in the B layer, the innermost layer of the pixel detector, must be greater than 0, or the B layer corresponding to this muon must have been disabled.
+\item The number of pixel hits plus the number of crossed dead pixel sensors must be greater than one.
+\item The number of SCT hits plus the number of crossed dead SCT sensors must be greater than five.
+\item The number of dead pixel holes plus the number of dead SCT holes must be less than three.
+\item A more complicated TRT cut is required. Let $n = nTRTHits + nTRTOutliers$. $nTRTOutliers$ is formed by either a straw tube with a signal but not crossed by the nearby track, or a set of TRT measurements that do not match smoothly with the pixel and SCT measurements~\cite{noteM1}.
+\begin{list}{$\bullet$} {}
+\item If $|\eta| < 1.9$, then require that $n > 5$ and $nTRTOutliers / n < 0.9$.
+\item If $|\eta| >= 1.9$, if $n > 5$, then require that $nTRTOutliers / n < 0.9$.  If $n < 5$ then no further requirement.
+
+\end{list}
+\end{list}
+
+An isolation requirement is applied to ensure high purity muons. The muon isolation uses variables that evaluate the amount of energy surrounding the muon object inside a $\Delta R=0.3$ cone. In this calculation we use two values: $Etcone30$ measures the transverse energy from the calorimeter while $Ptcone30$ measures the transverse momentum from the inner detector tracking. To pass the isolation cut it is required that $Ptcone30 < 4\ GeV$ and $Etcone30 < 4\ GeV$. In addition all muons within $\Delta R < 0.4$ of a jet with $p_T > 20\ GeV$ are removed from the selection, as these are likely jet fragments reconstructed as independent muons. For this analysis, we apply an additional cut requiring the remaining muons to have $p_T > 20\ GeV$ and $|\eta| < 2.5$. 
+
+\section{Jets}
+\label{SECTION-DEFINEJETS}
+Jets are a complex composite object made up of many particles, typically representing an originating quark or gluon. 
+As discussed in Section~\ref{THEORY-STANDARDMODEL}, the decay time of most quarks and gluons is much longer than the interaction timescale of the strong force. As a result, a bare quark or gluon will hadronize instead of decaying, leaving a shower of hadrons in the detector. This shower can then be reconstructed back into a 4-vector representing the originating parton.
+
+Because of the complexity of the jet structure, it is difficult to reconstruct jets accurately, and there are several different methods to approach this problem. The jets in this analysis are clustered using the $anti-k_t$~\cite{AntiKt} algorithm.
+
+The $anti-k_t$ algorithm was developed to avoid known problems with other standard algorithms. Naive algorithms give results that are collinearly unsafe. Collinear unsafe values means that if the hard seed jet happens to radiate a high \pT\ gluon, it will no longer be the seed and change the entire structure of the reconstructed jet, even though the underlying jet is the same in both cases. As a result, it is difficult to do theoretical calculations using this algorithm and this motivated the development of a more sophisticated algorithm, defined below.
+
+Consider the set of all objects and all pairs of objects and calculate $d_{i}$ for each object and $d_{ij}$ for each pair using their angular coordinates and their transverse momentum relative to the beam.
+
+\begin{equation}
+d_{ij} = min(p^{2p}_{T,i},p^{2p}_{T,j})\frac{\Delta\eta^{2}_{ij}+\Delta\phi^{2}_{ij}}{R^{2}}
+\end{equation}
+
+\begin{equation}
+d_{i} = p^{2p}_{T}
+\end{equation}
+
+\noindent
+Here $p_T$ is the transverse momentum of the object, $\eta$ is the pseudorapidity, $\phi$ is the phi coordinate, $p$ is a parameter which scales the dependence of the $\pT$, discussed in more detail below, and $R$ is the characteristic size of the jet. In this analysis we use $R=0.4$. These elements $d_{ij}$ and $d_{i}$ are combined to form a list and the lowest value $d_{min}$ is chosen. If it is a $d_{ij}$, both objects i and j are removed from the list, combined and the combination inserted into the list. If $d_{min}$ is a single object, that object is considered a jet and removed from the list. The process repeats until all objects are removed from the list. As a result, every input object becomes either part of a jet or a jet itself. 
+
+The selection of the value for $p$ significant changes the function of the algorithm. The case where $p = 1$ is called the $k_T$ algorithm, and in this case low $\pT$ objects are the first to combine, making the shape of the jet sensitive to these low $\pT$ objects. This sensitivity means that this algorithm is infrared unsafe, that the result of the algorithm can change significantly if you add soft radiation. Instead, for this analysis we use the $anti-k_T$ algorithm where $p = -1$, which causes the highest momentum jets to be the first to combine with their neighbors. We can immediately see that two nearly collinear jet fragments will be among the first pairs to combined, which means that this algorithm will be collinearly safe. 
+
+In addition to being collinearly safe, the $anti-k_t$ algorithm is also infrared safe. Any soft radiation near a real jet will quickly be combined with a high energy neighbor, resulting in a single high energy potential jet fragment. The $anti-k_t$ algorithm is also defined such that two jets cannot share a detected object, as could be the case in the naive example given at the beginning of this section. Furthermore, the $anti-k_t$ algorithm is implemented in a computationally efficient way~\cite{AntiKtComputing}. These benefits create a compelling case to use the $anti-k_t$ algorithm.
+
+Once a list of jet candidates is created, a number of quality selection criteria are applied to ensure that they are physical jets that match the possible kinematics of the signal.
+
+There are several quality corrections applied, each of which is a small effect~\cite{JETCLEAN}. 
+\begin{list}{$\bullet$}{}
+
+\item Jets with negative energy represent jets that are unphysical and are removed from the event. 
+\item Jets that overlap electrons can represent a misreconstruction of an electron as a jet, thus a procedure is applied to reduce this effect. For each electron the $\Delta R$ between the electron and every positive energy jet is calculated. If there exists at least one jet with $\Delta R <0.2$ with respect to the electron, the jet closest to that electron is removed. 
+\item Any event which contains a jet marked as ``bad'' by the Jet quality criteria is removed. The ``bad'' label indicates jets that are likely to be from background events or detector effects, or in regions of the calorimeter that are not well understood. Overall this is an small effect. 
+\end{list}
+In addition, for this analysis jets are required to have $p_{T} > 30\ GeV$ and $|\eta| < 2.5$. The $\eta$ cut removes the forward portions of the detector from consideration, this region is more sensitive to the effects of \pileup, increasing the jet energy scale systematic effects described in Section~\ref{SECTION-SYSTEMATICS}. 
+
+\section{Missing transverse energy}
+\label{SECTION-MET}
+Neutrinos originating from the collision interact through the weak force with an effectively zero cross-section with the ATLAS detector. Consequently, it is impossible to detect them directly. Fortunately, the global kinematics of the interaction can reconstruct the portion of the momentum of the neutrino that is transverse to the beam line. 
+
+Consider the colliding protons. Almost the entirety of their initial momentum is along the beam line and little of the colliding system's momentum is transverse to the beam line. Since momentum is conserved, then the sum of the momenta perpendicular to the beam line must sum to zero. The momenta of all detected objects is summed vectorially and the 2-vector that cancels this extra momenta is called the MET (Missing Transverse Energy), or \MET. Note that because the assumption about the component of the neutrino only works transverse to the beam, there is no information on what the $p_{z}$ of the neutrino may be.
+
+The \MET\ is sensitive to confounding factors. Any energy not measured by the detector will lead to a mismeasurement of the \MET. As a result, a distinction is often made between \MET\ originating from a neutrino or other non-interacting particle and \MET\ from other sources such as a missed interacting particle, energy measurement errors, or \pileup\ effects.
+
+At ATLAS the \MET\ is calculated starting from the raw calorimeter measurements with corrections from the following categories of objects: electrons, jets, muons, and cell-out~\cite{MET}. Jets are split up into two different types: hard jets and soft jets. Hard jets have $p_T > 20\ GeV$ and soft jets have $20\ GeV > p_T > 7\ GeV$. All calorimeter energy fragments that were not reconstructed as part of an object are considered as cell-out objects. 
+
+In this analysis \MET\ is a useful tool for separating our signal from the backgrounds, as the signal has high \MET\ due to its two neutrinos. All of our backgrounds which do not have a neutrino in their final state will see significant reduction from an \MET\ cut, and in this analysis a hard cut of $\MET\ > 50\ GeV$ is placed on the events. 
+
+

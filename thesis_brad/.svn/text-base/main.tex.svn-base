@@ -1,0 +1,240 @@
+%% Before beginning to type your dissertation, read the formatting guide, 
+%% which can be found at http://grad.msu.edu/etd/docs/formattingguide.pdf
+%% Also get the latest version of  msuphddissertation.cls and the template file
+%% at http://www.math.msu.edu/~weil/MSU_Ph.D._Dissertation.zip
+%% Send questions to weil@math.msu.edu
+
+\documentclass{msuphddissertation} 
+\graphicspath{{figures/}}
+%\usepackage{todo}
+%\usepackage[hide]{todo}
+%\usepackage{epstopdf}
+\usepackage{lineno}
+\usepackage{subfigure}
+\usepackage{modatlasstyle}
+\usepackage{amsmath,amssymb,amsthm,paralist}
+\usepackage{extra_definitions}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{authblk}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{units}
+\usepackage{bigstrut}
+\usepackage{url}
+\usepackage{cancel}
+%\usepackage{ulem}
+\usepackage[table]{xcolor}
+\renewcommand\bibname{BIBLIOGRAPHY}
+\usepackage{lineno}
+\linenumbers
+
+%\usepackage{hyperref}
+%% Include other packages you wish to use except setspace. 
+%% That package is loaded automatically.
+%% IMPORTANT: Load only those packages you know you will use.
+%% Some packages can cause conflicts resulting in improper formatting.
+\author{Brad Schoenrock} %% Put your name in full as it is officially recognized by Michigan State University here.
+\title{SEARCH FOR STANDARD MODEL TOP QUARK AND Z BOSON ASSOCIATED PRODUCTION AT ATLAS} %% Put the title of your dissertation here.
+\munit{}
+%\munit{High Energy Physics} %% Put the name of the field of your degree (NOT department or division, or college) here.
+%% For example Dynamical Systems, Psychology, String Theory, etc.
+
+%% Put additional preamble items here.
+%%%%%% LANDSCAPE %%%%%%
+%% Put a page you want in landscape inside the environment msulandscape, 
+%% which is defined in msuphddissertation.cls. No extra package is needed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%  NOTE   %%%%%%%%%%%%%%
+%% PREPARING A DISSERTATION WITH THIS CLASS FILE DOES NOT %%%
+%% GUARANTEE THAT THE GRADUATE SCHOOL WILL APPROVE IT %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% WARNING %%%%%%%%%%%%%%%
+%% The Graduate School requires that all text, including superscripts %%
+%% and subscripts at all levels, as well as that in imported %%
+%% graphics files be in 12 point. For that reason it's recommended %%
+%% that no text be part of any imported files. %%
+
+%% Once your document has been filed with the Graduate School,
+%% if you wish to produce a version of it whose subscripts and superscripts
+%% are in traditional smaller proportion, remove the "%" sign 
+%% in front of following command. 
+%\DeclareMathSizes{12}{12}{10}{8}
+%% If your document has footnotes, remove the "%" sign 
+%% in front of following command. 
+%\renewcommand{\footnotesize}{\small}
+%% To single space your document, remove the 
+%% two commands \begin{doublespace}
+%% and \end{doublespace below.
+
+\begin{document}
+
+\maketitlepage %%This command will produce the title page of your thesis.
+\begin{abstract}
+
+This document reports the measurement of the top-quark $Z$-boson associated production cross-section using data from the ATLAS detector. The data used were collected during 2015, from proton-proton collisions with a 13 TeV center-of-mass collision energy. To isolate this production, selections are applied to find events with a specific final state. A cut-based analysis is used to isolate \tz~using a series of selections in several kinematic regions. A statistical analysis is performed to determine the measured cross-section and check that measured value with the standard model prediction. The resulting cross-section measurement is $\sigma_{tZ}$ = XYZ $\pm$ abc. 
+
+---changelog---
+
+\today
+
+Figures 1.7 and 1.8 updated font sizes. 
+
+line 912: this seems to repeat the beginning of section 6.3 - 
+
+
+% Type your abstract here. An abstract is REQUIRED and limited to two pages.
+%% The abstract must not include any figures.
+\end{abstract}
+
+%% If you wish to have a copyright page, remove the "%" in front of  \begin{copyrt}
+%% and remove the "%" in front of \end{copyrt}.
+%% The mandatory form of the Copyright will be generated automatically. 
+%% A copyright statement is optional.
+
+%\begin{copyrt}
+%\end{copyrt}
+
+%% If you wish to have a dedication, remove the "%" in front of
+%\begin{dedication}
+%Dedication goes here.
+%\end{dedication}
+%% A dedication must be single-spaced and 
+%% centered on the page.  Both will be done automatically. 
+\begin{dedication} 
+%To my wonderful, beautiful, loving, at times odd, but always supportive wife Rachel. 
+
+%I love you. 
+\end{dedication}
+%% If you wish to have an acknowledgment, remove the "%" in front of  \begin{acknowledgment}
+%% and remove the "%" in front of  \end{acknowledgment}  
+\begin{acknowledgment}
+
+%I would like to thank the following people. 
+
+%My family, specifically my parents. Without their guidance I would not be the person I am today. I often think they should have written a parenting book because of the remarkable example they have set for me. 
+
+%The members of the Wisconsin Trailblazers. Growing up around all of you showed me what hard work and kindness could accomplish. 
+
+%My wife Rachel, who has inspired me every day to accomplish all that I have. 
+
+%My high school teachers who took an interest in the education of every student they taught. They inspired me to be creative and investigative when I solved problems which were skills that served me well in graduate school and life. 
+
+%My undergraduate and graduate professors, specifically Dr. Tireman and Dr. Donovan who encouraged me to get involved with research as an undergraduate. 
+
+%My committee members who oversaw this research: Drs. Reinhard Schwienhorst, Kirsten Tollefson, Carl Schmidt, Norman Birge, and Gerd Kortemeyer. 
+
+%My advisor Reinhard Schwienhorst for his continued mentorship. 
+
+%All of the post docs and other students who I have had the pleasure of working with at MSU. Some of you helped me debug code while others gave me something to smile at every day. 
+
+%The entire ATLAS community without which there would be no experiment nor chance at answering the great questions. 
+
+
+\end{acknowledgment}
+\newpage
+%% If you wish to have a preface, remove the "%" in front of  \begin{preface}
+%% and remove the "%" in front of  \end{preface}  
+%\begin{preface}
+%% Type your acknowledgment here. An acknowledgment is optional.
+%\end{preface}
+
+\TOC
+
+%% If your document contains tables, remove the "%" in front of 
+%%  the following line.
+\listoftables
+
+%% If your document contains figures, remove the "%" in front of
+%% the following line.
+\LOF
+%% If any of your figures contain color, you must
+%% include the following disclaimer in the caption of your first figure.
+%% "For interpretation of the references to color in this and all other figures, 
+%% the reader is referred to the electronic version of this dissertation."
+
+%%%% LIST OF SYMBOLS AND ABBREVIATIONS %%%%
+%% Such a list is possible using the environment
+%% abbreviationskey
+%% at the place in the document where you wish the list to appear.
+% The list will be included in the TOC as KEY TO SYMBOLS AND ABBREVIATIONS
+%%%%%%%%%%
+
+\newpage
+\pagenumbering{arabic}
+\begin{doublespace}
+%\linenumbers
+
+\input{Introduction}
+\input{Experiment}
+\input{Triggers}
+\input{EventSimulation}
+\input{ObjectReconstruction}
+\input{Analysis}
+\input{Results}
+
+%\newpage
+%\vspace*{\fill}
+%\begin{center}
+%\Huge \textbf{APPENDICIES}
+%\end{center}
+%\vfill
+%\newpage
+%\appendix
+%\input{ControlRegions}
+%\input{BPrimeSearch}
+%\newpage
+%\appendix
+%\part*{Appendices}
+%\addcontentsline{toc}{part}{Appendices}
+%\input{ControlRegions}
+%\input{BPrimeSearch}
+%\clearpage
+%\newpage
+%% Put the body of your dissertation here. 
+%% DO NOT include  the bibliography
+%% If you wish to include one or more appendices, remove the "%" from the 
+%% following eight (8) lines.
+%\newpage
+%\vspace*{\fill}
+%\begin{center}
+%\Huge \textbf{APPENDICIES}
+%\end{center}
+%\vfill
+%\newpage
+%\appendix
+%%To start your first appendix, which will be labeled as Appendix A  
+%% just type \chapter{<appendix 1 name>}
+%%%%%%% A NOTE ABOUT APPENDICES %%%%%%%%%
+%% Some appendices may be single spaced such as survey examples or letters.
+%% Contact the Graduate School for details.
+%% To single space an appendix first remove the % from 
+%% the following two lines.
+% \end{doublespace}
+% \chapter{<appendix  name>}
+%% After entering the appendix remove the % from 
+%% the following line
+% \begin{doublespace}
+%% Any text entered now will be double spaced.
+\end{doublespace}
+
+%%Bibliography 
+
+\bibliographystyle{atlasnote}
+%\bibliographystyle{unsrt}
+\bibliography{bibmain}
+
+%% A bibliography is required. It may be made using BibTeX.
+%% If it's made from scratch,
+%% remove the "%" in front of \begin{thebibliography}{???}
+%% replacing the ??? with the appropriate entry and 
+%% remove the "%" in front of \end{thebibliography}
+% \begin{thebibliography}{???}
+%%  Enter the bibliography here.
+% \end{thebibliography}
+\end{document}

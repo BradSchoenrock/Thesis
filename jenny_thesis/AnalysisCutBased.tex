@@ -1,0 +1,142 @@
+\chapter{The Cut-Based Analysis}
+The separation of the $t$-channel single-top signal from its backgrounds has been performed with a cut-based analysis.  This analysis type typically requires a limited number of selections using a limited number of variables, so the selections that are made are strongly discriminating.  One advantage of a cut-based analysis is that it is relatively easy to interpret.  In this chapter, we discuss the kinematic regions (channels) chosen for this analysis as well as the selections and how they were determined.
+
+\section{Analysis Channels}\label{sec:channels}
+The analysis channels are chosen to be orthogonal (non-overlapping) kinematic regions.  We choose quantities for this that are discrete, specifically the jet number and lepton charge.  The background composition is closely related tot he number of jets in the evnet.  The $W$+jets and multijet backgrounds tend to have lower numbers of jets in the event while the \ttbar~background usually has four jets (although of course can also have less or more based on the $W$ decay, and jet reconstruction and \pt).  The "standard" t-channel single-top diagram has 2 or possibly 3 jets, so it is natural to look in these channels.  
+
+We also consider the lepton charge when creating analysis channels.  The LHC collides protons with protons and because protons are composed of two up and one down valence quarks, there is an excess of positively charged up valence quarks.  This translates into an excess of positively charged leptons in the case of the $t$-channel single-top diagram, which usually has a valence quark in the initial state.  Processes like $W$+jets also have some charge asymmetry, but others like \ttbar~form primarily from gluons in the initial state and do not.  Thus, this sort of channel separation helps to reduce the background in the positively charged lepton channel in particular and changes the background composition.
+
+\section{Analysis Method}
+Performing the cut-based analysis includes determining the choice of selections to be applied to each analysis channel.  Each channel has its selections optimized separately, although sometimes the final selections are the same for certain channels.
+
+\subsection{Selection Optimization}\label{sec:optimization}
+The optimization to determine the analysis selections for a given channel uses a significance criterion (this has not been used to determine a significance of the result, only to optimize the selections).  The analysis itself is a cross-section measurement analysis, so one might expect that a cross-section criterion would be used in the optimization.  However, expected cross-sections were calculated for several cut sequences and the ones with the lowest cross-section uncertainties also tended to have the lowest significances.
+
+The significance used includes the background uncertainties, and the calculation is very fast, which is important given the number of  variables and selection thresholds that are considered.  The method is a binomial significance method, also called Zbi, and is documented elsewhere~\cite{Zbi}.  This method is chosen over other common criteria, such as $\frac{S}{\sqrt{B}}$, because it is a real significance and includes systematic uncertainties.  The way it is implemented in this analysis is as suggested in the Zbi documentation~\cite{Zbi}, where $\sigma_b$ is the background systematic uncertainties, $N_b$ is the background yield and $N_{on}$ is the signal plus background yield.  These three parameters are the only inputs, so signal yield uncertainties are not included.  The value $p_{bi}$ is the probability, written in the form of ``the'' incomplete beta function~\cite{BetaIncomp} ($B_{incomp}$), as used in the analysis.  The significance is $Z_{bi}$ and written in terms of the error functions $Eff$:
+% and then in terms of more standard incomplete beta ($B_i$) and beta fuctions ($B$)
+\begin{eqnarray*}
+\tau &=& \frac{N_b}{\sigma_b^2} \\
+N_{off} &=& \tau*N_b \\
+p_{bi} &=& B_{incomp}(\frac{1}{1+\tau},~N_{on},~N_{off}+1) \\
+%       &=& B_i(\frac{1}{1+\tau}, ~N_{on} , ~N_{off}+1)/B (N_{on} , ~N_{off}+1) \\
+Z_{bi} &=& \sqrt{2}Eff^{-1}(1-2p_{bi}) \\
+\end{eqnarray*}
+%
+%\begin{verbatim} 
+%	  sigmab = TMath::Sqrt(backgroundUncertainties)
+%	  tau = bkgdYield/(sigmab*sigmab)
+%	  noff = tau*bkgdYield
+%	  non = signalYield + bkgdYield
+%	  
+%	  pbi = TMath::BetaIncomplete(1. / (1. + tau), non, noff + 1)
+%	  zbi = TMath::Sqrt(2)*TMath::ErfInverse(1-2*pbi)
+%\end{verbatim} 
+%where background is the sum of the squares of the uncertainties on the background, bkgdYield is the total background MC yield, and signalYield is the total signal MC yield.  These three parameters are the only inputs, so signal uncertainties are not included.  
+Not all of the background uncertainties are included for the purposes of the optimization, but several important ones are.  Included systematic uncertainties, discussed in Section~\ref{Sys}, are jet energy scale, b-tagging scale factor, mis-tagging scale factor, MC statistical, multijet background normalization, $W$+jets background normalization and flavor composition, and theoretical cross-section uncertainties.
+
+The optimization of the selections themselves is done in an iterative way.  For a particular variable, the significance is evaluated for about 300 different possible thresholds over the variable range.  For each histogram bin, an integral is taken in both the left and right directions, the equivalent of a selection that is less than or greater than the threshold.  The two significance options (less than and greater than) are stored in two corresponding histograms at that bin location. When all bins for a variable have been evaluated, the maximum significance for each case for the variable in question is reported.  After all the variables we are interested in are considered, the variable with the largest significance (and its associated threshold) is chosen.  This selection is applied to the sample and the process is repeated to choose successive selections.  Figure~\ref{fig:OPThreshold_cut} shows these histograms for an example variable (the reconstructed top mass).  The curve is relatively smooth and the choice of threshold is noted.  The threshold peak is relatively broad, so small changes to the MC do not significantly impact the cut selection.  
+
+\begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.55\textwidth]{figures/sigopt/SigOpt_2jetbothcharge_ueta20_lines2.eps}
+\vspace{-0.5cm}
+ \caption{Distribution of the significance (y-axis) for the reconstructed top mass, for the 2 jet channel after preselection.  The vertical lines show the optimal cut thresholds for the two selections shown (less than and greater than some reconstructed top mass value) and the arrows indicate the region that is kept after the selection is applied.}
+ \label{fig:OPThreshold_cut}
+ \end{figure}
+
+Additionally, selection sequences are considered that include the second best variable as the first selection, or other high significance variables for this or other selections.  This is because it is possible that the best selection and threshold from the first round may be a very harsh selection. After this selection, the statistics might be too low for further selections to improve the significance (considering the impact on the statistical uncertainties).  On the other hand, a different sequence, starting with a weaker cut but involving two other cuts, could, as a sequence, give a better uncertainty than the first sequence (one selection) did.  Still, it should be noted that even with this variation, not all possible cut sequences are tested and the method is biased towards selection sequences that start with strongly discriminating variables and cut thresholds.
+
+Because the method includes uncertainties (including MC statistical uncertainty) and involves integrals from a given bin to the end of a range, it is relatively insensitive to random fluctuations.  Additionally, the thresholds are rounded.  There is no particular reason that a selection on the reconstructed top mass of greater than 192.75 GeV, for example, should be much better than a selection at 190 GeV.  This then acts as a check on the selections reported by the automated method and gives a more realistic view of the detector resolution.
+
+\subsection{B-tagging Threshold and Cut-Based Selections}
+As discussed in Section~\ref{sec:Btag}, the b-tagging threshold choice can have a large impact on the analysis.  Although the yields were shown in that section, we can also evaluate the impact later in the analysis.  Here, the selection optimization is repeated for three different b-tagging operating points.  The best significance (for some associated threshold) for each variable is given, where each y-axis entry corresponds to some variable i.  Figure~\ref{fig:OPThreshold_bjet_cuts} shows this for the 3 jets channel with positively charged leptons, preselection only, and then preselection plus one of two strong selections on the reconstructed top mass or untagged jet $\eta$.  In all three cases, the higher operating point is favored.  This was not necessarily expected; it could have been that a looser operating point might have been paired with a tighter threshold for some variable to give a higher significance than a tighter operating point.  However, we can see that this is not the case.
+
+\begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.49\textwidth]{figures/sigopt/SigOP_nocut_3jetplus.eps}
+ \includegraphics[width=0.49\textwidth]{figures/sigopt/SigOP_topmass210_3jetplus.eps}
+ \includegraphics[width=0.49\textwidth]{figures/sigopt/SigOP_ueta20_3jetplus.eps}
+\vspace{-0.5cm}
+ \caption{Distribution of the significance (x-axis) for various variables (each y-axis entry is a separate variable), given a JetFitterCombNN b-tagging operating point, denoted by different marker shapes.  The plots are all for the 3 jets, positively charged lepton channel. The top left plot is preselection only, the top right is preselection plus a requirement that the reconstructed top mass be less than 210 GeV, and the bottom plot is preselection plus a requirement that the $|\eta|$ of the highest \pt~ untagged jet be greater than 2.0.  The 2.4 operating point is used in the analysis.}
+ \label{fig:OPThreshold_bjet_cuts}
+ \end{figure}
+
+\section{Selection Choices}\label{sec:selectionchoices}
+For this analysis, the optimal variables and selection thresholds consist of four different selections, where the last selection is different between the channels depending on jet number.  This is due to the much larger \ttbar~background in the 3 jet bin, which is better rejected by a different selection.  There is no difference in selection for this analysis based on the lepton charge, although it is not unreasonable that some difference in selection could happen based on lepton charge in a future analysis, because of the different background composition.
+
+The selections in common for all channels are: $|\eta({\rm j_{u}})|>2.0$, $150\GeV<M_{top}(\rm l\nu b)<190\GeV$ and , $H_{\mathrm{T}}>210\GeV$.  The 2 jet selection also requires $|\Delta\eta(\rm b, j_{u})| > 1.0$~ and the 3 jet selection requires $M(\mathrm{All Jets}) > 450\GeV$.  In the case of the three jet bin, the untagged light jet is taken to be the highest $p_{T}$ untagged jet in the final state.
+
+These selections have some physical justification.  The first selection makes use of the untagged jet.  Because the t-channel initial state usually contains a valence quark, the untagged jet in the final state is often energetic and close to the beam line, much more often than for the background processes.  Thus, we require the untagged jet to be forward.  The second selection simply requires the reconstructed top mass to be close to the measured value.  The single-top $t$-channel process only has one top quark so the decay products are the reconstructed W and the b-tagged jet (assuming we have identified this correctly).  In the case of the backgrounds, there either is no top quark, or there are too many and the correct decay products may not be matched together during the top reconstruction.  Thus, this selection also is a powerful discriminator.  The third common selection requires the sum of the transverse momenta of the final state particles to be large, which helps to reject lower energy $W$+jets or multijet events.
+
+The final selection is different for the different jet bins.  In the 2 jet bin, we require the b-tagged jet (associated with the top) and the untagged jet to be separated in $|\eta|$.  This  helps to reject backgrounds where the two jets may have come from a gluon or both from a top quark decay, and are more likely to be close together.  In the 3 jet bin, we require the invariant mass of the three jets to be large.  This is a particularly good discriminator against \ttbar~events, where these three jets may have come from a top quark, for instance.  In the t-channel single-top signal, we expect the untagged jet to be energetic and separated from the b-jet, leading to a potentially large invariant mass.
+
+The individual channel compositions after all cuts are shown in Figure~\ref{fig:tch_cut_pdgid} and distributions after all selections except the one on the variable pictured are shown in Figure~\ref{fig:Plot_2TagCuts} for the 2 jet selection and Figure~\ref{fig:Plot_3TagCuts} for the 3 jet selection.  In all three cases, the t-channel cross-section is normalized to the observed result formed using all four channels, discussed in Section~\ref{sec:fourchanresult}.
+%Include plots for plus and minus channels also, normalized to top and anti-top?
+
+\begin{figure}[!h!tpb]
+ \centering
+%\hspace{-0.3cm} 
+\includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_LeptonCharge_Channels__wflavorLepton_pdgId.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/Plot_Legend.eps}
+ \caption{Distribution of the lepton charge after the full cut-based selection for two jets and three jets.  These are the four primary analysis channels. The $t$-channel single-top contribution is normalized to the observed cross-section determined using all four channels. Other top refers to the $s$-channel and $Wt$ single-top contributions.}
+ \label{fig:tch_cut_pdgid}
+ \end{figure}
+
+ \begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_2jet1tag_cut__wflavorTopBJet1_mass.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_2jet1tag_cut__wflavorUJet1_Jet_eta.eps}
+
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_2jet1tag_cut__wflavorHt_Jet1Jet2LeptonMissingEt.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_2jet1tag_cut__wflavorDeltaEta_BJet1UJet1.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/Plot_Legend.eps}
+\vspace{-0.5cm}
+ \caption{Discriminating variables for the tagged sample for two-jets events after applying all cut based cuts except for the cut on the plotted variable.  The $t$-channel single-top contribution is normalized to the observed cross-section determined using all four channels. Other top refers to the $s$-channel and $Wt$ single-top contributions.  The last bin contains the sum of the events in that bin or higher. }
+ \label{fig:Plot_2TagCuts}
+ \end{figure}
+
+
+ \begin{figure}[!h!tpb]
+ \centering
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_3jet1tag_cut__wflavorTopBJet1_mass.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_3jet1tag_cut__wflavorUJet1_Jet_eta.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_3jet1tag_cut__wflavorHt_AllJetsLeptonMissingEt.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/PaperFinal_Datatchannorm_3jet1tag_cut__wflavorInvariantMass_AllJets.eps}
+ \includegraphics[width=0.46\textwidth]{figures/variables/Plot_Legend.eps}
+\vspace{-0.5cm}
+ \caption{Discriminating variables for the tagged sample for three-jets events after applying all cut based cuts except for the cut on the plotted variable. The $t$-channel single-top contribution is normalized to the observed cross-section determined using all four channels. Other top refers to the $s$-channel and $Wt$ single-top contributions.  The last bin contains the sum of the events in that bin or higher. }
+ \label{fig:Plot_3TagCuts}
+ \end{figure}
+
+Table~\ref{tab:tch_eventyields} shows the number of events after all cut-based analysis selections for the positive and negative lepton charge and number of jet channels.  The t-channel yield is the standard model expectation in this table.  All analysis systematic uncertainties are included in the reported yields.  The individual uncertainty contributions are discussed in Section~\ref{Sys}.
+
+Although we do not split the events by the lepton type when making analysis channels and determining the result, it is possible to investigate what the proportion of the different leptons is in this analysis.  There is no particular dependency on the lepton type inherent this analysis and we would expect the number of electrons and muons to be roughly equal.  To determine these numbers we use all of the analysis channels combined (plus and minus charge, two and three jets) after the cut-based selections, the $t$-channel single-top contribution is normalized to the observed cross-section determined using all four channels, and the multijets and W+jets contributions determined using the data-based normalizations.  The expected number of of events with muons is 204 and there are 182 corresponding data events observed.  For the electron selection, there are 181 events expected and 204 events observed in data.  These numbers are very similar and demonstrate the roughly one to one ratio of muons and electrons in this analysis.  The deviation of the electron yield from muon yield is about 10\%, which is well within the uncertainties for this analysis.  The systematic uncertainty on the total expected yield by channel is given in Table~\ref{tab:tch_eventyields} and is about 15 to 20\%, while the data statistical uncertainty is about 7 to 8\%.
+
+\begin{table}[!h!tpb]
+  \begin{center}
+     \begin{tabular}{lrr|rr}
+    \hline \hline
+        &\multicolumn{2}{c|}{Cut-based 2 Jets} &\multicolumn{2}{c} {Cut-based 3 Jets}  \\
+        & Lepton + & Lepton -  & Lepton + & Lepton -  \\
+
+    \hline \hline
+    $t$-channel            & $ 85.2 \pm 28.6 $ & $ 39.4 \pm 12.8 $ & $ 33.6 \pm 7.0$ & $ 14.6 \pm 6.2 $ \\
+    \hline                                                                       
+    $t\bar t$, Other top   & $ 14.0 \pm 6.4 $ & $ 12.8 \pm 4.2 $ & $ 10.5 \pm 4.2 $ & $ 10.7 \pm 7.9 $ \\
+    $W$+light jets         & $ 3.3 \pm 1.9 $   & $ 2.0 \pm 1.2 $ & $ 0.8 \pm 1.3 $ & $ 0.3 \pm 0.3 $ \\
+    $W$+heavy flavour jets & $ 39.1 \pm 10.6 $  & $ 27.1 \pm 7.5 $ & $ 8.7 \pm 6.0 $ & $ 3.4 \pm 3.1 $ \\
+    $Z$+jets, Diboson      & $ 1.1 \pm 0.8 $  & $ 1.0 \pm 0.8 $ & $ 0.3 \pm 0.2 $ & $ 0.2 \pm 0.3 $ \\
+    Multijets              & $ 0.2 \pm 0.2 $ & $ 0.3 \pm 0.3 $ & $ 1.5 \pm 1.1 $ & $ 3.1 \pm 2.0 $ \\
+    \hline    
+    TOTAL Exp              & $ 142.9 \pm 31.2 $ & $ 82.6 \pm 15.5 $ & $ 55.5 \pm 10.2 $ & $ 32.2 \pm 10.68 $ \\
+    S/B                    &  1.5  & 0.9 &  1.6 &   1.0  \\
+    \hline \hline
+    DATA                   &   193  &   101   &   53  &   39   \\
+    \hline \hline
+    \end{tabular}
+ \caption{Event yield for the two-jets and three-jets tag positive and negative lepton-charge channels after the 
+cut-based selection. The multijets and $W$+jets backgrounds are normalized to the data, all other samples are normalized
+to theory cross-sections (including single-top $t$-channel).  Uncertainties shown are systematic uncertainties. Other top refers to the $s$-channel and $Wt$ single-top contributions.
+\label{tab:tch_eventyields}}
+  \end{center}
+\end{table}

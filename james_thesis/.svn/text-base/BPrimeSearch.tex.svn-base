@@ -1,0 +1,371 @@
+\chapter{\bstar\ search}
+\label{SECTION-BPRIME}
+
+This appendix will describe another analysis I worked on. In this analysis I implemented the object definitions, the event selection, and most of the systematic uncertainties. I studied the potential templates we considered using and attempted to reconstruct the neutrinos using invariant mass constraints, although this is not effective enough to make it into the paper. This analysis has been accepted for publication in Physics Letters B, and will be published in the near future (preprint~\cite{BPRIMEPREPRINT}). It is a search for a hypothetical \bstar\ excited state using $4.7\ fb^{-1}$ of integrated luminosity. This search uses ATLAS data in the same final state as the \Wtchan\ analysis, hence the object definitions and event selection criteria will be similar to the \Wtchan\ analysis. In addition, this appendix will give an overview of the analysis with the focus being the significant differences between the two. As a result, some of the details in common with the \Wtchan\ analysis will be glossed over. For a full description of this search, please consult the ATLAS note for this analysis~\cite{BPRIMEINT}.
+
+\section{Introduction to \bstar}
+
+This analysis is motivated in part by the fine-tuning problem, which is illustrated by examining the Standard Model Higgs mass to a one loop correction~\cite{PDG}
+ 
+\begin{equation}
+m_{H}^2 = m_{H_0}^2 + \frac{kg^2\Lambda^2}{16\pi^2}.
+\end{equation}
+
+\noindent
+
+where $m_{H}$ is the observed Higgs mass, $m_{H_0}$ is an unmeasured fundamental parameter, $g$ is the electroweak coupling, $k$ is a constant expected to be $\mathcal{O}(1)$, and $\Lambda^2$ is tge energy scale of new physics. If $\Lambda$ is large, such as the Planck scale, then the $m_{H_0}$ parameter must be carefully balanced with the second term to cancel it out to give the observed Higgs mass. This is referred to as the fine-tuning problem in high energy physics. This amount of fine-tuning seems unnatural, thus it is suspected that there is other physics at work here. Theorists have made significant efforts to address this problem with models that modify the Standard Model to avoid the fine-tuning. Supersymmetry models describing massive supersymmetric partners~\cite{PDG} for every particle currently in the Standard Model are an example of such efforts.
+
+Instead of a new family of massive particles, smaller additions to the Standard Model are often considered~\cite{Nutter}. Because the largest corrections to the Higgs mass arise from the top quark in loops such as that shown in Fig.~\ref{FIGURE-HIGGSLOOP}, an excited state of the top quark can cancel out those corrections. In addition, if an excited top quark is added, an associated excited bottom quark should also exist. We may expect that the mass hierarchy of these excited states would mirror the hierarchy we see in the Standard Model, hence in this analysis we search for a single theoretical excited state of the bottom quark that will be referred to as \bstar. 
+
+\LARGEFIG{HiggsLoop}{A correction to the Higgs mass from the top quark.}{FIGURE-HIGGSLOOP}
+
+The experimental constraints on this \bstar\ state require it to be much more massive than the Standard Model particles. Due to this high mass some of the \bstar-state's most common decays lead to high mass final states. In general, the most common decay modes are expected to be $\bstar \to Zb$, $\bstar \to bg$, $\bstar \to bH$, and $\bstar \to Wt$. This analysis searches for the decay mode $\bstar \to Wt$, illustrated in Fig.~\ref{FIGURE-BPRIME-FEYNMAN}. This decay mode varies in branching ratio from about 20\% at low mass (200 GeV) to approximately 40\% at high \bstar\ masses (400 GeV). The theoretical cross-section for $p\bar{p} \to \bstar \to Wt$ production in the model~\cite{Nutter} at the LHC at 7 TeV are shown in Table~\ref{BprimeCrossSection}.
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{r r@{.}l|r r@{.}l}  \hline \hline
+mass point [$\GeV$] & \multicolumn{2}{c}{cross-section [pb]} & mass point [$\GeV$] & \multicolumn{2}{c}{cross-section [pb]}\\
+\hline
+300 & 181&2& 900 & 0&804  \\
+400 & 69&21& 1000& 0&394  \\
+500 & 24&45& 1100& 0&201  \\
+600 & 9&366& 1200& 0&106  \\
+700 & 3&884& 1300& 0&057 \\
+800 & 1&719& 1400& 0&031 \\
+\hline\hline
+\end{tabular}
+\caption{The total cross-section of $\bstar \rightarrow Wt$ in a mass range of 300 GeV to 1400 GeV.}
+\label{BprimeCrossSection}
+\end{center}
+\end{table}
+
+\FIG{bprime}{A Feynman diagram illustrated the \bstar\ decay investigated in this analysis.}{FIGURE-BPRIME-FEYNMAN}
+
+This analysis is constructed to be sensitive to generic resonances in the \Wt\ final state and observed deviations from the Standard Model may also be caused by other resonances. In addition, coupling limits are calculated for three potential \bstar\ models: a \bstar-state with only left-handed couplings, a \bstar-state with only right-handed couplings, and a vector \bstar-state with both right and left-handed couplings with equal magnitude. These limits are calculated on a two-dimensional plane along with the mass of the \bstar-state. An example of this plane can be seen in Fig.~\ref{FIGURE-BPRIME-LIMIT3} in Section~\ref{SECTION-BPRIME-MEASUREMENT}.
+
+Like the \Wtchan\ analysis, this analysis looks at the dilepton final state. This analysis uses the full 2011 dataset with updated simulation and systematic implementations. Another analysis was performed by a second group looking at the leptons+jets final state~\cite{BSTAR-LEPJETS}. These two analyses then collaborated to produce a unified result. The methods used to combine these two analysis will be discussed in Section~\ref{SECTION-BPRIME-MEASUREMENT}.
+
+\section{Simulation}
+\label{SECTION-BPRIME-SIMULATION}
+Because the final state in this analysis is the same as the final state in the \Wtchan\ dilepton analysis, the backgrounds for these analyses are identical, except that the \Wtchan\ is a Standard Model background to the \bstar\ process. The signal in this analysis is simulated using Madgraph5~\cite{MADGRAPH} for the generation and Pythia~\cite{PYTHIA} for the hadronization. In total 12 simulated samples are generated representing \bstar\ with masses from 300 GeV to 1400 GeV in 100 GeV increments. The cross-section of \bstar\ production is dependent on the mass point, and these cross-sections are given in Table~\ref{BprimeCrossSection}. In addition, dedicated simulation samples are generated to study the impact of the uncertainty in the initial and final state radiation modeling.
+The backgrounds are modeled using the same general scheme as the \Wt\ analysis, but updated to match the full 2011 ATLAS recommendations, described in the note~\cite{BPRIMEINT}. The full list of simulated samples is shown in Tables~\ref{TABLE-MCSAMPLES1},~\ref{TABLE-MCSAMPLES2}, and~\ref{TABLE-MCSAMPLESDiBoson}.
+
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+Description         & $\sigma$ [pb]  & $L_{int}$ [$fb^{-1}$] &  $N_{MC}$& Generator+Shower \\[1mm]
+\hline \hline
+$\bstar\to Wt$, $M_{\bstar}=300 \ GeV$, & 61.6 & 3.2 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=400 \ GeV$, & 23.5 & 8.5 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=500 \ GeV$, & 8.31 & 24 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=600 \ GeV$, & 3.18 & 63 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=700 \ GeV$, & 1.32 & 150 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=800 \ GeV$, & 0.58 & 350 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=900 \ GeV$, & 0.27 & 740 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1000\ GeV$, & 0.13 & 1500 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1100\ GeV$, & 0.07 & 2900 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1200\ GeV$, & 0.04 & 5000 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1300\ GeV$, & 0.02 & 10000 & 200k &MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1400\ GeV$, & 0.01 & 20000 & 200k &MadGraph+Pythia \\[1mm]
+\hline
+\hline\hline
+\end{tabular}
+\caption{\bstar\ simulated samples for the analysis. The cross-section column includes branching ratios. All \bstar\ simulated samples are generated with at least one leptonic \Wboson\ boson decay.
+}
+\label{TABLE-MCSAMPSIG1}
+\end{center}
+\end{table}
+
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+Description         & $\sigma$ [pb]  & $L_{int}$ [$fb^{-1}$]&  $N_{MC}$& Generator+Shower \\[1mm]
+\hline \hline
+$\bstar\to Wt$, $M_{\bstar}=300 \ GeV$, ISRFSR- & 61.6 & 3.3 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=400 \ GeV$, ISRFSR- & 23.5 & 8.5 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=500 \ GeV$, ISRFSR- & 8.31 & 23 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=600 \ GeV$, ISRFSR- & 3.18 & 63 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=700 \ GeV$, ISRFSR- & 1.32 & 150 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=800 \ GeV$, ISRFSR- & 0.58 & 340 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=900 \ GeV$, ISRFSR- & 0.27 & 740 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1000\ GeV$, ISRFSR- & 0.13 &  1500 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1100\ GeV$, ISRFSR- & 0.07 & 2900 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1200\ GeV$, ISRFSR- & 0.04 & 5000 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1300\ GeV$, ISRFSR- & 0.02 & 10000 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1400\ GeV$, ISRFSR- & 0.01 & 20000 & 200k & MadGraph+Pythia \\[1mm]
+\hline
+$\bstar\to Wt$, $M_{\bstar}=300 \ GeV$, ISRFSR+ & 61.6 & 3.3 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=400 \ GeV$, ISRFSR+ & 23.5 & 8.5 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=500 \ GeV$, ISRFSR+ & 8.31 & 23 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=600 \ GeV$, ISRFSR+ & 3.18 & 63 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=700 \ GeV$, ISRFSR+ & 1.32 & 150 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=800 \ GeV$, ISRFSR+ & 0.58 & 340 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=900 \ GeV$, ISRFSR+ & 0.27 & 740 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1000\ GeV$, ISRFSR+ & 0.13 & 1500 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1100\ GeV$, ISRFSR+ & 0.07 & 2900  & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1200\ GeV$, ISRFSR+ & 0.04 &  5000 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1300\ GeV$, ISRFSR+ & 0.02 &  10000 & 200k & MadGraph+Pythia \\[1mm]
+$\bstar\to Wt$, $M_{\bstar}=1400\ GeV$, ISRFSR+ & 0.01 &  20000 & 200k & MadGraph+Pythia \\[1mm]
+\hline
+\hline\hline
+\end{tabular}
+\caption{\bstar\ simulated samples for the analysis. The cross-section column includes branching ratios. All \bstar\ simulated events are generated with at least one leptonic \Wboson\ boson decay.
+}
+\label{TABLE-MCSAMPSIG2}
+\end{center}
+\end{table}
+
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+Description         & $\sigma$ [pb]  & $L_{int}$ [$fb^{-1}$] &  $N_{MC}$& Generator+Shower \\[1mm]
+\hline \hline
+\Wt\   all decays             & 15.74   & 13  & 200k         & MC@NLO+Herwig      \\[1mm]
+$Wt$ Less ISRFSR              & 15.74   & 19  & 300k         & ACERMC+Pythia      \\[1mm]
+$Wt$ More ISRFSR              & 15.74   & 19  & 300k         & ACERMC+Pythia      \\[1mm]
+$t\bar{t}$ no fully hadronic  & 89.71   & 17  & 1,500k         & MC@NLO+Herwig      \\[1mm]
+$t\bar{t}$ no fully hadronic  & 89.4    & 34  & 3,000k         & POWHEG+Herwig      \\[1mm]
+$t\bar{t}$ no fully hadronic  & 89.4    & 34  & 3,000k         & POWHEG+Pythia      \\[1mm]
+$t\bar{t}$ no fully hadronic Less ISRFSR  & 89.4 & 11 & 1,000k  & ACERMC+Pythia      \\[1mm]
+$t\bar{t}$ no fully hadronic More ISRFSR  & 89.4 & 11 & 1,000k  & ACERMC+Pythia      \\[1mm]
+\hline\hline
+\end{tabular}
+\caption{Top quark event simulated samples for the analysis. The cross-section column includes $k$-factors and branching ratios. All NLO simulated samples have been simulated with \pileup\ corresponding to 50~ns bunch trains.}
+\label{TABLE-MCSAMPLES1}
+\end{center}
+\end{table}
+
+\begin{table}[phtdp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+Description         & $\sigma$ [pb]  & $L_{in}$ [$fb^{-1}$] &  $N_{MC}$& Generator+Shower \\[1mm]
+\hline \hline
+$Z\to \ell\ell$ + 0 parton   & 827.4  &  8.0          &  6,600k & ALPGEN+HERWIG \\[1mm]     
+$Z\to \ell\ell$ + 1 partons  & 166.6  &  8.0          &  1,340k & ALPGEN+HERWIG \\[1mm]     
+$Z\to \ell\ell$ + 2 partons  & 50.4   &  5.7          &    285k & ALPGEN+HERWIG \\[1mm]     
+$Z\to \ell\ell$ + 3 partons  & 14.0   &  7.9          &    110k & ALPGEN+HERWIG \\[1mm]  
+$Z\to \ell\ell$ + 4 partons  & 3.4    &  8.8          &     30k & ALPGEN+HERWIG \\[1mm]  
+$Z\to \ell\ell$ + 5 partons  & 1.0    &  9.0          &     9k & ALPGEN+HERWIG \\[1mm]  
+\hline
+$W\to \ell\nu$ + 0 parton   & 8,296   &  0.4         &  3,500k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu$ + 1 partons  & 1,551   &  1.6         &  2,500k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu$ + 2 partons  &   452   &  8.3         &  3,770k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu$ + 3 partons  &   121   &  8.3         &  1,000k & ALPGEN+HERWIG \\[1mm]  
+$W\to \ell\nu$ + 4 partons  &  30.3   &  8.3         &    250k & ALPGEN+HERWIG \\[1mm]  
+$W\to \ell\nu$ + 5 partons  &   8.3   &  8.4         &     70k & ALPGEN+HERWIG \\[1mm]  
+\hline
+$W\to \ell\nu+b\bar{b}$ + 0 parton   & 54.7  &  8.7  &    475k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu+b\bar{b}$ + 1 partons  & 40.4  &  5.1  &    205k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu+b\bar{b}$ + 2 partons  & 20.0  &  8.8  &    175k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu+b\bar{b}$ + 3 partons  & 7.6   &  9.2  &     70k & ALPGEN+HERWIG \\[1mm] \hline
+\hline
+$W\to \ell\nu+c$ + 0 parton   & 517.6 &  1.7   &  860k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu+c$ + 1 partons  & 192.1 &  1.7   &  318k & ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu+c$ + 2 partons  & 51.0  &  1.7 &     85k& ALPGEN+HERWIG \\[1mm]     
+$W\to \ell\nu+c$ + 3 partons  & 11.9  &  1.7    &  20k & ALPGEN+HERWIG \\[1mm] 
+$W\to \ell\nu+c$ + 4 partons  & 2.8   &  1.8   &    5k & ALPGEN+HERWIG \\[1mm] 
+\hline\hline
+\end{tabular}
+\caption{Background simulated samples. Cross-sections include $k$-factor. 
+All NLO simulated samples have been simulated with \pileup\ corresponding to 
+50~ns bunch trains. }
+\label{TABLE-MCSAMPLES2}
+\end{center}
+\end{table}
+
+\begin{table}[phtdp]
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+ Description         & $\sigma$ [pb]  & $L_{int}$ [$fb^{-1}$] &  $N_{MC}$& Generator+Shower \\[1mm]
+\hline \hline
+$WW\to l\nu l\nu$ + 0 parton   & 2.0950    &    95     &  200k & ALPGEN+Herwig \\[1mm]     
+$WW\to l\nu l\nu$ + 1 partons  & 0.9962    &    100    &  100k & ALPGEN+Herwig \\[1mm]     
+$WW\to l\nu l\nu$ + 2 partons  & 0.4547    &     130    &  60k  & ALPGEN+Herwig \\[1mm]     
+$WW\to l\nu l\nu$ + 3 partons  & 0.1758    &     230    &  40k  & ALPGEN+Herwig \\[1mm]  
+\hline
+$WZ\to \ell\nu \ell\ell$ + 0 parton   & 0.6718  &  89          &  60k & ALPGEN+Herwig \\[1mm]     
+$WZ\to \ell\nu \ell\ell$ + 1 partons  & 0.4138  &  97          &  40k & ALPGEN+Herwig \\[1mm]     
+$WZ\to \ell\nu \ell\ell$ + 2 partons  & 0.2249  &  89          &  20k & ALPGEN+Herwig \\[1mm]     
+$WZ\to \ell\nu \ell\ell$ + 3 partons  & 0.0950  &  210          &  20k & ALPGEN+Herwig \\[1mm]  
+\hline
+$ZZ\to inclusive + \ell\ell$ + 0 parton   & 0.5086  &  79        &  40k & ALPGEN+Herwig \\[1mm]     
+$ZZ\to inclusive + \ell\ell$ + 1 partons  & 0.2342  &  85         &  20k & ALPGEN+Herwig \\[1mm]     
+$ZZ\to inclusive + \ell\ell$ + 2 partons  & 0.0886  &  230         &  20k & ALPGEN+Herwig \\[1mm]     
+$ZZ\to inclusive + \ell\ell$ + 3 partons  & 0.0314  &  320         &  10k & ALPGEN+Herwig \\[1mm]  
+\hline\hline
+\end{tabular}
+\caption{Background simulated samples. Cross-sections include $K$-factor. 
+All NLO simulated samples have been simulated with a pile-up corresponding to a 
+50~ns bunch trains (tag {\it r2920}). }
+\label{TABLE-MCSAMPLESDiBoson}
+\end{center}
+\end{table}
+\section{Object definition}
+\label{SECTION-BPRIME-OBJECTS}
+As in the \Wt\ analysis, the same basic objects types are considered: electrons, muons, jets, and missing transverse energy. These objects are constructed in the same manner as described in the main text, with some refinements that will be discussed below.
+
+The electron definition remains mostly the same with a few exceptions. A new electron identification criterion is used, called ``tightPP'' (tight plus plus). This is the result of re-optimizing the same tight algorithms using more data and a better understanding of the ATLAS triggering systems, giving an overall increase in detection efficiency. An additional step has also been added to the jet-electron overlap removal algorithm. After applying the old jet-electron cut of removing a single jet if there exists one within $dR < 0.2$ of an electron, electrons within $dR < 0.4$ of any jet are rejected. This makes the electron signal cleaner by removing electrons that may be contaminated by nearby jets.
+
+The muon definition remains the the same with optimizations to the quality definitions using new performance data.
+
+The jet definition adds a cut on the jet vertex fraction (JVF). This variable corresponds to how certain we are that a jet originated from the primary vertex. As jets are sensitive to \pileup, this cut reduces the impact of \pileup\ on the analysis. While \pileup\ was not a problem in the \Wt\ analysis, the data added when considering the full 2011 dataset contains many runs with much higher instantaneous luminosity, which increases the impact of the \pileup\ systematic uncertainty. While implementing this cut we also add a scale factor to renormalize the simulated samples. These scale factors are calculated using a tag and probe method choosing a selection which results in a high likelihood of having a high $p_T$ jet from the primary interaction. The difference between the predicted efficiency and the observed efficiency in this region are parametrized as a scale factor as a function of jet $p_T$. This scale factor also comes with a corresponding additional systematic uncertainty, described in Section~\ref{SECTION-BPRIME-MEASUREMENT}. 
+
+The \MET\ definition is also updated with the new data, taking into account the changes in the identification of the electrons, muons, and jets. 
+
+\section{Event selection}
+\label{SECTION-BPRIME-SELECTION}
+This analysis uses $4.7\ fb^{-1}$ of data at $\sqrt{s}= 7\ TeV$ collected with the ATLAS detector. The data are filtered to select only events during which all detectors were functioning normally with stable beam from the LHC. Like the \Wt\ analysis, events are selected from dielectron ($ee$), dimuon ($\mu\mu$), and electron-muon ($e\mu$) channels, and then eventually combined into one channel for the final analysis. 
+
+The same general event quality filtering is applied to the events as in the \Wt\ analysis, but several of the details have been updated in the full 2011 dataset. The cut due to malfunction in the LAr detectors during data taking is no longer explicitly made in the selection cuts, instead being accounted for in the generation of the simulated events. 
+
+The trigger selection and matching has been updated to account for the changing triggering conditions while running, and also to add trigger selection and matching criteria for the muons. The triggers for various periods are given in Table~\ref{TABLE-BPRIME-TRIGGER}.
+
+There is also an additional selection cut  of $M_{\ell\ell}>15~\gev$ added to the analysis. This cut has little impact on the selected events, but is required to allow an improvement in the \multijet\ estimation technique discussed in Section~\ref{SECTION-BPRIME-BACKGROUND}.
+
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{l|l}
+\hline
+Electrons &\\
+\hline
+Before period K & EF\_e20\_medium \\
+Period K & EF\_e22\_medium \\
+After period K & EF\_e22VHF\_medium1 OR EF\_e45\_medium1\\
+\hline\hline
+Muons &\\
+\hline
+Before period J & EF\_mu18 \\
+Period J and later & EF\_mu18\_medium\\
+\hline
+\end{tabular}
+\caption{The triggers for the electrons and muons for each data-taking period.}
+\label{TABLE-BPRIME-TRIGGER}
+\end{center}
+\end{table}
+
+
+\section{Background estimation}
+\label{SECTION-BPRIME-BACKGROUND}
+In this analysis the backgrounds were simulated using the same software as the \Wtchan\ analysis, with updated simulations of the ATLAS running conditions. The \ttbar, \Wt, and diboson backgrounds remain estimated using \MC\ techniques, while the \multijet, $Z \to \ell\bar{\ell}$, and \Ztt\ backgrounds use data-driven estimates to determine the normalization and simulated events to estimate the distribution shapes. The methodology used for the $Z \to \ell\bar{\ell}$ and \Ztt\ backgrounds is identical to that used for the \Wtchan\ analysis, but with an updated input dataset using the full $4.7 fb^{-1}$ luminosity. The \multijet\ estimation procedure is almost identical, but is improved by adding an additional requirement of $M_{\ell\ell}>15~\gev$ to minimize contamination from  $J/\Psi$ and $Y$.
+
+After selection in the 1-jet bin, 2190 events are expected and 2259 are observed, a good agreement between data and simulation within two $\sigma$ of data statistical uncertainty. This agreement also extends to each of the $ee$, and $\mu\mu$ subchannels, as shown in Table~\ref{TABLE-SELECTION-1JET}. The $\mumu$ channel has some disagreement, but it is consistent when data statistical uncertainties and $t\bar{t}$ theoretical modeling systematic uncertainties are considered (the generator, parton shower, and normalization uncertainties). Agreement in the kinematics of the event is also good, as shown in Figs.~\ref{FIGURE-BPRIME-KINEMATICS1} and~\ref{FIGURE-BPRIME-KINEMATICS2}.
+ 
+
+\begin{table}[htdp]
+\begin{center}
+   \begin{tabular}{lrrrr}
+    \hline
+    Process & $ee$ & $\mu\mu$ & $e\mu$ & all combined \\[1mm]
+    \hline 
+
+\hline
+    $\bstar_{400\ GeV}$ &     187.1 $\pm$ 3.6 &      394.5 $\pm$ 5.5 &      663.8 $\pm$ 6.9 &     1245.5 $\pm$ 9.6\\
+    $\bstar_{600\ GeV}$ &      34.4 $\pm$ 0.6 &       70.3 $\pm$ 0.9 &      105.9 $\pm$ 1.0 &      210.7 $\pm$ 1.4\\
+    $\bstar_{800\ GeV}$ &       6.9 $\pm$ 0.1 &       13.6 $\pm$ 0.2 &       20.1 $\pm$ 0.2 &       40.6 $\pm$ 0.3\\
+    $\bstar_{1000\ GeV}$ &       1.5 $\pm$ 0.0 &        3.0 $\pm$ 0.0 &        4.4 $\pm$ 0.0 &        8.9 $\pm$ 0.1\\
+    $\bstar_{1200\ GeV}$ &       0.4 $\pm$ 0.0 &        0.7 $\pm$ 0.0 &        1.1 $\pm$ 0.0 &        2.1 $\pm$ 0.0\\
+\hline
+    $Wt$         &      42.8 $\pm$ 1.8 &       97.6 $\pm$ 2.9 &      152.7 $\pm$ 3.5 &      293.2 $\pm$ 4.8\\
+    \TTB\        &     196.5 $\pm$ 2.3 &      470.2 $\pm$ 3.6 &      713.0 $\pm$ 4.4 &     1379.7 $\pm$ 6.1\\
+    Diboson  &      31.6 $\pm$ 1.2 &       96.6 $\pm$ 2.2 &      126.3 $\pm$ 2.5 &      254.6 $\pm$ 3.5\\
+    \Zee\    &      41.1 $\pm$ 4.1 &                negl. &                negl. &       41.1 $\pm$ 4.1\\
+    \Zmm\    &               negl. &      118.0 $\pm$11.8 &                negl. &      118.0 $\pm$11.8\\
+    \Ztt\    &       1.5 $\pm$ 0.7 &        3.7 $\pm$ 0.9 &        7.8 $\pm$ 1.3 &       14.2 $\pm$ 1.8\\
+    Fake lepton   &      78.0 $\pm$78.0 &        8.6 $\pm$ 8.6 &        3.2 $\pm$ 3.2 &       89.8 $\pm$89.8\\
+\hline
+    Total Bkg. Expected &     391.5 $\pm$78.2 &      794.9 $\pm$13.3 &     1003.0 $\pm$10.6 &     2190.5 $\pm$91.1\\
+    Total Observed &               347.0 $\pm$18.6 &                805.0 $\pm$28.4&               1107.0 $\pm$33.3 &               2259.0$\pm$47.5\\
+
+  \hline\hline
+   \end{tabular}
+ \caption{Observed and predicted event yields in the 1-jet bin after the preselection with an integrated luminosity of \LUMI. Fake dilepton and \Zjets\ background event yields are estimated from the data-driven techniques applied to the 1-jet bin. The errors shown include statistical error only (top pair, signal, dibosons) or statistical + systematic uncertainties (Drell-Yan, fakes).}
+\label{TABLE-SELECTION-1JET}
+\end{center}
+\end{table}
+
+\FIVEFIGLEG{paper_ll1j_MC11c_v11_LeadingLeptonPt_flat}{paper_ll1j_MC11c_v11_LeadingLeptonEta_flat}{paper_ll1j_MC11c_v11_SubLeadingLeptonPt_flat}{paper_ll1j_MC11c_v11_SubLeadingLeptonEta_flat}{legend}{Kinematic distributions of the signal region comparing data and background. (a) Leading lepton $\pT$, (b) Leading lepton $\eta$, (c) Sub leading lepton $\pT$ and (d) Sub leading lepton $\eta$ .}{FIGURE-BPRIME-KINEMATICS1}
+
+\FIVEFIGLEG{paper_ll1j_MC11c_v11_Jet1Pt_flat}{paper_ll1j_MC11c_v11_Jet1Eta_flat}{paper_ll1j_MC11c_v11_DeltaPhiLep1Lep2_flat}{paper_ll1j_MC11c_v11_DeltaRLep1Lep2_flat}{legend}{Kinematic distributions of the signal region comparing data and background. (a) Leading jet \pT, (b) Leading jet $\eta$, (c) $\Delta\phi$ between the two leptons and (d) $\Delta$R between the two leptons.}{FIGURE-BPRIME-KINEMATICS2}
+
+\section{Discriminant variable selection}
+\label{SECTION-BPRIME-DISCRIMINANT}
+After selection a discrimination template is chosen to analyze. For the \Wtchan\ analysis the template was the BDT distribution histogram, but this analysis does not use MVA techniques. This analysis is intended to be quicker and more straightforward than the \Wtchan\ analysis and adding a MVA technique requires a lot of cross-checks. It also is more difficult to do a MVA analysis when there are multiple mass points for the signal. Instead of training on a single signal sample, either a different methodology has to be developed to train for each mass point, or only one mass point is trained on, decreasing overall sensitivity.
+
+The choice of variable is critical to maximizing sensitivity, as its bins will be the only information the statistical tools will have as input. Consequently, we want to choose a variable with good signal/background separation. For the \bstar\ signal, the most obvious feature that stands out is the high mass of the resonance particle. Though the interacting particle itself is not directly detected by the ATLAS detector, this high mass is seen indirectly as a high transverse mass of the system. However, calculating the transverse mass of the system requires information of each individual particle in the system, which is not available for the neutrinos. As a result, we can only choose variables that approximate the transverse mass. Five of the most promising candidates for the discriminant are defined below, shown in order of increasing complexity:
+
+\begin{enumerate}
+\item \HT\ is defined as the scalar sum of all of the \pT\ of the jets, leptons and the \MET. This is the same variable as one of the input variables for the BDT for the \Wtchan\ analysis.
+\item $M_{T}^1 = \sqrt{\HT^2-(\pT^{sys})^2}$
+\item $M_{T}^2 = \sqrt{  \pT^{leptons+jet}\MET\   -  (\pT^{sys})^2 }$
+\item $M_{T}^3 = \sqrt{  E_{T}^{leptons+jet}\MET\   -  (\pT^{sys})^2}$ \newline where $E_{T}^{leptons+jet} = \sqrt{ (\pT^{leptons+jet})^2+(M^{leptons+jet})^2 }$, and leptons+jet represents the system composed of both leptons and the jets.
+\item $M_{T}^4 = \sqrt{ \left(\pT^{lep1}+\pT^{lep2}+\pT^{jet}+\frac{\MET}{cos(\Delta\phi(lep1,\MET))} +  \frac{\MET}{cos(\Delta\phi(lep2,\MET))}\right)^2-(\pT^{sys})^2}$
+\end{enumerate}
+
+These five variables are shown in Fig.~\ref{FIGURE-BPRIME-DISCRIMINANTS}. The sensitivity for each of these templates is evaluated using the template fitting procedure described in Section~\ref{SECTION-BPRIME-MEASUREMENT}. It is found that there is no improvement from any of the $M_T^n$ variables over \HT. Since \HT\ is straightforward and has an intuitive physical interpretation, this variable is used as the discrimination variable.
+\SEXFIGLEG{paper_ll1j_MC11c_v11_HT_flat}{paper_ll1j_MC11c_v11_M_T1_flat}{paper_ll1j_MC11c_v11_M_T2_flat}{paper_ll1j_MC11c_v11_M_T3_flat}{paper_ll1j_MC11c_v11_M_T4_flat}{legend}{The variables considered to be the discrimination template for the \bstar\ search.}{FIGURE-BPRIME-DISCRIMINANTS}
+\section{Measurement}
+\label{SECTION-BPRIME-MEASUREMENT}
+The systematics investigated in this analysis were applied with similar procedures as in the \Wtchan\ analysis. For details specific to this analysis, please see the note~\cite{BPRIMEINT}. This analysis has one additional systematic uncertainty that did not exist in the \Wtchan\ analysis. It is described below.\\
+
+{\noindent{\bf Jet Vertex Fraction}}
+
+The jet vertex fraction (JVF) is an estimate of the probability that a given jet originated from the primary vertex. If it did not originate from the primary vertex, it is assumed that it is a \pileup\ effect and is ignored. If the JVF cut applied to our events, an additional scale factor must be applied to match the simulated events to the observed data. This scale factor has an uncertainty associated with it, calculated by the {\sc TopJetUtils} package. These uncertainty scale factors are applied to the nominal sample, creating an alternate set of JVF systematic events.\\
+\\
+In this analysis a template shape fitting procedure is used to set limits on mass points and couplings. We do a binned likelihood analysis using the Bayesian Analysis Toolkit software package~\cite{Caldwell:2008fw}. This distribution is shown in both flat and log scale in Fig.~\ref{FIGURE-BPRIME-HT}. Figure~\ref{FIGURE-BPRIME-HTCOMPARE} compares the \HT\ signal distribution to the background distribution for selected \bstar\ mass points and Fig.~\ref{FIGURE-BPRIME-HTSYS} shows the effect of the JES systematic on the background compared to the observed data. The likelihood function is constructed by taking the product of the likelihood for each bin, shown in equation~\ref{eqn:lhoodtemp}.
+
+\TRPFIGLEG{paper_ll1j_MC11c_v11_HT_flat}{paper_ll1j_MC11c_v11_HT_logy}{legendbprime1}{(a) Comparison of data and predicted background $H_T$. (b) Comparison of data and predicted background $H_T$ at log scale.}{FIGURE-BPRIME-HT}
+
+\DBLFIGLEG{hackybstarHTratio}{legendbprime2}{Data and predicted background $H_T$ are shown. In addition, several signal-only $HT$ distributions at $M_{\bstar}$ = 300, 700, 1100 GeV are shown.}{FIGURE-BPRIME-HTCOMPARE}
+\DBLFIGLEG{hackybstarHTsysjes}{legendbprime3}{Comparison of JES shifted background $H_T$ with data.}{FIGURE-BPRIME-HTSYS}
+
+\begin{equation}
+  {\cal L}(data|\sigma_{pp\to \bstar \to Wt},\theta_i) = \prod_{k=1}^{N_{bin}} \frac{\mu_k^{n_k} e^{-\mu_k}}{n_k!}\prod_{i=1}^{N_{sys}}G(\theta_i,0,1) \hspace{0.3cm}
+  ,where \hspace{0.3cm} \mu_k = s_k + b_k
+\label{eqn:lhoodtemp} 
+\end{equation}
+
+\noindent
+Here the index $k$ loops over the bins of the \HT\ distribution, $\mu_k = s_k + b_k$ is the sum of the expected signal and background yield, $n_k$ is the number of observed events, the index $\imath$ loops over the systematics, and $G_i$ is a Gaussian model for each systematic. The prior probability for the cross-section is taken to be uniform. By integrating over the systematic nuisance parameters, the likelihood function becomes parametrized in terms of only the \bstar\ cross-section~\ref{eqn:lhoodn}.
+
+\begin{equation}
+  {\cal L}(data|\sigma_{pp\to \bstar \to Wt}) = \int  {\cal L}(\sigma_{pp\to \bstar \to Wt},\theta_1, ..., \theta_N)d\theta_1, ..., d\theta_N 
+\label{eqn:lhoodn}
+\end{equation}
+
+\noindent
+This likelihood function is converted to a posterior probability density using Bayes Theorem using our assumption that the prior probability of the cross-section is uniform. This posterior probability density is shown in equation~\ref{eqn:postprob}.
+
+\begin{equation}
+{\cal L}(\sigma_{pp\to \bstar \to Wt}|data) = {\cal L}(data|\sigma_{pp\to \bstar \to Wt})\pi(\sigma_{pp\to \bstar \to Wt}) 
+\label{eqn:postprob}
+\end{equation}
+
+\noindent
+ This posterior probability density has a maximum at the most likely cross-section given the data. However, in this analysis we do not expect to see a signal, and instead want to set exclusion limits. To do this we take the ratio of the integral of the posterior probability density from zero to $\sigma'$ to the integral of the posterior probability density from zero to infinity, and find the value of $\sigma'$ such that this ratio is equal to our exclusion criteria, in this case 0.95.
+
+\begin{equation}
+0.95 = \frac{\int_{0}^{\sigma'}
+{\cal L}(data|\sigma_{pp\to \bstar\to Wt})\pi(\sigma_{pp\to \bstar\to Wt}) d(\sigma_{pp\to \bstar\to Wt})} {\int_0^\infty
+{\cal L}(data|\sigma_{pp\to \bstar\to Wt})\pi(\sigma_{pp\to \bstar\to Wt}) d(\sigma_{pp\to \bstar\to Wt})}.
+\end{equation}
+
+\noindent
+This gives a 95\% cross-section limit for each mass point. These cross-section limits are interpolated using the theoretical relationship between the cross-sections and the \bstar\ mass. This procedure is performed using both the observed dataset and ensembles of pseudoexperiments from the background estimates to give observed and expected limits. This procedure combines the results from both the dilepton and lepton+jets analyses. The intersection between the observed (expected) cross-section limit and the theoretical cross-section gives the observed (expected) \bstar-quark mass limit. The cross-section limit for a maximal left-handed coupling is 870 GeV observed (910 GeV expected) and the associated exclusion plot is shown in Fig.~\ref{FIGURE-BPRIME-LIMITLEFTDILEP}.
+
+\VLARGEFIG{MC11c_v11HTcomblimit_vsMass}{$\bstar$ mass limit from the combined analysis, with an observed limit of $M_{\bstar} > 870\ GeV$ and expected limit of
+$M_{\bstar}> 910\ GeV$.}{FIGURE-BPRIME-LIMITLEFTDILEP}
+
+The cross-section limit is also calculated for the case where \bstar\ has only a maximal right-handed coupling and when it couples maximally both right- and left-handed. Here the cross-section limit in the right-handed case is 920 GeV observed (950 GeV expected). For the case where it has both maximal left and right-handed couplings, the cross-section limit is 1030 GeV observed (1030 GeV expected).
+
+We can also make our limits more general by allowing the $b\bstar$$\to g$ ($k^b_{L/R}$) and $\bstar$$\to Wt$ couplings ($g_{L/R}$) to vary independently. Here we investigate three cases: the case where we assume only left-handed couplings, the case where we assume only right-handed couplings, and the case where we assume equal right- and left-handed couplings. The two dimensional limits for each of these cases are given in Figs.~\ref{FIGURE-BPRIME-LIMIT1},~\ref{FIGURE-BPRIME-LIMIT2}, and~\ref{FIGURE-BPRIME-LIMIT3}.
+\VLARGEFIG{MC11c_v11HTcombobv_limit_vsMass3D}{The two dimensional coupling and mass limits for left-handed coupling \bstar.}{FIGURE-BPRIME-LIMIT1}
+\VLARGEFIG{MC11c_v11HTcombobv_limit_vsMass3DRight}{The two dimensional coupling and mass limits for right-handed coupling \bstar.}{FIGURE-BPRIME-LIMIT2}
+\VLARGEFIG{MC11c_v11HTcombobv_limit_vsMass3DVLQ}{The two dimensional coupling and mass limits for a combined left and right-handed coupling \bstar.}{FIGURE-BPRIME-LIMIT3}

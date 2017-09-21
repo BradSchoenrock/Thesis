@@ -1,0 +1,197 @@
+\chapter{Multivariate Analysis}
+\label{SECTION-MVA}
+After event selection it is clear that while there is excellent background rejection, there still remains a poor signal to background ratio of less than 20\% in the 1-jet bin. To increase the statistical significance of the analysis machine learning techniques are utilized, specifically multivariate analysis (MVA) techniques. Multivariate machine learning is a powerful tool in high energy physics where there is a large amount of data and many variables with intricate correlations. In a typical cut-based analysis, a small set of variables are chosen and cuts are optimized one at a time. Using multivariate techniques the amount of data that can be used and the sophistication of the analysis is increased significantly, allowing the analysis to gain much greater sensitivity than without a MVA. In addition, multivariate techniques take many variables as input and combine them into one strongly discriminating variable, making analysis much more straightforward for the human analyst. The construction and optimization of the boosted decision tree is one of my major contributions to this analysis.
+\section{Boosted decision trees}
+\label{SECTION-BDT}
+
+In this analysis boosted decision trees (BDT)~\cite{BDT} are trained using machine learning techniques implemented by the Toolkit for Multivariate Data Analysis with ROOT (TMVA)~\cite{TMVA}. To understand what a BDT is, first we will discuss a simpler classifier, the decision tree.
+
+A decision tree defines a series of cuts to classify events into signal enhanced regions and background enhanced regions. In Fig.~\ref{FIG-DECISION-TREE} an example decision tree is illustrated. In this example, let's see what happens to an event with $Jet_{1}\ p_T = 45\ GeV$ and $MET = 75\ GeV$. The first node compares its $Jet_{1}\ p_T$ with the threshold variable and as a result moves the event to the node on the right. At the next node its $MET$ is evaluated against the cut and as a result the event moves right to a signal-enhanced end node. This event is then assigned a numerical value based on the purity of that end node. The purity of the node is defined as the fraction of events in the node that are signal events.
+
+\FIG{DecisionTree}{An example of a decision tree is shown.}{FIG-DECISION-TREE}
+
+A decision tree can be trained with machine learning techniques. A set of variables is input to the algorithm, and at each decision node the cut that gives the best separation is chosen. This process is repeated recursively until an end point is reached, such as a minimum number of events to create an end node. By using machine learning, a much larger set of variables can be examined over their entire phase space. This machine learning process is referred to as training.
+
+A single decision tree is a useful tool, but it does have drawbacks: a decision tree can be strongly dependent on the input dataset, small changes in this dataset can lead to large changes in the output distribution, and a single decision tree may not be very powerful on its own. These problems can be addressed by training multiple trees each training with a random selection of your input variables. This method is called a random forest.
+
+An additional step is added to the process to improve signal/background separation even further by implementing a boosting procedure which assigns larger weights to the events it is most important to classify correctly. Boosting is performed between each tree training cycle. Each event initially starts with a weight $w$ corresponding to its contribution to the estimated normalization. After each tree is trained, events which are commonly misclassified have their weights increased and a new decision tree is trained using these new weights. This machine learning procedure is repeated iteratively until the specified number of trees have been trained. This procedure promotes the correct classification of even the most signal-like background events, and consequently sees greater separation than a simple single decision tree. 
+
+In this analysis the events are reweighted using the AdaBoost algorithm. Let 
+
+\begin{equation}
+err_m = \frac{sum\ of\ weight\ of\ misclassified\ events}{total\ weight\ of\ events}
+\end{equation}
+
+\noindent
+for a tree. Then the new weight of all misclassified events is multiplied by a boosting factor to give a new weight:
+
+\begin{equation}
+w_{new}(i) = \left(\frac{1-err_m}{err_m}\right)^\beta  \times w_{old},
+\end{equation}
+
+\noindent
+where $\beta$ is a constant. The misclassification rate is less than 0.5 because of the initial reweighting of the background and signal events, and consequently the boosting factor will always be greater than 1. The new set of weighted events are then renormalized so that the overall weight remains the same. The $\beta$ parameter is varied to find the optimal value for a given analysis.
+
+The Gini index $G$ determines the splitting cut on each node. This is defined for each node as:
+
+\begin{equation}
+G = \Bigg(\sum\limits_{i=1}^n W_i\Bigg)P(1 - P).
+\end{equation}
+
+\noindent
+Here $W_i$ is the weight of each event and $P$ is the fraction of the events belonging to the signal. The value $\Delta G = G_{parent} - G_{left\ child} - G_{right\ child}$ is then maximized for all possible choices of cuts.
+
+The number of variables that are available for each tree in training is modified to allow weaker variables an opportunity to participate in the overall MVA. Much like the boosting procedure, this can increase the overall separation power by increasing the discrimination on the most difficult to classify events. In practice this is done by randomly selecting a subset of the provided variables for each training iteration. 
+
+There are a number of conditions applied to determine when to stop training a given tree. One of the criteria is to have a minimum node size. If a node has fewer events than this limit, it becomes an end node. Eventually all nodes will be split such that they have fewer than the threshold number and the training ends. Another stopping condition is to set a limit on the depth of nodes. 
+
+The boosted decision tree has been chosen over other multivariate techniques for several reasons. It is a proven technique in the field, used by the single top discovery papers at D\O~\cite{SGTOP-D0} and CDF~\cite{SGTOP-CDF}. The trained classifier that is created is human readable, which allows a more intuitive understanding of the results. It is insensitive to poorly discriminating input variables and scales well with the number of input variables used, permitting a large number of variables to be used simultaneously. 
+
+
+\section{BDT variable kinematics}
+Approximately 70 variables were selected as candidate variables and evaluated by training a BDT on the simulated events. The top 22 variables were selected based on their separation power and how well modeled they were. The separation power $S$ of those variables is defined as~\cite{TMVA}: 
+
+\begin{equation}
+<S^2> = \frac{1}{2}  \int{\frac{(Y_S(y) - Y_B(y))^2}{(Y_S(y)+Y_B(y))} dy}.
+\end{equation}
+
+\noindent
+where $Y_{S}(y)$ is the probability that a signal event has a value $y$ for the variable and $Y_{B}(y)$ is the probability that a background event has a value $y$ for the variable. Table~\ref{TABLE-BDT-VARIABLE-DEFS} lists the variables and their definitions. Table~\ref{TABLE-BDT-VARIABLES} shows the variables' respective separation power. Figs.~\ref{FIGURE-BDT-VARIABLES1},~\ref{FIGURE-BDT-VARIABLES2}, and~\ref{FIGURE-BDT-VARIABLES3} show data-background agreement of these variables in the 1-jet bin. Distributions of these variables in the 2-jet and 3+jet inclusive bins are shown in Sections~\ref{APPENDIX-CONTROLREGIONS-2J} and~\ref{APPENDIX-CONTROLREGIONS-3J}. The 2-jet and 3-jet inclusive bins are dominated by the \ttbar\ background, and we take advantage of this to constrain the uncertainty on the normalization of \ttbar.
+
+\begin{table}[phtb]
+  \begin{center}
+    \begin{tabular}{|m{5cm}|m{10cm}|}
+      \hline
+      Variable       &  Definition  \\
+      \hline
+       $\pT^{sys}$                           &$\pT$ of the leading jet, the leptons, and the MET summed vectorially  \\\hline
+       $\sigma_{\pT^{sys}}$                  &     $\pT^{sys} / \sqrt{\HT + \Sigma E_t}$, where $\Sigma E_t$ is the scalar sum of all of the energy observed in the calorimeter    \\\hline
+       $Centrality(Lep1Lep2Jets)$              &   Centrality of the selected jets and leptons. Centrality is defined in Section~\ref{SECTION-CENTRALITY} \\\hline
+       $\eta^{Thrust}$                         &  $\eta$ of the thrust. Refer to Section~\ref{SECTION-THRUST} for details on thrust \\\hline
+       $\eta^{Lep1Lep2}$                       &  $\eta$ of the dilepton system \\\hline
+       $\eta^{Lep1Lep2Jet1}$                   &  $\eta$ of the dilepton and leading jet system \\\hline
+       $\eta^{Lep1}$                 &  $\eta$ of the leading lepton \\\hline
+       $E^{Lep1Lep2}$                          &  Energy of the dilepton system \\\hline
+       $H_T^{jets}$                            &  Scalar sum of the \pT s of the selected jets \\\hline
+       $\pT^{Lep1Lep2Jet1}$                 &  Transverse momentum of the system composed of the two leptons and the leading jet \\\hline
+       $Thrust$                                &  The thrust of the event. Refer to Section~\ref{SECTION-THRUST} for a definition of this variable \\\hline
+ $M^{Lep2Jet1}$                             &  Invariant mass of the subleading lepton and the leading jet \\\hline
+ $\eta^{Lep1Jet1}$                          & $\eta$ of the system of the leading lepton with the leading jet  \\\hline
+ $\eta^{Lep2}$                            &  $\eta$ of the subleading lepton \\\hline
+ $\eta^{Jet1}$                   &  $\eta$ of the leading jet \\\hline
+ $\Delta \phi (Lep,Jet1)_{min}$         &  The minimum difference in the phi coordinate between each of the leptons and the leading jet. \\\hline
+ $M^{Lep1Jet1}$                         &  Invariant mass of the leading lepton and leading jet system \\\hline
+ $\Delta \phi (Lep1Jet1,Lep2)$          &  The difference in the phi coordinate between the leading lepton and leading jet system and the sub leading lepton \\\hline
+ $E_T^{MISS}$                           &  The missing transverse energy, discussed in detail in~\ref{SECTION-MET} \\\hline
+ $\Delta\eta (Lep1,Jet1)$               &  The difference in the eta coordinate between the leading lepton and the leading jet \\\hline
+ $\Delta R(Lep2,Jet1)$                  &  The opening angle between the sub leading lepton and the leading jet \\\hline
+ $M(LepJet1)_{max}$                    &  The maximum invariant mass of each of the leptons with the leading jet  \\\hline
+      \hline\hline
+    \end{tabular}
+    \caption{A listing of the variables (see text for definition) used in the BDT and their respective definitions.}
+    \label{TABLE-BDT-VARIABLE-DEFS}
+  \end{center}
+\end{table}
+\begin{table}[phtb]
+  \begin{center}
+    \begin{tabular}{lr|lr}
+      \hline
+      Variable         &  Separation          & Variable       & Separation \\
+      \hline
+       $\pT^{sys}$                           & 6.76\%     & $M^{Lep2Jet1}$                             & 1.42\%   \\ 
+       $\sigma_{\pT^{sys}}$                  & 6.17\%     & $\eta^{Lep1Jet1}$                          & 1.32\%   \\ 
+       $Centrality(Lep1Lep2Jets)$              & 3.82\%     & $\eta^{Lep2}$                            & 1.24\%  \\
+       $\eta^{Thrust}$                         & 3.43\%     & $\eta^{Jet1}$                   & 1.13\%  \\
+       $\eta^{Lep1Lep2}$                       & 3.19\%     & $\Delta \phi (Lep,Jet1)_{min}$         & 1.05\%  \\
+       $\eta^{Lep1Lep2Jet1}$                   & 2.94\%     & $M^{Lep1Jet1}$                         & 8.797e-03  \\
+       $\eta(Lep1)$                 & 2.58\%     & $\Delta \phi (Lep1Jet1,Lep2)$          & 8.404e-03  \\
+       $E(Lep1Lep2)$                          & 2.56\%     & $E_T^{MISS}$                           & 7.615e-03  \\
+       $H_T^{jets}$                            & 2.38\%     & $\Delta\eta (Lep1,Jet1)$               & 7.071e-03  \\
+       $\pT(Lep1Lep2Jet1)$                 & 2.31\%     & $\Delta R(Lep2,Jet1)$                  & 5.571e-03  \\
+       $Thrust$                                & 2.01\%     & $M^{LepJet1}_{max}$                    & 5.519e-03  \\
+
+      \hline\hline
+    \end{tabular}
+    \caption{A listing of the variables (see text for definition) used in the BDT and their respective separation power.}
+    \label{TABLE-BDT-VARIABLES}
+  \end{center}
+\end{table}
+\SEXFIGLEG{paper_ll1j_LP2fb_v4_pT_sys_flat}{paper_ll1j_LP2fb_v4_pT_sys_sig_flat}{paper_ll1j_LP2fb_v4_AllJetsLepton_Centrality_flat}{paper_ll1j_LP2fb_v4_ThrustEta_flat}{paper_ll1j_LP2fb_v4_SystemLep1Lep2_eta_flat}{legend}{The top five variables in the BDT ranked by separation power. In these histograms the data are compared to the simulated background estimate in the 1-jet bin.}{FIGURE-BDT-VARIABLES1}
+
+%{paper_ll1j_LP2fb_v4_eta_sys_lepsJet1_flat}
+
+\SEXFIGLEG{paper_ll1j_LP2fb_v4_eta_sys_lepsJet1_flat}{paper_ll1j_LP2fb_v4_LeadingLeptonEta_flat}{paper_ll1j_LP2fb_v4_SystemLep1Lep2_E_flat}{paper_ll1j_LP2fb_v4_HT_AllJets_flat}{paper_ll1j_LP2fb_v4_pT_sys_lepsJet1_flat}{legend}{The 6th-10th top variables in the BDT ranked by separation power. In these histograms the data are compared to the simulated background estimate in the 1-jet bin.}{FIGURE-BDT-VARIABLES2}
+
+\SEXFIGLEG{paper_ll1j_LP2fb_v4_Thrust_flat}{paper_ll1j_LP2fb_v4_InvariantMass_Lep2Jet1_flat}{paper_ll1j_LP2fb_v4_SystemLep1Jet1_eta_flat}{paper_ll1j_LP2fb_v4_SubLeadingLeptonEta_flat}{paper_ll1j_LP2fb_v4_Jet1Eta_flat}{legend}{The 11th-15th top variables in the BDT ranked by separation power. In these histograms the data are compared to the simulated background estimate in the 1-jet bin.}{FIGURE-BDT-VARIABLES3}
+
+\SEXFIGLEG{paper_ll1j_LP2fb_v4_DeltaMinPhiLeptonLeadingJet_flat}{paper_ll1j_LP2fb_v4_InvariantMass_Lep1Jet1_flat}{paper_ll1j_LP2fb_v4_DeltaPhi_SLep1Jet1_Lep2_flat}{paper_ll1j_LP2fb_v4_MET_flat}{paper_ll1j_LP2fb_v4_DeltaEtaLeadingLeptonLeadingJet_flat}{legend}{The 16th-20th top variables in the BDT ranked by separation power. In these histograms the data are compared to the simulated background estimate in the 1-jet bin.}{FIGURE-BDT-VARIABLES4}
+
+\TRPFIGLEG{paper_ll1j_LP2fb_v4_DeltaRSubLeadingLeptonLeadingJet_flat}{paper_ll1j_LP2fb_v4_InvariantMass_MaxLepJet1_flat}{legend}{The 21st and 22nd top variables in the BDT ranked by separation power. In these histograms the data are compared to the simulated background estimate in the 1-jet bin.}{FIGURE-BDT-VARIABLES5}
+
+\subsection{Thrust}
+\label{SECTION-THRUST}
+The thrust variable is defined as a vector with a direction that represents an axis that maximizes the sum of the positive parallel components of the momenta of the selected leptons and jets and a magnitude that represents the fraction of the momentum in the event in this direction. It is calculated by first searching for the thrust axis. Eta and phi are searched in 0.05 increments defining a potential thrust axis. For each selected lepton and jet, the momentum parallel to the axis is calculated. To reduce the impact of back-to-back objects, we consider only the positive contributions to the thrust vector. Therefore if the parallel momentum is positive, it is summed with the others, and otherwise it is discarded. After the summation is complete, the thrust is calculated by dividing this value by the scalar sum of all selected objects' momenta. The eta and phi combination that maximizes this value defines the thrust vector.
+
+\subsection{Centrality}
+\label{SECTION-CENTRALITY}
+Centrality is a measure of the fraction of the momentum of the jets and leptons that is transverse to the beam line. It is defined by taking the selected lepton and jets and calculating the scalar sum of the transverse momenta divided by the scalar sum of the total momenta.
+
+\subsection{Motivation for variable choice}
+\label{SECTION-OTHER}
+This section will discuss the reasoning that went into selecting the candidate variables for the BDT. Figures~\ref{FIGURE-BDT-WTCHAN} and~\ref{FIGURE-BDT-TTBAR} show the two most important processes: \Wtchan\ and \ttbar. The final state for these two processes is similar, except \ttbar\ has an extra jet. If one of its jets is lost during reconstruction, then it becomes similar to a \Wtchan\ event. Almost all of the variables chosen were selected to differentiate between the subtle differences between these two processes. 
+
+First, all of the kinematic information from each of the final state objects is considered as a variable. Although none by itself provides good separation, together with one of the more complex variables it may prove to be useful to the BDT. This is shown to be true for \MET and the $\eta$ of the leptons and jet.
+
+Two of the variables $p_T^{sys}$ and $\sigma_{\pT^{sys}}$, measure the vector sum of the $\pT$ of the hard interaction and the \MET. If the second jet of a \ttbar\ event interacted with the calorimeter, but did not meet the jet selection criteria, it would have a high $p_T^{sys}$ and $\sigma_{\pT^{sys}}$. On the other hand all of the \Wtchan's final state particles must be detected to meet the selection criteria. As a result it should have relatively low $p_T^{sys}$ and $\sigma_{\pT^{sys}}$ since there are no high $\pT$ objects not meeting the selection criteria. The $p_T^{Lep1Lep2Jet1}$ variable is also chosen to discriminate between \Wtchan\ and \ttbar\ on the basis of the difference in the $p_T$ distributions.
+
+Another set of variables considered is angular correlations between the final state particles. The two leptons and the jet in the \ttbar\ and \Wtchan\ final states will have different angular correlations due to the existence of the second top decay in \ttbar. For this reason the variable list contains many different $\eta$ and $\phi$ correlations between final state particles and combinations of final state particles. 
+
+Due to the two neutrinos in the final state, the reconstruction of the invariant mass of the \Wboson bosons or the top quark is not possible. A sophisticated method trying to use invariant mass constraints to reconstruct the neutrinos was attempted, but did not provide accurate results. Instead, the only information we have is the estimate of the vector sum of their $p_T$s, the \MET. Consequently, there are no variables using neutrino kinematic information and only a few variables using information from the less powerful \MET.
+
+Calculations of the invariant mass of a lepton with the jet, however, are useful in identifying which of the leptons originates from the top quark. The lack of information about the neutrinos means that these invariant masses do not have great resolution, but they still provide some information. Although both the \ttbar\ and \Wtchan\ processes have a top quark decaying, once the lepton associated with the top has been identified, variables associated with the other lepton may prove to improve separation. This is the kind of physics that MVAs are useful for, as by themselves these variables provides little information, but in combination with other variables they help provide good separation. 
+
+%The two top quarks in the \ttbar\ process also imply that variables looking at invariant mass may be useful in discriminating \ttbar\ from \Wtchan. An invariant mass between a lepton and the jet may give slight separation if it contains information on whether there was a second top decay. Several of the final variables contain different ways of trying to calculate this invariant mass by making assumptions about which lepton would be associated with the top jet. 
+
+%One of the first observations is that \ttbar\ is a higher energy process than \Wtchan. The energy required to create two top quarks is higher than the energy required to create a top quark and a \
+
+\FIG{wtchannelfull}{The decay chain of an example \Wtchan\ event. It has a finale state with one b-quark, two oppositely signed leptons, and two neutrinos}{FIGURE-BDT-WTCHAN}
+
+\FIG{ttbar}{The \TTbar\ process. It has a final state with two b-quarks, two oppositely signed leptons, and two neutrinos.}{FIGURE-BDT-TTBAR}
+
+\section{Optimization and cross checks}
+\label{SECTION-OURBDT}
+Overtraining is caused by an MVA which has been trained to the point where it is sensitive to statistical fluctuations in the simulated events. The result is that if the same trained MVA is used to evaluate a new set of simulated events generated under identical conditions, then it would output a different distribution. The consequences of using an overtrained MVA can range from using a poorly-optimized MVA in the analysis resulting in lower significance to an outright bias in the results. When training a BDT, it is important to ensure that one does not overtrain on the available simulated events.
+
+To evaluate if a prospective BDT is overtrained, only half of the input simulated events are used for the training, and after the training is complete both halves are run through the BDT independently. The resulting distributions are compared in a Kolmgorov-Smirnov test~\cite{KS}. If the K-S test shows disagreement, defined as a K-S test result $< 0.5$ for either the signal or background distribution, the trained BDT is determined to be overtrained and is discarded. The overtraining plot and K-S test values for the final BDT are shown in Fig.~\ref{FIGURE-BDT-OVERTRAINING}. The solid areas represent the sets of events used for testing, while the dots represent the sets of events used for training. It is seen from the K-S test values that these are in good agreement.
+
+\VLARGEFIG{overtrain_BDT}{The classifier output for the training and test samples for signal (in blue) and background (red). The signal has K-S test value of 0.866 while the background has a K-S test value of 0.941. }{FIGURE-BDT-OVERTRAINING}
+
+The MVA is optimized by maximizing the separation of signal and background while avoiding overtraining. A number of parameters are adjusted in the course of this optimization. An iterative procedure is performed to optimize this BDT, in which the BDT parameters in Table ~\ref{TABLE-BDT-PARAMETERS} are adjusted based on whether the current training resulted in an overtrained BDT or not. The procedure is repeated until further iterations results in no improvement in the significance. 
+
+\begin{table}[phtb]
+  \begin{center}
+    \begin{tabular}{|m{5cm}|l|l|}
+      \hline
+      Parameter       &  Value  & Step size\\
+      \hline \hline
+      Number of trees trained (number of boosting cycles) & 300 & 20 \\ \hline
+      Minimum number of events in an end node & 500 & 20\\ \hline
+      Maximum depth of tree & 2 & 1 \\ \hline
+      AdaBoost parameter ($\beta$) & 1.0 & 0.1 \\ \hline
+      Number of cuts sampled & 8 & 1\\ \hline
+      \hline
+    \end{tabular}
+    \caption{The parameters used in final optimized BDT.}
+    \label{TABLE-BDT-PARAMETERS}
+  \end{center}
+\end{table}
+
+The values selected for the BDT parameters in the final optimized BDT and their step size are listed in Table~\ref{TABLE-BDT-PARAMETERS}. The depth of the trees ended up being surprisingly shallow. My interpretation of this is that the BDT for this set of variables is sensitive to pairs of variables. For example, the invariant mass example above where one variable gives information about which lepton is the top, and the next makes a separating cut based on that information. Unfortunately, it seems that the BDT is not sensitive to deeper relationships between variables.
+
+\VLARGEFIG{CustomROC}{The signal selection efficiency vs total background rejection using the BDT classifier output. The solid blue line is from the BDT, while the long dotted line is from a simple cut-based optimization using the two most powerful variables. The short dotted line is the effect of a cut from a hypothetical variable with zero separation power to show a worst case scenario.}{BDT-PERFORMANCE}
+
+\QUADFIGLEG{paper_ll1j_BDTResponse}{paper_ll2j_BDTResponse}{paper_ll3jinc_BDTResponse}{legend}{The BDT classifier output (a) in the 1-jet bin (b) in the 2-jet bin (c) in the 3-jet inclusive bin. The simulated events are represented by the solid regions, while the data are represented with a black dot.}{BDT-RESULT}
+
+The signal selection efficiency vs background rejection is shown in Fig.~\ref{BDT-PERFORMANCE}. This Fig. contains not only the performance of the BDT compared with no selection, it also contains the efficiency of a simple cut-based analysis done using the top two discriminating variables. Although this is a difficult problem, the gains from using the BDT are seen by comparing it this a cut-based analysis. In Fig.~\ref{BDT-RESULT} the difficulty of classifying events are seen even more clearly. Few of the signal events have a BDT response of $> 0.2$, and none have a response $> 0.4$. 
+
+The BDT by itself does not give good separation between signal and background. However, in the next section we will take advantage of the improved separation of the binned BDT response distribution by modeling it with a likelihood function. 

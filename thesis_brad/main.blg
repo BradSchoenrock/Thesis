@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: main.aux
+The style file: atlasnote.bst
+Database file #1: bibmain.bib
+Warning--empty note in SGTOP-XS
+Warning--empty note in Timeline
+Warning--empty note in SGTOP-DIAG
+Warning--empty note in LHCchain
+Warning--empty note in LHC-Tunnel
+Warning--empty note in ATLAS-OPEN
+Warning--empty note in Pequenao:1505342
+Warning--empty note in Figure-Atlas
+Warning--empty note in ASalzburger
+Warning--empty note in ATLAS-Endcap-magnet
+Warning--empty note in Figure-InnerDetector
+Warning--empty note in Figure-Calo
+Warning--empty note in Figure-Muon
+Warning--empty note in ATLAS-TGC-wheel
+Warning--empty author and editor in MAGNET
+Warning--empty author and editor in TDR1
+Warning--empty author in Electrons
+Warning--empty note in ElEffiRecomm
+Warning--empty author in Muons
+Warning--empty author in ATL-PHYS-PUB-2015-022
+You've used 93 entries,
+            2318 wiz_defined-function locations,
+            1082 strings with 16282 characters,
+and the built_in function-call counts, 20104 in all, are:
+= -- 2050
+> -- 557
+< -- 6
++ -- 240
+- -- 147
+* -- 1339
+:= -- 2538
+add.period$ -- 129
+call.type$ -- 93
+change.case$ -- 25
+chr.to.int$ -- 0
+cite$ -- 113
+duplicate$ -- 1190
+empty$ -- 2301
+format.name$ -- 147
+if$ -- 5320
+int.to.chr$ -- 0
+int.to.str$ -- 93
+missing$ -- 226
+newline$ -- 323
+num.names$ -- 88
+pop$ -- 549
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 688
+stack$ -- 0
+substring$ -- 596
+swap$ -- 342
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 20
+while$ -- 138
+width$ -- 95
+write$ -- 744
+(There were 20 warnings)
