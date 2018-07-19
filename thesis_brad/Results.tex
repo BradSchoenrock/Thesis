@@ -1,54 +1,209 @@
 \chapter{Results}
 \label{SECTION-RESULTS}
 
-statistics likelihood and more functions hcpss stats talks
+Bayesian address the question everyone is interested in by using assumptions no one believes. Frequentest use impeccable logic to deal with an issue of no interest to anyone. - L.Lyons
 
-Bayesian address the question everyone is interested in by using assumptions no one believes. Frequentest use impeccable logic to deal with an issue of no interest to anyone. -L.Lyons
+\vspace{5mm} %5mm vertical space
 
-cookies are good...
+A single bin profile likelihood calculation is performed to extract limits on the \tz~\xs~at the 95\% confidence limit using roostats~\cite{ROOSTAT}. Profile likelihood calculations can produce confidence intervals on non-normal distributions more accurately than maximum or partial likelihood functions~\cite{st0132} and for this reason they have become a popular statistical method for high energy physics. However, before we can do this evaluation, a series of systematic uncertainties must be adressed and evaluated. The expected sensitivity to larger data-sets from the LHC is also evaluated. 
 
 \section{Systematic Uncertainties}
+\label{SECTION-systematics}
+
+Systematic uncertainties on the object reconstruction, event reconstruction, normalization, and theoretical modeling affect the acceptance and expected event yield for each source. Tables~\ref{tab:systematicsMODEL} and~\ref{tab:jetsystematics} contain evaluated uncertainties. Some uncertainties are symmetric in nature, while others have distinct up and down variations. Nearly all uncertainties have been symmetrized either because of practical reasons (their effect is small so we can simplify them or they happen to come out symmetric) or for theoretical reasons (there is a physical motivation for them to be symmetric). For these symmetric systematic uncertainties both up and down variations are considered and the greater of the two is used~\cite{TOPCOMMONSYSTEMATICS}. 
+
+\begin{itemize}
+
+\item Luminosity - The uncertainty on the integrated luminosity is $\pm$2.1\%. It is obtained from Van Der Meer scans are performed in which the beam positions in the $x-y$ plane are varied~\cite{Balagura:2011yw,Aad:2013ucp}.
+
+\item Pile Up - Pile up is discussed briefly in Chapter~\ref{SECTION-TRIGGERS}. Here we need to evaluate how well we estimate the degree to which pile up interferes with our ability to distinguish events from each other. This is one of the few uncertainties that was not symmetrized having different uncertainties for the up and down variations~\cite{JETUNCERTAINTIES}. 
+
+\item Lepton efficiency scale factors - Leptons from our simulated Monte Carlo samples are needed to replicate our data in identification criteria (Electron ID, Muon ID Systematic, and Muon ID Statistics), isolation criteria, and trigger simulation (Electron Trigger, Muon Trigger). A prescription for how to assess this uncertainty is provided by the EGamma (which evaluates electrons and photons) and Muon groups which are derived from $Z->\ell\ell$ samples.~\cite{ELECTRON-RECO,muonSFWiki}
+
+\item Electron calibration - Electron momentum scale (Electron Scale) and resolution (Electron Resolution) are handled separately from lepton efficiency scale factors. Scale corrections are derived for data and smearing corrections for Monte Carlo. These corrections assess the systematic uncertainties associated with the processing of photons, and in this case, electrons~\cite{Fayard:2060328}. %(EG_SCALE_ALL) (EG_RESOLUTION_ALL)
+
+\item Muon calibration - Muon momentum scale and resolution are handled separately from lepton efficiency scale factors. Muon track identification (Muon track ID), transverse momentum scale (Muon Scale), and resolution (Muon Resolution) are corrected as well as~\cite{muonSFWiki}. %MUONS SCALE MUONS MS MUONS ID
+
+\item \met~calibration - Lepton and jet energy and momentum scale and resolution uncertainties propagate into calculations of \met~(giving MET Scale and MET Resolution). How we include soft tracks into this calculation corresponds to a source of uncertainty~\cite{METWiki}.
+
+%There are three sources of uncertainties that manifest from comparing the soft track components of \met~to the hard track components. The vector sum of hard objects creates an axis known as ptHard. The three sources are the scale of the soft tracks shifted along ptHard, the \PT~smearing of soft tracks along ptHard, and the \PT~smearing of soft tracks perpendicular to ptHard. The MissingETUtility tool is used to evaluate these effects.~\cite{METWiki}
+
+\item Jet energy scale (JES) - JES  and  its  uncertainty  are  derived  combining  information from test-beam data, collision data, and simulation. The JES uncertainty is split into several orthogonal components using $in situ$ techniques resulting in independent effective uncertainties. This is determined with 8 TeV data and extrapolated to 13 TeV running conditions~\cite{ATL-PHYS-PUB-2015-015}.
+%NPScinario1 Grouped NP stuff
+
+\item Jet energy resolution (JER) - The precision with which a jet's energy is measured has an uncertainty associated with it. A mis-modeling of this energy resolution can lead to varying acceptances in final state kinematics~\cite{ATL-PHYS-PUB-2015-015,JERWiki}.
+
+\item \bjet~tagging - \btag ing scale factors are used on a per-event basis to correct \btag ing efficiency. This is determined with 8 TeV data and extrapolated to 13 TeV running conditions using three independent eigenvectors for the efficiency of \bjet s, \cjet s, and light jets as well as two parameters to account for the extrapolation from 8 to 13~TeV~\cite{Aad:2015ydr}.
+
+%A 6 element eigenvector is needed for the efficiency of \bjet s, a 4 element eigenvector is needed for the efficiency of $c$-jets, and a 12 element eigenvector is needed for the efficiency of light jets. 
+
+\item Initial-state radiation and final-state radiation (ISR/FSR) - ISR/FSR is evaluated on the \TTB~sample by varying the renormalization and factorization scales up and down by a factor of two from the nominal value of 1. This process is done to \TTB~because it is the dominant background to single top analyses and is small when compared to other uncertainties that affect the other backgrounds. 
+
+%(RADHI and RADLO) 
+
+\item NLO subtraction - The uncertainties of how the NLO subtraction method is applied is evaluated on the \TTB~sample. Powheg and aMC@NLO are two tools that are used to calculate higher order corrections. A comparison of the two tools applied to \TTB~is used to estimate this uncertainty.
+% aMcAtNloHerwigpp
+
+\item Parton showering (PS) and Hadronization - The uncertainty on parton showering and hadronization is evaluated by comparing the cluster model in Herwig and the Lund string model in Pythia applied to \TTB. A comparison of the two techniques implemented in these tools is used to estimate the uncertainty on this process. 
+%PowhegHerwigppEvtGen
+
+\item Parton Distribution Function (PDF) - The uncertainties that come from the choice of PDF is evaluated on the \TTB~sample by comparing PDF4LHC15 and CT10. 
+%PowhegPythia8
+
+\item Normalization - Normalization uncertainties for Diboson and \zjets~are estimated from control regions. For \TTB~\cite{ttbarxsecUNCERT}, single top~\cite{sgtopxsecUNCERT}, and \ttz~\cite{ttVxsecUNCERT}, theory uncertainties on scale variations, PDF, and top-quark mass are used.
+
+\item MC Statistics - The uncertainty due to limited statistics in our simulated samples is assessed by taking the sum of the square of the weights of each event in each sample. When selecting for a narrow piece of phase space in order to look for small signals as is done in this analysis, it becomes increasingly difficult to both separate signal from background and maintain meaningful statistics both for MC and data.
+
+
+\end{itemize}
+
+
+
+
+\begin{table} [ht!]
+\setlength{\tabcolsep}{2pt}
+\footnotesize
+\centering
+\begin{tabular}{| l | c | c | c | c | c | c | c |}
+\hline
+\hline
+Systematics & $t\bar{t}$ & Other Top & $Z$ + jets & Diboson & $tZ$ & background total \\
+\hline
+\hline
+
+Pile Up UP & -11\% & 64\% & 94\% & 10\% & -2.4\% & 5.8\% \\
+Pile Up DOWN & 2.1\% & -13\% & 6.8\% & 1.8\% & 0.69\% & 1.3\% \\
+
+\hline
+Normalization & $\pm $ 5.5\% & $\pm $ 10\% & $\pm $ 20\% & $\pm $ 20\% & $\pm $ - & $\pm $ 10\% \\
+\hline
+
+MC Statistics & $\pm $ 8.3\% & $\pm $ 9.2\% & $\pm $ 47\% & $\pm $ 3.0\% & $\pm $ 1.6\% & $\pm $ 9.9\% \\
+
+\hline
+
+PDF & $\pm $ 4.3\% & - & - & - & - & $\pm $ 2.3\% \\
+PS and Hadronization & $\pm $ 0.86\% & - & - & - & - & $\pm $ 0.46\% \\
+NLO subtraction & $\pm $ 20\% & - & - & - & - & $\pm $ 11\% \\
+ISR/FSR RadLo & 27\% & - & - & - & - & 14\% \\
+ISR/FSR RadHi & -24\% & - & - & - & - & -11\% \\
+
+\hline
+\hline
+
+\end{tabular}
+\caption{Systematic uncertainties related to background normalization and theory modeling. Other Top is the combination of \TTB V and single top.}
+\label{tab:systematicsMODEL}
+\end{table}
+
+
+
+\clearpage
+
+
+
+\begin{table} [ht!]
+\setlength{\tabcolsep}{2pt}
+\footnotesize
+\centering
+\begin{tabular}{| l | c | c | c | c | c | c | c |}
+\hline
+\hline
+Systematics & $t\bar{t}$ & Other Top & $Z$ + jets & Diboson & $tZ$ & background total \\
+\hline
+\hline
+
+
+Muon ID Systematic & $\pm $ 0.57\% & $\pm $ 0.90\% & $\pm $ 1.1\% & $\pm $ 0.90\% & $\pm $ 1.0\% & $\pm $ 0.77\% \\
+\hline
+
+Muon ID Statistics & $\pm $ 0.48\% & $\pm $ 0.90\% & $\pm $ 0.57\% & $\pm $ 0.60\% & $\pm $ 0.69\% & $\pm $ 0.570\% \\
+\hline
+
+Electron ID & $\pm $ 2.6\% & $\pm $ 1.8\% & $\pm $ 1.1\% & $\pm $ 1.5\% & $\pm $ 1.7\% & $\pm $ 2.1\% \\
+\hline
+
+Electron Trigger & $\pm $ 2.1\% & $\pm $ 5.4\% & $\pm $ 6.8\% & $\pm $ 1.8\% & $\pm $ 0.69\% & $\pm $ 1.3\% \\
+\hline
+
+Electron Reconstruction & $\pm $ 1.2\% & $\pm $ 0.90\% & $\pm $ 1.1\% & $\pm $ 0.90\% & $\pm $ 0.69\% & $\pm $ 1.0\% \\
+\hline
+
+Electron Scale & $\pm $ 1.7\% & $\pm $ 3.8\% & $\pm $ 0\% & $\pm $ 1.2\% & $\pm $ 0\% & $\pm $ 0.99\% \\
+\hline
+
+Electron Resolution & $\pm $ 0.86\% & $\pm $ 2.9\% & $\pm $ 0\% & $\pm $ 0.30\% & $\pm $ 0.34\% & $\pm $ 0.72\% \\
+\hline
+
+Muon Scale & $\pm $ 0.48\% & $\pm $ 2.1\% & $\pm $ 0.57\% & $\pm $ 0.60\% & $\pm $ 0.69\% & $\pm $ 0.57\% \\
+\hline
+Muon Resolution & $\pm $ 0.48\% & $\pm $ 7.0\% & $\pm $ 2.8\% & $\pm $ 0.90\% & $\pm $ 0.69\% & $\pm $ 0.41\% \\
+\hline
+Muon track ID & $\pm $ 1.3\% & $\pm $ 1.9\% & $\pm $ 0.57\% & $\pm $ 0.60\% & $\pm $ 0.69\% & $\pm $ 0.82\% \\
+\hline
+
+MET Scale & $\pm $ 0.67\% & $\pm $ 0\% & $\pm $ 0\% & $\pm $ 0.60\% & $\pm $ 0.34\% & $\pm $ 0.46\% \\
+\hline
+MET Resolution & $\pm $ 1.3\% & $\pm $ 0\% & $\pm $ 0\% & $\pm $ 0\% & $\pm $ 0.34\% & $\pm $ 0.77\% \\
+\hline
+
+JER & $\pm $ 4.7\% & $\pm $ 4.5\% & $\pm $ 130\% & $\pm $ 8.4\% & $\pm $ 1.40\% & $\pm $ 10\% \\
+\hline
+
+bTagSF \bjet s& $\pm $ 5.7\% & $\pm $ 1.2\% & $\pm $ 1.1\% & $\pm $ 0.30\% & $\pm $ 1.2\% & $\pm $ 3.2\% \\
+
+\hline
+
+bTagSF \cjet s & $\pm $ 0.48\% & $\pm $ 1.3\% & $\pm $ 6.0\% & $\pm $ 10\% & $\pm $ 0\% & $\pm $ 2.0\% \\
+
+\hline
+
+bTagSF light jets & $\pm $ 1.7\% & $\pm $ 2.1\% & $\pm $ 12\% & $\pm $ 13\% & $\pm $ 1.0\% & $\pm $ 2.4\% \\
+
+\hline
+
+JES 1 up & 1.2\% & -3.0\% & 150\% & 9.6\% & 0\% & 15\% \\
+JES 1 down & -4.7\% & -3.0\% & 130\% & 8.4\% & 1.3\% & 10\% \\
+
+JES 2 up & 0.76\% & -2.1\% & 290\% & 4.5\% & 0.34\% & 27\% \\
+JES 2 down & -2.1\% & -1.2\% & 0\% & -3.4\% & 0\% & -1.7\% \\
+
+JES 3 up & 4.1\% & -0.90\% & 190\% & 10\% & 0.69\% & 20.90\% \\
+JES 3 down & -4.6\% & 2.1\% & 0\% & -10.0\% & -0.69\% & -4.1\% \\
+
+\hline
+\hline
+\end{tabular}
+\caption{Systematic uncertainties related to object identification, resolution, and scale. Other Top is the combination of \TTB V and single top.}
+\label{tab:jetsystematics}
+\end{table}
+
+
+
+\clearpage
+
+
 
 \section{Statistical Analysis}
+\label{SECTION-stats}
 
-\section{Conclusions}
+Maximum likelihood ratio tests are among the most used methods in statistics because of their strength in hypothesis testing and generality. A popular variant of this method is the profile likelihood ratio test which considers nuisance parameters which are not of primary interest ($\theta$) to be functions of the  parameter which is of interest ($\beta$). The parameter of interest, $\beta$, in this case is defined as the ratio of the measured cross section to the standard model cross section. The nuisance parameters, $\theta$, are measures of systematic uncertainties which are modeled by Gaussian statistics. By profiling we simplify the problem of finding $\beta$ and $\theta$ which optimizes the likelihood function in Equation~\ref{EQUATION-MaxLike} to constrain $\theta = f(\beta )$ so that we can optimize Equation~\ref{EQUATION-ProfLike} which is often a preferable procedure when only one nuisance parameter is important.
 
-\section{more citations}
+\begin{equation}
+\mathcal{L}(\beta ,\theta |data) 
+\label{EQUATION-MaxLike}
+\end{equation}
 
-This section is just my notes for where some more useful citation are. 
+\begin{equation}
+\mathcal{L}(\beta ,f(\beta )|data)
+\label{EQUATION-ProfLike}
+\end{equation}
 
-TOPCOMMONOBJECTS~\cite{TOPCOMMONOBJECTS}
+Because we have only one parameter which needs to be optimized for a profile likelihood fit is performed. This procedure is further simplified by only considering a distribution of a single bin. This simplification makes the profiling of the nuisance parameters easy, as each is simply a Gaussian, not dependent on the parameter of interest at all. These nuisance parameters are treated as correlated between sources of signal and background in the optimization procedure. The signal \xs~is then extracted from the likelihood function. The extracted \xs~measurement is $\sigma_{tZ}$~=~448~$\pm$~672~(stat)~$\pm$~448~(syst)~fb. This is 1.9 times the expected Standard Model \xs~of 236~fb which is due to the data excess over the expected background shown in Table~\ref{tab:eventyieldFullSelec}. Because of the large uncertainties this is still in agreement with the standard model expectation. This corresponds to an upper bound at the 95\% confidence limit on the \tz~\xs~of $\sigma_{tZ}$ = 1345~fb. A lower bound can not be set due to large systematic uncertainties. The most notable systematic uncertainties in this analysis are the experimental uncertainties JES and JER, MC statistics for samples that have a mis-reconstructed lepton, and normalization uncertainties.  
 
-TOPMET~\cite{TOPMET}
+\section{Outlook}
+\label{SECTION-outlook}
 
-JES~\cite{JES}~\cite{JESnew}
+In order to estimate the potential sensitivity to \tz~with increased data collection, a series of simplified statistical analyses is performed. Systematic uncertainties are removed in order to see the effects of increased statistics in an idealized way. The expected yields obtained by this analysis are scaled up by a factor of 10 to estimate the expected precision of the cross-section measurement with the full 2016 data set, which corresponds to an integrated luminosity of approximately 30~\fb. The expected yields are then also scaled up by a factor of 100 in order to estimate the expected precision of the cross-section measurement with the full Run~2 and Run~3 data set, which corresponds to an integrated luminosity of approximately 300~\fb. When this is performed with the event yields of this analysis we can get an expected uncertainty on the \xs~of 150\%. With the full 2016 data set the expected uncertainty drops to 50\%. With the full set of run 2 data the expected uncertainty falls to 20\%. This analysis is currently statistics limited, but with the full run 2 data set we will become systematics limited. The most immediate gains can be made from increasing MC statistics, with longer-term gains to be made from better understanding JES and JER. To improve the sensitivity of this analysis, more complex multivariate analysis methods could be employed, the profile likelihood could be performed on a strong discriminating distribution, and/or control regions could be fit and included in the statistical analysis. Beyond that we will need to wait for the LHC to deliver more data in order to put further constraints on the \tz~\xs. 
 
-ATLAS-LUMI~\cite{ATLAS-LUMI}
 
-ROOSTAT~\cite{ROOSTAT}
-
-JETUNCERTAINTIES~\cite{JETUNCERTAINTIES}
-
-LUMIPLOTS~\cite{LUMIPLOTS}
-
-TOPCOMMONSYSTEMATICS~\cite{TOPCOMMONSYSTEMATICS}
-
-JESUNCERTAINTYSOFTWARE~\cite{JESUNCERTAINTYSOFTWARE}
-
-JRE~\cite{JRE}
-
-ELECTRONENERGYSYSTEMATICS~\cite{ELECTRONENERGYSYSTEMATICS}
-
-MUONENERGYSYSTEMATICS~\cite{MUONENERGYSYSTEMATICS}
-
-TOPMET~\cite{TOPMET}
-
-PLRcite~\cite{PLRcite}
-
-ProfileWiki~\cite{ProfileWiki}
-
-KS~\cite{KS}
-
-ProfileLikelihoodUncertainty~\cite{ProfileLikelihoodUncertainty}
-
-BAT~\cite{BAT}

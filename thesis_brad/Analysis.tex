@@ -1,91 +1,185 @@
 \chapter{Analysis}
 \label{SECTION-ANALYSIS} 
 
-After the $Z$-boson, the top-quark, the $W$-boson from the top-quark decay, and the neutrino from the $W$-decay are reconstructed as described in Chapter~\ref{SECTION-OBJ} they were used to help separate \tz~from the various backgrounds. The energies and positions of each of these objects in our detector, as well as the multiplicity of the objects, was used to achieve this seperation. The decisions made in the preselection and cut flow were informed by the kinematics of the \tz~process. The \tz~Feynman diagram is shown in Figure~\ref{FIGURE-tZ}. 
+Let's think the unthinkable, let's do the undoable. Let us prepare to grapple with the ineffable itself, and see if we may not eff it after all. -Douglas Adams
+
+\vspace{5mm} %5mm vertical space
+
+After the \az, the \at, the \aw~from the \at~decay, and the neutrino from the \aw~decay are reconstructed as described in Chapter~\ref{SECTION-OBJ}, they are used to help separate \tz~from the various backgrounds. The energies and momenta of each of these objects in our detector, as well as the multiplicity of the objects, are used to achieve this seperation. The decisions made in the preselection and cut flow are informed by the kinematic properties of the \tz~process. The \tz~Feynman diagram is shown in Figure~\ref{FIGURE-tZ}. 
+
 
 
 \section{Preselection}
 \label{SECTION-PRESELECTION}
 
-One goal in setting up an analysis is to understand the background model in relation to the observed data. To acomplish this defining characteristics of the signal region were determined in order to limit the number of monte carlo samples needed. Because the signal has three leptons and a $Z$-boson, cuts on the number of leptons and $Z$-mass (for instance) were applied to limit any contribution from certain low lepton multiplicity non $Z$-boson sources ($W$-boson+jets, multijets, etc...). 
+One goal in setting up an analysis is to understand the background model in relation to the observed data. To accomplish this, defining characteristics of the signal region are determined in order to limit the number of \MC~samples needed. Because the signal has three leptons and a \az, cuts on the number of leptons and \azhyph~mass (for instance) are applied to limit any contribution from certain low lepton multiplicity non-\azhyph~sources such as \aw +jets and multijets. 
 
-The following cuts were optimized to improve agreement between data and the background model while maintaining as much signal statistics as possible. 
+The following cuts are optimized by maximizing $S/\sqrt{B}$ where $S$ is the total expected signal contribution and $B$ is the total expected background contribution. This is done to improve agreement between data and the background model while maintaining as much signal statistics as possible. 
 
 \begin{itemize}
-\item Exactly 3 leptons with \PT \textgreater~ 10GeV.
-\item At least one OSSF pair.
-\item 80GeV \textless~ Z mass \textless~ 100GeV. Figure~\ref{TRIPFIG3}
-\item Leading lepton \PT \textgreater~ 40 GeV. Figure~\ref{TRIPFIG1}
-\item Second lepton \PT \textgreater~ 20GeV. Figure~\ref{TRIPFIG1}
-\item Third lepton \PT \textgreater~ 10GeV. Figure~\ref{TRIPFIG1}
-\item 2, 3, or 4 jets with \PT \textgreater~ 25GeV. Figure~\ref{TRIPFIG2}
-\item Leading jet \PT \textgreater~ 40GeV. Figure~\ref{TRIPFIG2}
-\item Exactly 1 b-jet at 85\% WP. Figure~\ref{TRIPFIG2}
-\item MET \textgreater~ 20GeV. If the Transverse \textless~ 40GeV then MET \textgreater~ 40GeV is required. Figure~\ref{TRIPFIG3} Figure~\ref{TRIPFIG3}
+\item Exactly 3 leptons with \PT~\textgreater~10~GeV. Exactly 3 leptons is a defining feature of this analysis. Two of the leptons come from the \az~decay, while the third comes from the \at~decay. Because these leptons are required to be electrons or muons their distributions are mirrors of each other by definition which can be seen in Figure~\ref{FIGURE-NMUON}.
+\item At least one OSSF pair. Because we are concerned with processes that contain a real \az, this requirement ensures that we can always attempt to reconstruct a valid \az~candidate even if it is an event that is mis-identified as containing a \az. 
+\item Leading lepton \PT~\textgreater~40~GeV. The leading lepton's threshold is higher than the second and third due to being more likely that it is the candidate that is required to pass the single lepton trigger or a candidate in the case of a multi-lepton trigger. Figure~\ref{TRIPFIG1} shows that this cut removes some background, but little signal is lost.
+\item Second lepton \PT~\textgreater~20~GeV. This lepton is not required to have passed a single lepton trigger, but may have been required to pass the di-electron trigger threshold. Figure~\ref{TRIPFIG1} shows that this cut removes some background, but little signal is lost. Tightening this cut is also investigated because \zjets~and \TTB~peak at a lower momentum than the signal, but in the interest of maintaining statistics a lower \PT~threshold is chosen. 
+\item Third lepton \PT~\textgreater~10~GeV. The \PT~of this lepton is significantly lower than the rest. 10 GeV is chosen due to the thresholds that define how electrons are reconstructed. Figure~\ref{TRIPFIG1} shows that the signal peaks at higher \PT~than \zjets~and \TTB~, and tightening this cut is investigated, but in the interest of maintaining statistics, a lower \PT~threshold is chosen.
+\item 2, 3, or 4 jets with \PT~\textgreater~25~GeV. Figure~\ref{TRIPFIG2} shows that the one jet region contains virtually no signal, so removing it eliminates background at no cost, while events with $>=$ 5 jets have little signal and are not as well modeled.
+\item Leading jet \PT~\textgreater~40~GeV. Figure~\ref{TRIPFIG1} shows that below 40 GeV, there is less than 1 expected signal events, so very little is removed.
+\item Exactly 1 \bjet. Figure~\ref{TRIPFIG2} shows that there is little signal outside the one \bjet~region. The signal and top backgrounds have one \bjet~from the top decay while non-top backgrounds are unlikely to have one.
+\item 80 GeV \textless~\azhyph~mass \textless~100~GeV. The \az~is a defining feature of this analysis. The signal and all backgrounds except \TTB~and single \at~production have a real \az. Figure~\ref{TRIPFIG3} shows how much ttbar is off the $Z$ peak and a cut here will give substantial gains in removing \TTB~background without removing a significant amount of signal events. 
+\item \met~\textgreater~20~GeV. This cut defines processes that have a real source of \met~such as the neutrino from \athyph~decays. Figure~\ref{TRIPFIG2} shows that the low \met~region is populated heavily by \zjets~with little signal.
+\item If \wtm~\textless~40~GeV then \met~\textgreater~40~GeV is required. If viewed in the two dimentional plane, cases where jets are mis-reconstructed as leptons are expected to have low \wtm~and low \met. Distributions for \wtm~and \met~can be seen independently in Figure~\ref{TRIPFIG2}. The 2D plane of \wtm~vs. \met~is shown for both signal and data in Figure~\ref{TRIPFIG3}. Here we can see that the signal peaks above 20~GeV in \met~and above 40~GeV in \wtm~while data preferentially resides in the region where both \wtm~and \met~are below 40~GeV. This cut is primarily targeted at \zjets~events (as well as potential backgrounds with mis-identified \aw s) which heavily populate the low \wtm~region. This cut is referred to as the notch cut because of its unique shape. 
 \end{itemize}
 
-\TRPFIGLEG{LeadingLeptonPt}{SecondLeptonPt}{ThirdLeptonPt}{Lepton \PT~ for leading (a), second (b), and third (c) leptons with preselection applied except the cuts on the variable shown.}{TRIPFIG1}
 
-\TRPFIGLEG{njet}{nbjet}{LeadingJetPt}{Number of jets (a), number of b-jets (b), and \PT~of the leading jet (c) with preselection applied except the cuts on the variable shown. At least one jet was required at this level.}{TRIPFIG2}
+\QUADFIGLEG{LeadingLeptonPt}{SecondLeptonPt}{ThirdLeptonPt}{LeadingJetPt}{Distributions of Lepton \PT~for (a) leading, (b) second, and (c) third leptons as well as (d) leading jet \PT~with preselection applied except the cuts on minimum \PT~thresholds shown which are 40~GeV for the leading lepton, 20~GeV for the second lepton, 10~GeV for the third lepton, or 40 GeV for the leading jet. There are minimum \PT~reconstruction thresholds for these objects which are 25~GeV for the leading lepton and leading jet, and 10~GeV for the second and third leptons.}{TRIPFIG1}
 
-\TRPFIGLEG{METvsWtmSignal}{METvsWtmData}{Zmass}{Further histograms with preselection applied except the cuts on the variable shown. Invariant mass of the $Z$-boson (c), two dimentional map of transverse mass of the $W$-boson vs MET for the signal (a), and two dimentional map of transverse mass of the $W$-boson vs MET for the data (b).}{TRIPFIG3}
+\QUADFIGLEG{njet}{nbjet}{Wtransversemass}{met}{Distributions of (a) number of jets, (b) number of \bjet s, (c) \wtm, (d) \met. At least one jet is required at this level in all cases, but the cut on the variable shown is omitted in order to assess the full distribution. The distribution of the number of jets does not include the cut on the number of jets, the distribution of the number of \bjet s does not include the cut on the number of \bjet s, and the \wtm~and \MET~distributions do not contain the \MET~or the notch cuts.}{TRIPFIG2}
 
+\TRPFIGLEG{METvsWtmSignal}{METvsWtmData}{Zmass}{Distributions of (a) two-dimentional map of \wtm~vs \met~for the signal, (b) two dimentional map of \wtm~vs \met~for the data, and (c) invariant mass of the \az. For both (a) and (b) the \met~cut and the notch cut are not applied and for (c) the \azhyph~mass window cut is not applied in order to show the full distribution.}{TRIPFIG3}
+
+
+\clearpage
 
 \section{Control Regions}
 \label{SECTION-CONTROL-REGIONS}
-here i need to add Z+jets control region and ttbar control region descriptions and histograms
+
+Three control regions are considered for the three primary backgrounds to ensure that the background model describes the data well. The control regions are for \TTB, Diboson, and \zjets~and their yields are summarized in Table~\ref{tab:CRyields} where it can be seen that \tz~contamination is small and that the control regions are fairly pure in their respective backgrounds. The control region for \TTB~is defined by the preselection cuts with the exception of the \azhyph~mass window which is inverted. This has the effect of cutting out large contributions which contain a real \az, leaving primarily \TTB. In every distribution shown in Figures~\ref{FIGURE-CRttbar} and~\ref{FIGURE-CRttbar2}, there is good agreement between data and simulated events with a quite pure sample of \TTB. In order to isolate Diboson and \zjets , we begin with the preselection again, but instead of requiring exactly 1 \bjet, we require exactly 0 \bjet s in order to eliminate \athyph~contributions. This defines an intermediate control region with Diboson and \zjets~mixed as shown in Figures~\ref{FIGURE-CRint} and~\ref{FIGURE-CRint2}. This is expected because both Diboson and \zjets~have a real \az~and do not have a \ab~that would come from a \athyph~decay. To isolate Diboson more precisely, a cut is placed on \wtm~to constrain it to higher than 80~GeV as shown in Figures~\ref{FIGURE-CRDiboson} and~\ref{FIGURE-CRDiboson2}. This provides a region with high Diboson purity to evaluate the quality of its modeling. In order to isolate \zjets~from the intermediate control region a cut on \met~is made to constrain it to lower than 60~GeV as shown in Figures~\ref{FIGURE-CRZjets} and~\ref{FIGURE-CRZjets2}. This region has lower purity in \zjets~when compared to the \TTB~control region and the Diboson control region, and shows areas of mis-modeling in low to mid \wtm~(less than 70~GeV). Low lepton \PT~also seems to be poorly modeled (20-40~GeV for each of the three leptons). This is likely because the third lepton must be a mis-reconstructed one. Despite also having a mis-reconstructed lepton, due to only having two real leptons, \TTB~does not show similar mis-modeling for two primary reasons. The first reason is that \TTB~MC statistics is much better than \zjets. The second reason is that \TTB~has more hard objects (extra jets) stemming from the primary interactions, while \zjets~has extra hard objects come from initial-state or final-state radiation. This mis-modeling is mitigated by cuts on \PT, \wtm, and \met~as well as cuts made to the signal region. Even with these measures taken the mis-modeling reflects itself as large uncertainties on \zjets~which is shown in Chapter~\ref{SECTION-RESULTS}. Collectively these control regions give insight to the contribution of the largest backgrounds to this analysis. 
 
 
 
+\QUADFIGLEG{LeadingLeptonPtCRttbar}{SecondLeptonPtCRttbar}{ThirdLeptonPtCRttbar}{LeadingJetPtCRttbar}{Distributions of transverse momenta for (a) the leading lepton, (b) the second lepton, (c) the third lepton, and (d) the leading jet in the control region for \TTB.}{FIGURE-CRttbar}
+\QUADFIGLEG{njetCRttbar}{nbjetCRttbar}{WtransversemassCRttbar}{metCRttbar}{Distributions of (a) jet multiplicity, (b) \bjet~multiplicity, (c) \wtm, and (d) \met~in the control region for \TTB.}{FIGURE-CRttbar2}
 
 
 
-\section{Cut Flow}
-\label{SECTION-SELECTION-CUTS}
+\QUADFIGLEG{LeadingLeptonPtCRint}{SecondLeptonPtCRint}{ThirdLeptonPtCRint}{LeadingJetPtCRint}{Distributions of transverse momenta for (a) the leading lepton, (b) the second lepton, (c) the third lepton, and (d) the leading jet in the intermediate control region for Diboson and \zjets.}{FIGURE-CRint}
+\QUADFIGLEG{njetCRint}{nbjetCRint}{WtransversemassCRint}{metCRint}{Distributions of (a) jet multiplicity, (b) \bjet~multiplicity, (c) \wtm, and (d) \met~in the intermediate control region for Diboson and \zjets.}{FIGURE-CRint2}
 
-Once the preselection region is defined our goal is to improve the sensitivity of the analysis. We do this by searching for variables where the shape of the signal significantly differs from the shape of one or all of the backgrounds and evaluating its effect on the value $S/\sqrt{B}$. $S/\sqrt{B}$ is used as the variable to optimize because it ensures both strong signal to background ratios while also ensuring that we limit the contribution of statistical errors. Many distributions were considered for various reasons, but distributions of special interest are the angular variables and top-quark mass shown in Figure~\ref{FIGURE-TRIPFIG-FINAL2}. The distributions with the best discriminating power are used for this analysis and the degree to which each of these cuts improve $S/\sqrt{B}$ is shown in Table~\ref{tab:eventyield}. Those are the $W$-boson transverse mass, the \eta~value of the leading non b-jet, and the angle between the b-jet and the leading non b-jet shown in Figure~\ref{sixfig}. Those variables were then re-optimized sequentially to show that any correlations were minor, and to ensure optimal sensitivity. 
+
+
+\QUADFIGLEG{LeadingLeptonPtCRDiboson}{SecondLeptonPtCRDiboson}{ThirdLeptonPtCRDiboson}{LeadingJetPtCRDiboson}{Distributions of transverse momenta for (a) the leading lepton, (b) the second lepton, (c) the third lepton, and (d) the leading jet in the control region for Diboson.}{FIGURE-CRDiboson}
+\QUADFIGLEG{njetCRDiboson}{nbjetCRDiboson}{WtransversemassCRDiboson}{metCRDiboson}{Distributions of (a) jet multiplicity, (b) \bjet~multiplicity, (c) \wtm, and (d) \met~in the control region for Diboson.}{FIGURE-CRDiboson2}
+
+
+
+\QUADFIGLEG{LeadingLeptonPtCRZjets}{SecondLeptonPtCRZjets}{ThirdLeptonPtCRZjets}{LeadingJetPtCRZjets}{Distributions of transverse momenta for (a) the leading lepton, (b) the second lepton, (c) the third lepton, and (d) the leading jet in the control region for \zjets.}{FIGURE-CRZjets}
+\QUADFIGLEG{njetCRZjets}{nbjetCRZjets}{WtransversemassCRZjets}{metCRZjets}{Distributions of (a) jet multiplicity, (b) \bjet~multiplicity, (c) \wtm, and (d) \met~in the control region for \zjets.}{FIGURE-CRZjets2}
+
+
 
 \begin{table} [ht!]
 \setlength{\tabcolsep}{2pt}
 \footnotesize
 \centering
-\begin{tabular}{ l | r | r | r | r }
+\begin{tabular}{| l | c | c | c | c | c | c |}
 \hline
 \hline
-Process & Preselection & Wtm cut applied & LeadNonBjetEta cut applied & full selection \\ 
+Event Yields & Preselection & \TTB~CR & intermediate CR & Diboson CR & \zjets~CR & final selection\\
+
 \hline
-$t\bar{t}$ & 104.03  & 28.12 & 14.96 & 10.39 \\ 
-single top-quark & 3.58 & 1.03 & 0.49 & 0.34 \\ 
-$ttV$ & 0.92 & 3.12 & 1.03 & 0.61\\ 
-$Z$ + jets & 186.45 & 5.33 & 2.30 & 1.75\\ 
-Diboson & 14.91 & 12.85 & 5.18 & 3.30\\ 
 \hline
-$tZ$ & 3.30 & 4.26 & 3.22 & 2.89\\ 
+
+$t\bar{t}$ & 45 & 196 & 16 & 4.0 & 5.7 & 10 $\pm$ 45\%\\
+single \at & 1.4 & 7.7 & 0.85 & 0.26 & 0.30 & 0.34 $\pm$ 66\%\\
+$ttV$ & 4.4 & 2.7 & 1.0 & 0.38 & 0.30 & 0.61 $\pm$ 66\%\\
+$Z$ + jets & 32 & 10 & 110 & 4.0 & 78 & 1.7 $\pm$ 413\%\\
+Diboson & 18 & 5.0 & 100 & 31 & 48 & 3.3 $\pm$ 32\%\\
+
 \hline
-Total Expected & 313.19 & 54.70 & 27.19 & 19.28 \\ 
-Data Observed & 272.00 & 62.00 & 29.00 & 22.00 \\ 
+
+$tZ$ & 5.7 & 0.63 & 1.6 & 0.4 & 0.68 & 2.9 $\pm$ 11\%\\
+
 \hline
- S/B & 0.01 & 0.08  & 0.13 & 0.18 \\ 
- S/sqrtB & 0.19 & 0.60 & 0.66 & 0.71\\ 
+
+Total Expected & 108 & 223 & 232 & 41 & 134 & 19 $\pm$ 71\%\\
+Data Observed & 108 & 237 & 214 & 52 & 131 & 22\\
+
+\hline
+
+ S/B & 0.06 & 0.00 & 0.01 & 0.01 & 0.01 & 0.18 \\ 
+ S/$\surd$B & 0.57 & 0.04 & 0.10 & 0.07 & 0.06 & 0.71 \\ 
+
+\hline
+\hline
+
+\end{tabular}
+\caption{Event yields for various stages of analysis to compare with control region (CR) yields. The final selection is described in Section ~\ref{SECTION-SELECTION-CUTS} and uncertainties provided on the final selection are described in Chapter~\ref{SECTION-RESULTS} taken in quadrature for each sample. They are provided here for reference.}
+\label{tab:CRyields}
+\end{table}
+
+
+
+\clearpage
+
+\section{Cut Flow}
+\label{SECTION-SELECTION-CUTS}
+
+Once the preselection region is defined, our goal is to improve the sensitivity of the analysis. We do this by searching for kinematic variables where the shape of the signal distribution significantly differs from the shape of one or all of the background distributions and evaluating its effect on the value $S/\sqrt{B}$. The variable $S/\sqrt{B}$ is used to optimize because it ensures both strong signal to background ratios while also ensuring that we limit the contribution of statistical errors. Many distributions are considered for their background rejection, and/or physical motivations but distributions of special interest are the angular variables and \athyph~mass shown in Figure~\ref{FIGURE-TRIPFIG-FINAL2} because they display the properties of the \at. The polarization of the \at~is most notable in Figure~\ref{FIGURE-TRIPFIG-FINAL2} where the optimal basis shows both \TTB~and \tz~have a distribution favoring values closer to 1, while Diboson is comparatively flat. In principle these variables could be used to distinguish backgrounds without a \at~from the signal which does. In practice the discrimination power of these variables is not as strong as that of others. The variables with the best discriminating power are shown in Table~\ref{tab:eventyieldFullSelec} and are, 
+
+\begin{itemize}
+
+\item \wtm~\textgreater~50~GeV. This selects for events with higher energy \aw s. 
+
+\item Leading non-\bjet~|\eta|~\textgreater~1.5. This selects for events with a forward jet as is the case with single top \tchan~and \tz.
+
+\item $\Delta R$ between the \bjet~and Leading non-\bjet~\textgreater~2.5. $\Delta R$ is calculated as the $\Delta \eta$ and the $\Delta \phi$ added in quadrature. These two objects are expected to not be near each other in the signal selecting for events where the jets do not both come from the same source.
+
+\end{itemize}
+
+ The distributions of these variables are shown in Figure~\ref{cutfig} and are re-optimized sequentially to show that any correlations are minor, and to ensure optimal sensitivity. Table~\ref{tab:eventyieldFullSelec} also shows what background each cut is preferentially removing. The \wtm~cut targets \zjets, while also eliminating \TTB~and some Diboson. The cut on the leading non-\bjet~\eta~is less obviously targeted at a specific background, but is removing approximately half of all backgrounds while removing comparatively little signal. This is due to the forward jet, a characteristic kinematic property of single \athyph~production. The cut on the $\Delta R$ between the \bjet~and leading non-\bjet~performs well because the \bjet~and the leading non-\bjet~are coming from opposite legs of the hard interaction. This creates a distribution where the \at~and its decay products (in this case the \bjet) come out preferentially far apart in $\Delta R$ in the signal compared to the backgrounds. 
+
+
+
+
+
+
+
+
+\begin{table} [ht!]
+\setlength{\tabcolsep}{2pt}
+\footnotesize
+\centering
+\begin{tabular}{| l | r | r | r | r |}
+\hline
+\hline
+Process & Preselection & \wtm~& Leading-non \bjet~\eta & full selection \\ 
+\hline
+$t\bar{t}$ & 45 & 28 & 15 & 10 $\pm$ 45\% \\ 
+single \at & 1.4 & 1.0 & 0.49 & 0.34 $\pm$ 66\% \\ 
+$ttV$ & 4.4 & 3.1 & 1.0 & 0.61 $\pm$ 66\%\\ 
+$Z$ + jets & 32 & 5.3 & 2.3 & 1.7 $\pm$ 413\%\\ 
+Diboson & 18 & 13 & 5.2 & 3.3 $\pm$ 32\%\\ 
+\hline
+$tZ$ & 5.7 & 4.3 & 3.2 & 2.9 $\pm$ 11\%\\ 
+\hline
+Total Expected & 108 & 55 & 27 & 19 $\pm$ 71\% \\ 
+Data Observed & 108 & 62 & 29 & 22 \\ 
+\hline
+ S/B & 0.06 & 0.08  & 0.13 & 0.18 \\ 
+ S/$\surd$B & 0.57 & 0.60 & 0.66 & 0.71 \\ 
+
 \hline
 \hline
 \end{tabular}
-\caption{Event yields after various stages of analysis.}
-\label{tab:eventyield}
+\caption{Event yields after selection cuts are applied. Uncertainties provided on the final selection are the uncertainties described in Chapter~\ref{SECTION-RESULTS} taken in quadrature for each sample.}
+\label{tab:eventyieldFullSelec}
 \end{table}
 
-\TRPFIGLEG{W_transverse_mass}{LeadingNonb-jetEta}{b-jet+LeadingNonb-jetdR}{Variables with full selection applied except the cut on this variable.}{label}
+
+\TRPFIGLEG{W_transverse_mass}{LeadingNonb-jetEta}{b-jet+LeadingNonb-jetdR}{Distributions of (a) \wtm which is required to be~\textgreater~50~GeV, (b) the \eta~of the leading non b-tagged jet which is required to be~\textgreater~1.5, and (c) the $\Delta R$ between the \bjet~and leading non-\bjet which is required to be~\textgreater~2.5. Each has the entire selection applied except the variable plotted to view the full distribution.}{cutfig}
 
 
-Once we have applied the full cut flow we are left with the remaining distributions to analyze. These are meant to represent the kinematics of events selected by this analysis. The application of the full selection takes us from having approximately one signal event in 100 to nearly 1 signal event in 5. These efforts will greatly improve the sensitivity of our analysis as shown in the next chapter. 
-
-\SIXFIG{FinalLeadingLeptonPt}{FinalSecondLeptonPt}{FinalThirdLeptonPt}{WtransM}{LeadNonb-jetEta}{LASTANGLE}{Lepton \PT~ for leading, second, and third leptons with full selection applied as well as histograms of the three cuts made to finalize selection with full selection applied.}{sixfig}
-
-\DBLFIG{Finalnjet}{Number of jets with full selection applied.}{FIGURE-NJET}{FinalLeadingJetPt}{Leading Jet Pt with full selection applied.}{FIGURE-LEADINGJETPT}
-
-\DBLFIG{nelec}{Histograms of number of electrons. Note that because we require three leptons exactly these histograms are mirrors of each other by definition.}{FIGURE-NELEC}{nmuon}{Histograms of number of muons. Note that because we require three leptons exactly these histograms are mirrors of each other by definition.}{FIGURE-NMUON}
+Once we have applied the full cut flow, we are left with the remaining distributions to analyze. These represent the kinematic properties of events selected by this analysis which are shown in Figures~\ref{FIGURE-SigRegion} and~\ref{FIGURE-SigRegion2}. The application of the full selection takes us from an $S/B$ of 0.06 to 0.18. These efforts are to improve the sensitivity of our analysis as shown in the next chapter. There is reasonable agreement throughout the signal region, and in \PT~distributions it can be seen that the signal peaks higher when the cuts are placed. These cuts were chosen because they optimized $S/\sqrt{B}$ which in this case prioritized preserving statistics over improving signal purity. With more data collected these cuts could be tightened to further improve $S/\sqrt{B}$. 
 
 
-\QUAFIG{TopPolOpt}{TopPolHel}{Whelicity}{HISTO-TOPMASS}{Variables which display properties of the top quark and its decay with full selection applied.}{FIGURE-TRIPFIG-FINAL2}
+
+\QUADFIGLEG{FinalLeadingLeptonPt}{FinalSecondLeptonPt}{FinalThirdLeptonPt}{FinalLeadingJetPt}{Distributions of transverse momenta for (a) the leading lepton, (b) the second lepton, (c) the third lepton, and (d) the leading jet in the signal region.}{FIGURE-SigRegion}
+\QUADFIGLEG{Finalnjet}{Finalnbjet}{WtransM}{Finalmet}{Distributions of (a) jet multiplicity, (b) \bjet~multiplicity, (c) \wtm, and (d) \met~in the signal region.}{FIGURE-SigRegion2}
+
+
+\DBLFIGLEG{nelec}{nmuon}{(a) Number of electrons and (b) number of muons.}{FIGURE-NMUON}
+
+
+\QUADFIGLEG{TopPolOpt}{TopPolHel}{Whelicity}{HISTO-TOPMASS}{Distributions of the \athyph~polarization in the (a) Optimal basis and (b) the helicity basis, (c) the \awhyph~helicity, and (d) the mass of the \at.}{FIGURE-TRIPFIG-FINAL2}
 
 

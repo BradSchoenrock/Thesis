@@ -1,91 +1,118 @@
 \chapter{Event Simulation}
 \label{SECTION-EVENTSIMULATION}
 
-The ability to discover anything in high energy physics hinges on our ability to accurately model our backgrounds and distinguish the kinematics of these background events from the kinematics of the signal being searched for. This simulation comes in three steps. First we simulate the parton level interactions. Then we go through parton showering process to take the bare quarks and hadronize them into jets. Finally we go through detector simulation in order to mimic how real data will look in ATLAS. 
+All laws are simulations of reality. -John C. Lilly
+
+\vspace{5mm} %5mm vertical space
+
+The ability to discover anything in high energy physics hinges on our ability to accurately model our signal and backgrounds in order to distinguish the kinematic properties of the background events from the kinematic properties of the signal being searched for. The simulation comes in several steps. First we simulate the parton level interactions with one of several different Monte Carlo generators. Then we go through a parton showering process to take bare quarks and hadronize them into jets, which is performed by one of several different parton showering programs. Next we go through a detector simulation in order to mimic how particles interact with \atlas~using the GEANT4~\cite{geant4} package for all processes. Lastly we run our simulations through the same software that is used to process data to reconstruct objects as described in Chapter~\ref{SECTION-OBJ}. 
+
+Backgrounds considered in this analysis are: 
+
+\begin{itemize}
+
+\item Diboson processes including $WW$, $WZ$, and $ZZ$.
+\item Top-quark pair production, \TTB.
+\item Top-quark pair + boson production which is the same as Top-Quark Pair Production but with a radiated \aw~or \az, \TTB $Z$ or \TTB $W$.
+\item \az +jets.
+\item Single Top-Quark Production including \schan, \tchan, and \Wt~as described in Chapter~\ref{SECTION-INTRO}.
+\item \aw +jets and Multijet which are single lepton backgrounds.
+
+\end{itemize}
+
+\noindent and further details about how they were simulated can be found in Table~\ref{tab:Generators}. 
+
+\begin{table} [ht!]
+\setlength{\tabcolsep}{2pt}
+\footnotesize
+\centering
+\begin{tabular}{| l | c | c | c | c | c |}
+\hline
+\hline
+process & generator & parton shower & pdf & order & \xs~(pb)\\
+\hline
+ $t\bar{t}$ & Powheg & Pythia6 & \begin{tabular}{@{}c@{}}CT10/\\CTEQ6L1 \end{tabular} & \begin{tabular}{@{}c@{}} NLO (0 extra partons)/\\ LO ($>$0 extra partons) \end{tabular} & 451.6 \\
+\hline
+Single-Top & Powheg & Pythia8 & \begin{tabular}{@{}c@{}}CT10/\\CTEQ6L1 \end{tabular} & \begin{tabular}{@{}c@{}} NLO (0 extra partons)/\\ LO ($>$0 extra partons) \end{tabular} & \begin{tabular}{@{}c@{}} \tchan~:70.3 \\ \Wt~:35.8 \\ \schan~:3.44  \end{tabular} \\
+\hline
+ttV & Madgraph5 & Pythia8 & CTEQ6L1 & LO &  \begin{tabular}{@{}c@{}} $ttZ:0.471$ \\ $ttW:0.567$  \end{tabular}\\
+\hline
+$Z$ + jets & Sherpa2.2.1 & Sherpa2.2.1 & CT10 & \begin{tabular}{@{}c@{}} NLO ($<$2 extra partons)/\\LO (3 or 4 extra partons) \end{tabular} & 17486.7 \\
+\hline
+Diboson & Powheg & Pythia6 & \begin{tabular}{@{}c@{}}CT10/\\CTEQ6L1 \end{tabular} & \begin{tabular}{@{}c@{}} NLO (0 extra partons)/ \\LO ($>$0 extra partons) \end{tabular} &  \begin{tabular}{@{}c@{}} $WW:101.3$ \\ $WZ:137.7$ \\ $ZZ:124.5$ \end{tabular}\\
+\hline
+$tZ$ & Madgraph5 & Pythia8 & CTEQ6L1 & LO & 0.240 \\
+\hline
+\hline
+
+\end{tabular}
+\caption{Information on generators for each process considered. All \xs s consider full decays including hadronic. }
+\label{tab:Generators}
+\end{table}
+
+
 
 %Generators used in ATLAS are Pythia, Herwig, Sherpa, Hijing, Pythia8, Herwig++, Tauola, EvtGen, Photos, AcerMC, Alpgen, Cascade, Madgraph, MC@NLO, TopReX, VBF@NLO, Jimmy, CompHep, Hijing, WINHAC, MCFM, HORACE, POWHEG-BOX, aMC@NLO, NLOJet++, Black Hat, Grace, AcerMC, Baur, Photos++, Tauola++, EPOS, gg2VV, HEJ, Horace, CompHEP, Whizard, Protos, QBH, Black Max, GravADD, Charybdis2, HydJEt, Pyquench, Reldis, ParticleGun, Cavern, BeamHalo, Cosmic, and the list goes on. Each of these generators have their own speciality and are used in specific circumstances in order to give predictions of SM and beyond the SM phenomena. 
 
 \section{The Monte Carlo Method}
 \label{SECTION-MC-METHOD}
 
-Simulating data begins with the standard model predictions which in principle can be calculated exactly. In principle we employ the monte carlo method to perform integrations that are cumbersome to perform by hand and where numerical methods are more appropriate. There are a plethora of generators which excell at simulating various processes. To decide between the various generators consulting previous work within the single top group was helpful. Recomendations were used for every sample except tZ for which there was no reccomendation. The reccomendations were as follows. 
+Simulating the data begins with Standard Model predictions, which in an ideal world could be calculated exactly. We employ the Monte Carlo method to perform integrations that are cumbersome to perform by hand and where numerical methods are more appropriate in order to calculate relative rates at which particles interact with each other. From this, fundamental properties of outgoing partons can be predicted.
+
+There are a plethora of generators and parton showering programs which excel at simulating various processes. The ATLAS top group recommends which Monte Carlo programs to use for every sample except tZ for which there is no recommendation.
 
 \section{Signal Simulation}
 \label{SECTION-MC-SIG}
 
-Several Monte Carlo generators were considered to model the \tz~ process. Madgraph and POWHEG-box were used to generate samples and compare them while MCFM was used to calculate NLO cross-sections to scale the LO Madgraph samples. Madgraph5+Pythia8 was chosen to use the same generator as \ttbar$+X$. Another reason Madgraph5+Pythia8 was chosen was that Madgraph and Pythia have been widely used tools for quite a while in high energy physics and as a result are very well understood generators with good simulation of a wide variety of physics processes. 
+Several Monte Carlo generators are considered to model the \tz~process. Madgraph~\cite{MADGRAPH} is used to generate samples and Pythia~\cite{PYTHIA} is used to perform parton showering. Madgraph5+Pythia8 is chosen because this is the same generator and showering setup used to simulate \TTB$+X$. Another reason Madgraph5+Pythia8 is chosen is that Madgraph and Pythia have been widely used tools for quite a while in high energy physics and as a result they are very well understood generators with good simulation of a wide variety of physics processes. One of the limitations of Madgraph is that it is a leading order (LO) generator. 
 
-The sample was simulated with the $Z$-boson decaying into two leptons and the top-quark decaying to one lepton, one $b$-jet, and \MET. This guides which backgrounds are necessary to simulate as well as which data triggers needed to be considered. 
+One consideration when generating \tz~is what decay modes of the \az~and \aw~should be generated. For this analysis we are interested in the all leptonic mode with the \az~and the \aw~decaying to leptons. Other analyses within \atlas~are interested in different lepton multiplicities which can be varied by either the \aw~decaying hadronically, the \az~decaying hadronically, or the \az~decaying to a pair of neutrinos which is known as the invisible mode. The fully hadronic mode for \tz~has a large branching ratio and is not of interest to \atlas~analyses due to the lack of a distinct signature in the detector to trigger on, so to save on computing time it is not included in the Monte Carlo sample. Every other combination is produced. 
 
-\section{Diboson}
+Another consideration is how we parametrize the incoming partons. This is described by Parton Distribution Functions (PDFs) and the PDF that is used for this Monte Carlo sample is CTEQ6L1 from the LHAPDF interface as per single top group recommendations~\cite{Nadolsky:2008zw,cteq6l,springerlink:10}. A technique where only light quarks are included in the parton distribution function of the incoming protons (the 4 flavor scheme) is used so the incoming \ab~shown in Figure~\ref{FIGURE-tZ} must come from gluon splitting where the $b$-anti$b$ quark pair are produced from an initial state gluon. The \athyph~mass used for Madgraph single \at~samples is 172.5 GeV.
+
+
+\section{Diboson Production}
 \label{SECTION-MC-BG-WZ}
 
-Among the most prominent backgrounds is diboson which is a large non-top background in this analysis. Its relative contribution is not suprising considering the most promenent diboson contribution is WZ which contains a real $Z$-boson, three leptons, and MET. Aditional jets can come from Initial State Radiation (ISR) or Final State Radiation (FSR). Diboson was modeled with Powheg and showered in Pythia6. 
+Among the most prominent backgrounds is Diboson which is a large non-top background in this analysis. Its relative contribution is not surprising considering the most prominent Diboson contribution is $WZ$, which contains a real \az~, three leptons, and \met~(which is described in Chapter~\ref{SECTION-OBJ-MET}). Additional jets can come from Initial State Radiation (ISR) or Final State Radiation (FSR) where a gluon is radiated off and is constructed as another object entirely. Diboson production is modeled with the next to leading order (NLO) generator POWHEG and showered in PYTHIA6~\cite{POWHEG,PYTHIA}. 
 
-\section{\ttbar}
+\section{Top-Quark Pair Production}
 \label{SECTION-MC-BG-ttbar}
 
-\ttbar~is a dominant background for almost any search involving a top quark. Its large cross section means that it is dificult to remove even if distinct kinematic differences exist. \ttbar~can have 0, 1, or 2 leptons, meaning that every \ttbar~event that passes selection by definition has a fake lepton. Beyond having a fake lepton two of those lepton will have to fake a $Z$-boson within the constraints outlined in Chapter~\ref{SECTION-ANALYSIS}. \ttbar~was modeled with Powheg and showered with Pythia6. 
+Top-quark pair production is a dominant background for almost any search involving a \at. Its large \xs~means that it is difficult to remove even if distinct kinematic differences exist. This process can have 0, 1, or 2 leptons, meaning that every \TTB~event that passes selection by definition has at least one jet which is mis-reconstructed as a lepton. Beyond having a jet mis-reconstructed as a lepton two of those leptons (at least one of which is not a true lepton) will have to be mis-reconstructed as a \az~within the constraints outlined in Chapter~\ref{SECTION-ANALYSIS}. Powheg is used to model \TTB~and it is showered with Pythia6~\cite{POWHEG,PYTHIA}. 
 
-\section{\ttbar$+X$}
+\section{Top-Quark Pair + Boson Production}
 \label{SECTION-MC-BG-ttbar+X}
 
-\ttbar$+X$ is a process that has been under study by the single top group within \atlas~and has been showing promising gains *source*. \ttbar$+Z$ contributes much more strongly when compared with \ttbar$+W$ due to the real $Z$-boson. This process has 0, 1, 2, 3, or 4 real leptons, and only the 3 lepton contribution contributes to our final state as selection cuts in Chapter~\ref{SECTION-ANALYSIS} describe. \ttbar$+X$ is modeled by Madgraph5 and showered with Pythia8. 
+The \TTB$+X$ is a process that has been under study within \atlas~and indications are that this process will be observed soon~\cite{ATLAS-CONF-2016-003}. The $X$ in \TTB$+X$ can be a \az, a \aw, or a Higgs boson. The \TTB$+Z$ contributes much more strongly when compared with \TTB$+W$ due to the \az. This process has 0, 1, 2, 3, or 4 real leptons, and only the 3 lepton contribution contributes to our final state as selection cuts in Chapter~\ref{SECTION-ANALYSIS} describe. The \TTB$+Z$ matches our signal fairly closely. Madgraph5 is used to model \TTB$+X$ and it is showered with Pythia8~\cite{MADGRAPH,PYTHIA}. 
 
-\section{$Z$-boson+jets}
+\section{\az +jets}
 \label{SECTION-MC-BG-Z+jets}
 
-$Z$-boson+jets is another large background sporting a real $Z$-boson, but despite not having a top quark and only having two real leptons, it still remains an important background to consider due to its large cross section. $Z$-boson+jets taken in combination with \ttbar~constitutes a majority of fakes that come up in this analysis due to these samples naturally containing fewer than three leptons. $Z$-boson+jets was modeled and showered with Sherpa. 
+\az+jets is another large background because it has a real \az. Despite not having a \at~and only having two real leptons, it still remains an important background to consider due to its large \xs. \az+jets taken in combination with \TTB~constitutes a majority of mis-reconstructed leptons that come up in this analysis due to these samples naturally containing fewer than three leptons. \az+jets is modeled and showered with Sherpa~\cite{Sherpa}. 
 
-\section{Single top-quark}
+\section{Single Top Quark}
 \label{SECTION-MC-BG-sgtop}
 
-Of paramount interest to the single top group is single top-quark production. \tchan~and \schan~ both have only one lepton, and while considered for this analysis, they contribute no events to the event yield. \Wt~however has two real leptons and a real top quark which leaves it close enough to \tz~to add to the event yield in a small way. Single top-quark simulation was performed with Powheg+Pythia8. 
+Both \tchan~and \schan~have only one lepton, and while considered for this analysis, they contribute no events. However, \Wt~has two real leptons and a real \at~which leaves it close enough to \tz~to add to the event yield in a small way. Single \athyph~simulation is performed with Powheg+Pythia8~\cite{POWHEG,PYTHIA}. 
 
-\section{$W$-boson+jets and Multijet}
-\label{SECTION-MC-BG-Z+jets}
+\section{\aw +jets and Multijet}
+\label{SECTION-MC-BG-W+jets}
 
-Also considered for this analysis is $W$-boson+jets production. This process, despite having an imense cross section in comparison to other background considered, was completly eliminated by preselection cuts described in Chapter~\ref{SECTION-ANALYSIS} beause it has no $Z$-boson, only one lepton so it would require 2 fake leptons, and has no top-quark. Given that this process has no contribution due to the combinitorics of requirning so many fake leptons and bosons  multijets will also have no contribution as it would require three fake leptons that would also be required to match the kinematics of the $W$-boson and $Z$-boson. Both Sherpa and Powheg+Pythia were considered for W+jets simulations. 
+Also considered for this analysis is \aw +jets production. This process, despite having a large \xs~in comparison to the other backgrounds considered, is completely eliminated by preselection cuts described in Chapter~\ref{SECTION-ANALYSIS} because it has no \az,no \at,and only one lepton. This means it would require 2 jets to be mis-reconstructed as leptons. Given that the \aw+jets process has no contribution due to the combinatorics of requiring so many mis-reconstructed leptons and bosons, multijets will also have no contribution as it requires three mis-reconstructions that match the kinematic properties of the \aw~and \az. Both Sherpa and Powheg+Pythia are considered for W+jets simulations and for both zero events passed the event preselection (see Section~\ref{SECTION-PRESELECTION})~\cite{Sherpa,POWHEG,PYTHIA}. 
 
+\section{Weighting and Corrections}
+\label{SECTION-MC-WEIGHTS}
 
+When generating MC events, we must generate a sufficiently large sample to get a variety of potential kinematic properties and to ensure a low statistical uncertainty. In order to compare this generated Monte Carlo to data we must weight the sample appropriately. Firstly the number of generated Monte Carlo events does not match the number of data events so the Monte Carlo gets scaled by the \xs~($XS$) of the process. This includes the K-factor ($K$) which scales it to higher order calculations, the branching ratio ($BR$) for decays specified by the process generated, the integrated luminosity ($L$) of the data collected, and the number of generated events ($N_{MC}$) calculated as shown in Equation~\ref{EQUATION-SCALE1}. 
 
+\begin{equation}
+\frac{XS \cdot BR \cdot K \cdot L \cdot PUSF \cdot LepSF \cdot BtagSF}{N_{MC}}
+\label{EQUATION-SCALE1}
+\end{equation}
 
-%\section{Weighting and Corrections}
-%\label{SECTION-MC-WEIGHTS}
-
-%When generating monte carlo we must generate a sufficiently large sample to get a variety of potential kinematics and to ensure a low statistical uncertainty. In order to compare this generated monte carlo to data we must weight the sample appropriately. 
-
-%Theory cross-section and luminosity
-
-%pile up re weighting
-
-%lepton scale factor
-
-%mistag and btagging scale factor
-
-%energy corrections
+Another weight used is the pile-up scale factor ($PUSF$) which scales the Monte Carlo to account for both in-time and out-of-time pile up which is discussed in Chapter~\ref{SECTION-EXPERIMENT}. The lepton scale factor ($LepSF$) adjusts for differences between simulation and data of leptons. Lastly there is a b-tagging scale factor ($BtagSF$) which accounts for data \MC~disagreement. These scale factors are all between 0 and 2. The assesment of these scale factors are systematic uncertainties described in Chapter~\ref{SECTION-RESULTS}.
 
 
 
 
-
-
-
-%Many things go into our modern Monte Carlo methods. factorization and renormalization and PDFs and such... 
-%MADGRAPH~\cite{MADGRAPH}
-%PYTHIA~\cite{PYTHIA}
-%ACERMC~\cite{ACERMC}
-%ALPGEN~\cite{ALPGEN}
-%POWHEG~\cite{POWHEG}
-%MCNLO~\cite{MCNLO}
-%HERWIG~\cite{HERWIG}
-%JIMMY~\cite{JIMMY}
-%GEANT4~\cite{GEANT4}
-%TCHAN-ATLAS~\cite{TCHAN-ATLAS}
-%PYTHIAOLD~\cite{PYTHIAOLD}
-%POWHEG1~\cite{POWHEG1}
-%POWHEG2~\cite{POWHEG2}
-%MCNLO1~\cite{MCNLO1}
-%MCNLO2~\cite{MCNLO2}
-
-%Discuss PDFs~\cite{cteq6l}~\cite{springerlink:10}

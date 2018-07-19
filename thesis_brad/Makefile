@@ -13,7 +13,7 @@ testlatex:
 	bibtex ${BASENAME}
 	latex  ${BASENAME}
 	latex  ${BASENAME}
-	dvipdf -sPAPERSIZE=a4 -dPDFSETTINGS=/prepress ${BASENAME}
+	dvipdf -dPDFSETTINGS=/prepress ${BASENAME}
 
 testpdflatex:
 	pdflatex  ${BASENAME}

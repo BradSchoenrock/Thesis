@@ -33,13 +33,25 @@
 \newcommand{\fb}{fb$^{-1}$}
 \newcommand{\pb}{pb$^{-1}$}
 \newcommand{\Wt}{$Wt$-channel}
-\newcommand{\tchan}{$t$-channel}
+\newcommand{\tchan }{$t$-channel}
 \newcommand{\schan}{$s$-channel}
+\newcommand{\zjets}{$Z$+jets}
 \newcommand{\ckm}{CKM}
 \newcommand{\vtb}{$V_{tb}$}
 \newcommand{\btag}{$b$-tag}
+\newcommand{\bjet}{$b$-jet}
+\newcommand{\cjet}{$c$-jet}
 \newcommand{\tz}{$tZ$}
 \newcommand{\ttz}{$t\bar{t}Z$}
+\newcommand{\az}{$Z$ boson}
+\newcommand{\azhyph}{$Z$-boson}
+\newcommand{\aw}{$W$ boson}
+\newcommand{\awhyph}{$W$-boson}
+\newcommand{\ab}{$b$ quark}
+\newcommand{\abhyph}{$b$-quark}
+\newcommand{\at}{top quark}
+\newcommand{\athyph}{top-quark}
+\newcommand{\xs}{cross-section}
 %\newcommand{\ttbar}{$t\bar{t}~$}
 %\newcommand{\DeltaR}{$\Delta R$}
 %\newcommand{\Wbb}{$Wbb$}
@@ -47,26 +59,27 @@
 %\newcommand{\Wcjets}{Wc+jets}
 %\newcommand{\Wccjets}{Wcc+jets}
 %\newcommand{\Wjets}{\ensuremath{W + jets}}
-\newcommand{\PT}{$p_T$}
+\newcommand{\PT}{$p_{\textrm T}$}
 %\newcommand{\met}{$E_{T}$}
 %\newcommand{\ljets}{l+jets}
+\newcommand{\wtm}{$m_{\textrm{T}}^{W} $}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Some useful naming conventions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\FB}{$\rm fb^{-1}$}
-\newcommand{\PB}{$\rm pb^{-1}$}
+%\newcommand{\FB}{$\rm $fb$^{-1}$}
+%\newcommand{\PB}{$\rm $pb$^{-1}$}
 %\newcommand{\MT}{$\rm m_t$}
-\newcommand{\ETA}{$\rm \eta$}
+%\newcommand{\ETA}{$\rm \eta$}
 %\newcommand{\MET}{$\rm mE_T$}
 %\newcommand{\pt}{$p_T$}
 %\newcommand{\PT}{$\rm {\it{p}}_{\rm T}$}
-\newcommand{\GEV}{$\rm GeV$}
-\newcommand{\GEVC}{$\rm GeV/c$}
-\newcommand{\GEVCC}{$\rm GeV/c^2$}
-\newcommand{\MGEV}{$\rm GeV/c^2$}
-\newcommand{\TTB}{$\rm t\bar{t}~$}
+%\newcommand{\GEV}{$\rm GeV$}
+%\newcommand{\GEVC}{$\rm GeV/c$}
+%\newcommand{\GEVCC}{$\rm GeV/c^2$}
+%\newcommand{\MGEV}{$\rm GeV/c^2$}
+\newcommand{\TTB}{$t\bar{t}$}
 %\newcommand{\ttbar}{$\rm t\bar{t}~$}
 %\newcommand{\ttbarLJET}{$\rm t\bar{t}\to l\nu b~jjb$}
 %\newcommand{\ttbarDIL}{$\rm t\bar{t}\to l^+l^-\nu\bar{\nu}b\bar{b}$}
@@ -171,11 +184,11 @@
         \parbox{7cm}{
           \includegraphics[width=6.0cm]{figures/#1}
         }
-        \parbox{6cm}{
+      \end{sloppypar}
+      \parbox{6cm}{
           \caption{\normalsize{#2}
             \label{#3}
         }}
-      \end{sloppypar}
     \end{center}
   \end{figure}
 }
@@ -190,11 +203,11 @@
         \parbox{9cm}{
           \includegraphics[width=9.0cm]{figures/#1.eps}
         }
+      \end{sloppypar}
         \parbox{6cm}{
           \caption{\normalsize{#2}
             \label{#3}
         }}
-      \end{sloppypar}
     \end{center}
   \end{figure}
 }
@@ -209,11 +222,11 @@
         \parbox{11cm}{
           \includegraphics[width=11cm]{figures/#1}
         }
-        \parbox{4cm}{
+      \end{sloppypar}
+        \parbox{13cm}{
           \caption{\normalsize{#2}
             \label{#3}
         }}
-      \end{sloppypar}
     \end{center}
   \end{figure}
 }
@@ -388,10 +401,10 @@
 \newcommand{\DBLFIGLEG}[4]{
   \begin{figure}[phtb]
     \begin{center}
-      \subfigure{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#1.eps}
       }
-      \subfigure{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#2.eps}
       }
       %\caption{{\footnotesize {\it #4} }
@@ -404,15 +417,9 @@
 \newcommand{\TRPFIGLEG}[5]{
   \begin{figure}[phtb]
     \begin{center}
-      \subfigure[]{
-        \includegraphics[width=7.5cm]{figures/#1.eps}
-      }
-      \subfigure[]{    
-        \includegraphics[width=7.5cm]{figures/#2.eps}
-      }
-      \subfigure{
-        \includegraphics[width=7.5cm]{figures/#3.eps}
-      }
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#1.eps} }
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#2.eps} }\\
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#3.eps} }
       %\caption{{\footnotesize {\it #4} }
       \caption{ \normalsize #4
         \label{#5}}
@@ -423,18 +430,10 @@
 \newcommand{\QUADFIGLEG}[6]{
   \begin{figure}[phtb]
      \begin{center}
-      \subfigure[]{
-        \includegraphics[width=7.5cm]{figures/#1.eps}
-      }
-      \subfigure[]{    
-        \includegraphics[width=7.5cm]{figures/#2.eps}
-      }
-      \subfigure[]{
-        \includegraphics[width=7.5cm]{figures/#3.eps}
-      }
-      \subfigure{
-        \includegraphics[width=7.5cm]{figures/#4.eps}
-      }
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#1.eps} }
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#2.eps} }\\
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#3.eps} }
+      \subfloat[]{ \includegraphics[width=7.5cm]{figures/#4.eps} }
       %\caption{{\footnotesize {\it #4} }
       \caption{ \normalsize #5
         \label{#6}}
@@ -445,25 +444,25 @@
 \newcommand{\SEPTFIGLEG}[9]{
   \begin{figure}[phtb]
      \begin{center}
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#1.eps}
       }
-      \subfigure[]{    
+      \subfloat[]{    
         \includegraphics[width=7.5cm]{figures/#2.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#3.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#4.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#5.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#6.eps}
       }
-      \subfigure{
+      \subfloat{
         \includegraphics[width=7.5cm]{figures/#7.eps}
       }
       %\caption{{\footnotesize {\it #4} }
@@ -476,19 +475,19 @@
 \newcommand{\FIVEFIGLEG}[7]{
   \begin{figure}[phtb]
      \begin{center}
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#1.eps}
       }
-      \subfigure[]{    
+      \subfloat[]{    
         \includegraphics[width=7.5cm]{figures/#2.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#3.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#4.eps}
       }
-      \subfigure{
+      \subfloat{
         \includegraphics[width=7.5cm]{figures/#5.eps}
       }
       %\caption{{\footnotesize {\it #4} }
@@ -501,22 +500,22 @@
 \newcommand{\SEXFIGLEG}[8]{
   \begin{figure}[phtb]
      \begin{center}
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#1.eps}
       }
-      \subfigure[]{    
+      \subfloat[]{    
         \includegraphics[width=7.5cm]{figures/#2.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#3.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#4.eps}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#5.eps}
       }
-      \subfigure{
+      \subfloat{
         \includegraphics[width=7.5cm]{figures/#6.eps}
       }
       %\caption{{\footnotesize {\it #4} }
@@ -551,10 +550,10 @@
 \newcommand{\DBLFIGL}[4]{
   \begin{figure}[phtb]
     \begin{center}
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.0cm]{figures/#1}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.0cm]{figures/#2}
       }
       %\caption{{\footnotesize {\it #4} }
@@ -693,19 +692,19 @@
 \newcommand{\PENTAFIGCUST}[7]{
   \begin{figure}[phtb]
     \begin{center}
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#1}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#2}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#3}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#4}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#5}
       }
        \caption{ \normalsize{#6
@@ -718,22 +717,22 @@
 \newcommand{\SEXFIGCUST}[8]{
   \begin{figure}[phtb]
     \begin{center}
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#1}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#2}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#3}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#4}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#5}
       }
-      \subfigure[]{
+      \subfloat[]{
         \includegraphics[width=7.5cm]{figures/#6}
       }
       \caption{ \normalsize{#7
@@ -746,19 +745,19 @@
 % \begin{figure}[ht]
 %    \centering%%
 %
-%	\begin{subfigure}[b]{0.3\textwidth}{
+%	\begin{subfloat}[b]{0.3\textwidth}{
 %            \includegraphics[width=7.5cm]{figures/#1}}
 %
-%	\begin{subfigure}[b]{0.3\textwidth}{
+%	\begin{subfloat}[b]{0.3\textwidth}{
 %            \includegraphics[width=7.5cm]{figures/#2}}
 %
-%	\begin{subfigure}[b]{0.3\textwidth}{
+%	\begin{subfloat}[b]{0.3\textwidth}{
 %            \includegraphics[width=7.5cm]{figures/#3}}
 %
-%	\begin{subfigure}[b]{0.3\textwidth}{
+%	\begin{subfloat}[b]{0.3\textwidth}{
 %            \includegraphics[width=7.5cm]{figures/#4}}
 %
-%	\begin{subfigure}[b]{0.3\textwidth}{
+%	\begin{subfloat}[b]{0.3\textwidth}{
 %            \includegraphics[width=7.5cm]{figures/#5}}
 %
 %        \caption{ \normalsize{#6}       \label{#7}

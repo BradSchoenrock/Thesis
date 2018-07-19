@@ -1,16 +1,25 @@
-%% Before beginning to type your dissertation, read the formatting guide, 
-%% which can be found at http://grad.msu.edu/etd/docs/formattingguide.pdf
+%% Before beginning to type your dissertation, download and READ 
+%% the Graduate School's formatting guide, which can be found at 
+%% http://grad.msu.edu/etd
+%% and clicking Formatting Guide in the left hand column.
 %% Also get the latest version of  msuphddissertation.cls and the template file
 %% at http://www.math.msu.edu/~weil/MSU_Ph.D._Dissertation.zip
 %% Send questions to weil@math.msu.edu
 
-\documentclass{msuphddissertation} 
-\graphicspath{{figures/}}
-%\usepackage{todo}
-%\usepackage[hide]{todo}
-%\usepackage{epstopdf}
-\usepackage{lineno}
-\usepackage{subfigure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%  NOTE   %%%%%%%%%%%%%%
+%% PREPARING A DISSERTATION WITH THIS CLASS FILE DOES NOT %%%
+%% GUARANTEE THAT THE GRADUATE SCHOOL WILL APPROVE IT. %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+%% To view a video presentation of this template, visit
+%%  https://www.math.msu.edu/latex/dissertation/
+
+\documentclass{msuphddissertation}
+%\usepackage{lineno}
+\usepackage{subfig}
+%\PassOptionsToPackage{subfigure}{tocloft}
+%\usepackage{fixmetodonotes}
 \usepackage{modatlasstyle}
 \usepackage{amsmath,amssymb,amsthm,paralist}
 \usepackage{extra_definitions}
@@ -25,150 +34,145 @@
 \usepackage{bigstrut}
 \usepackage{url}
 \usepackage{cancel}
+\usepackage[letterpaper,left=1in,right=1in,top=1.75in,bottom=0.25in]{geometry}
+
+
+
 %\usepackage{ulem}
 \usepackage[table]{xcolor}
 \renewcommand\bibname{BIBLIOGRAPHY}
-\usepackage{lineno}
-\linenumbers
-
-%\usepackage{hyperref}
-%% Include other packages you wish to use except setspace. 
-%% That package is loaded automatically.
+%\usepackage{lineno}
+%\linenumbers
+%% This is the first command that must appear in your thesis.
+%% Insert packages you wish to use except setspace, subfig
+%% geometry and pdflscape. 
+%% These packages are loaded automatically.
 %% IMPORTANT: Load only those packages you know you will use.
 %% Some packages can cause conflicts resulting in improper formatting.
-\author{Brad Schoenrock} %% Put your name in full as it is officially recognized by Michigan State University here.
+\author{Bradley D. Schoenrock} %% Put your name in full as it is officially recognized by Michigan State University here.
 \title{SEARCH FOR STANDARD MODEL TOP QUARK AND Z BOSON ASSOCIATED PRODUCTION AT ATLAS} %% Put the title of your dissertation here.
-\munit{}
-%\munit{High Energy Physics} %% Put the name of the field of your degree (NOT department or division, or college) here.
-%% For example Dynamical Systems, Psychology, String Theory, etc.
+%% Go to http://grad.msu.edu/etd/docs/DegreeGrantingUnits.pdf
+%% and find your GRADUATE DEGREE GRANTING UNIT/PROGRAM
+%% and DEGREE.
+\unit{} %% Copy and paste these two items here 
+%% separated by a dash, created by typing ---.
+%% ONLY ENTRIES FROM LIST MENTIONED ARE ACCEPTABLE!!
 
 %% Put additional preamble items here.
-%%%%%% LANDSCAPE %%%%%%
-%% Put a page you want in landscape inside the environment msulandscape, 
-%% which is defined in msuphddissertation.cls. No extra package is needed.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%  NOTE   %%%%%%%%%%%%%%
-%% PREPARING A DISSERTATION WITH THIS CLASS FILE DOES NOT %%%
-%% GUARANTEE THAT THE GRADUATE SCHOOL WILL APPROVE IT %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%% WARNING %%%%%%%%%%%%%%%
-%% The Graduate School requires that all text, including superscripts %%
-%% and subscripts at all levels, as well as that in imported %%
-%% graphics files be in 12 point. For that reason it's recommended %%
-%% that no text be part of any imported files. %%
-
-%% Once your document has been filed with the Graduate School,
-%% if you wish to produce a version of it whose subscripts and superscripts
-%% are in traditional smaller proportion, remove the "%" sign 
-%% in front of following command. 
-%\DeclareMathSizes{12}{12}{10}{8}
-%% If your document has footnotes, remove the "%" sign 
-%% in front of following command. 
-%\renewcommand{\footnotesize}{\small}
-%% To single space your document, remove the 
-%% two commands \begin{doublespace}
-%% and \end{doublespace below.
-
 \begin{document}
 
 \maketitlepage %%This command will produce the title page of your thesis.
+
+%% If you wish to include a "public abstract" (i.e.; in layman's terms), remove the "%" 
+%% in from of the command \begin{pub abstract} and remove the "%" in front of
+%% \end{pub abstract} below. A public abstract isn't required, but might be useful
+%% for some readers.
+%\begin{pubabstract}
+%%Type the text of your public abstract here. A public abstract is optional.
+%\end{pubabstract}
+
 \begin{abstract}
-
-This document reports the measurement of the top-quark $Z$-boson associated production cross-section using data from the ATLAS detector. The data used were collected during 2015, from proton-proton collisions with a 13 TeV center-of-mass collision energy. To isolate this production, selections are applied to find events with a specific final state. A cut-based analysis is used to isolate \tz~using a series of selections in several kinematic regions. A statistical analysis is performed to determine the measured cross-section and check that measured value with the standard model prediction. The resulting cross-section measurement is $\sigma_{tZ}$ = XYZ $\pm$ abc. 
-
----changelog---
-
-\today
-
-Figures 1.7 and 1.8 updated font sizes. 
-
-line 912: this seems to repeat the beginning of section 6.3 - 
-
-
-% Type your abstract here. An abstract is REQUIRED and limited to two pages.
+%% Type your abstract here. An abstract is REQUIRED and limited to two pages.
 %% The abstract must not include any figures.
+
+
+This document reports on the search for the production of a \at~in association with a \az~using data from the ATLAS detector. The data was collected during 2015, from proton-proton collisions at a center-of-mass energy of 13~TeV delivered by the Large Hadron Collider (LHC) at CERN. To isolate this production mode, selection requirements are made on the three leptons, b-quark jet and light quark jet that \tz~naturally contains. A profile likelihood fit is performed to put an upper limit on the Standard Model predicted \xs. The resulting measurement is consistent with the Standard Model prediction.   
+
 \end{abstract}
 
-%% If you wish to have a copyright page, remove the "%" in front of  \begin{copyrt}
+%% If you wish to have a copyright page, remove the "%" 
+%% in front of \begin{copyrt}
 %% and remove the "%" in front of \end{copyrt}.
-%% The mandatory form of the Copyright will be generated automatically. 
-%% A copyright statement is optional.
-
+%% An acceptable form of a copyright page  
+%% will be generated automatically. 
+%% TO INCLUDE A COPYRIGHT, YOU MUST REGISTER
+%% IT. See the Formatting Guide for instructions. 
 %\begin{copyrt}
 %\end{copyrt}
 
+
 %% If you wish to have a dedication, remove the "%" in front of
-%\begin{dedication}
-%Dedication goes here.
-%\end{dedication}
+%% \begin{dedication} and remove the "%" in front of
+%% \end{dedication} below.
 %% A dedication must be single-spaced and 
-%% centered on the page.  Both will be done automatically. 
+%% centered on the page. Both will be done automatically. 
+
 \begin{dedication} 
-%To my wonderful, beautiful, loving, at times odd, but always supportive wife Rachel. 
+%% Type your dedication here. A dedication is optional.
+\begin{center}
+To my wonderful, beautiful, loving, at times odd, but always supportive wife Rachel. 
 
-%I love you. 
+I love you. 
+\end{center}
 \end{dedication}
+
 %% If you wish to have an acknowledgment, remove the "%" in front of  \begin{acknowledgment}
-%% and remove the "%" in front of  \end{acknowledgment}  
+%% and remove the "%" in front of  \end{acknowledgment} below.  
 \begin{acknowledgment}
+%% Type your acknowledgment here. An acknowledgment is optional.
 
-%I would like to thank the following people. 
+I would like to thank the following people. 
 
-%My family, specifically my parents. Without their guidance I would not be the person I am today. I often think they should have written a parenting book because of the remarkable example they have set for me. 
+My family, specifically my parents. Without their guidance I would not be the person I am today. I often think they should have written a parenting book because of the remarkable example they have set for me. 
 
-%The members of the Wisconsin Trailblazers. Growing up around all of you showed me what hard work and kindness could accomplish. 
+The members of the Wisconsin Trailblazers. Growing up around all of you showed me what hard work and kindness could accomplish. 
 
-%My wife Rachel, who has inspired me every day to accomplish all that I have. 
+My wife Rachel, who has inspired me every day to accomplish all that I have. 
 
-%My high school teachers who took an interest in the education of every student they taught. They inspired me to be creative and investigative when I solved problems which were skills that served me well in graduate school and life. 
+My high school teachers who took an interest in the education of every student they taught. They inspired me to be creative and investigative when I solved problems which were skills that served me well in graduate school and life. 
 
-%My undergraduate and graduate professors, specifically Dr. Tireman and Dr. Donovan who encouraged me to get involved with research as an undergraduate. 
+My undergraduate and graduate professors, specifically Dr. Tireman and Dr. Donovan who encouraged me to get involved with research as an undergraduate. 
 
-%My committee members who oversaw this research: Drs. Reinhard Schwienhorst, Kirsten Tollefson, Carl Schmidt, Norman Birge, and Gerd Kortemeyer. 
+My committee members who oversaw this research: Drs. Reinhard Schwienhorst, Kirsten Tollefson, Carl Schmidt, Norman Birge, and Gerd Kortemeyer. 
 
-%My advisor Reinhard Schwienhorst for his continued mentorship. 
+My adviser Reinhard Schwienhorst for his continued mentorship. 
 
-%All of the post docs and other students who I have had the pleasure of working with at MSU. Some of you helped me debug code while others gave me something to smile at every day. 
+All of the post docs and other students who I have had the pleasure of working with at MSU. Some of you helped me debug code while others gave me something to smile at every day. 
 
-%The entire ATLAS community without which there would be no experiment nor chance at answering the great questions. 
-
+The entire ATLAS community without which there would be no experiment nor chance at answering the great questions. 
 
 \end{acknowledgment}
-\newpage
-%% If you wish to have a preface, remove the "%" in front of  \begin{preface}
-%% and remove the "%" in front of  \end{preface}  
+
+%% If you wish to have a preface, remove the "%" in front of \begin{preface}
+%% and remove the "%" in front of \end{preface} below. The formatting of
+%% a preface isn't specified, but it is included in the TOC.
 %\begin{preface}
-%% Type your acknowledgment here. An acknowledgment is optional.
+%% Type your preface here. A preface is optional.
 %\end{preface}
 
-\TOC
+\TOC %% This command produces the Table of Contents. DO NOT REMOVE IT!
 
 %% If your document contains tables, remove the "%" in front of 
 %%  the following line.
-\listoftables
+\LOT
 
 %% If your document contains figures, remove the "%" in front of
 %% the following line.
 \LOF
-%% If any of your figures contain color, you must
-%% include the following disclaimer in the caption of your first figure.
-%% "For interpretation of the references to color in this and all other figures, 
-%% the reader is referred to the electronic version of this dissertation."
 
-%%%% LIST OF SYMBOLS AND ABBREVIATIONS %%%%
-%% Such a list is possible using the environment
-%% abbreviationskey
-%% at the place in the document where you wish the list to appear.
-% The list will be included in the TOC as KEY TO SYMBOLS AND ABBREVIATIONS
+%%%% LIST OF SYMBOLS OR LIST OF ABBREVIATIONS %%%%
+%% If you wish to have a list of symbols or a list of abbreviations, 
+%% it should be here. For a list of symbols remove the "%" in front of 
+%% \begin{symbols} and remove the "%" in front of \end{symbols} below.
+%\begin{symbols}
+%% Type your list using a list environment here.
+%\end{symbols}
+%% Similarly for a list of abbreviations remove the "%" in front of 
+%% \begin{abbrev} and remove the "%" in front of \end{abbrev} below.
+%\begin{abbrev}
+%% Type your list using a list environment here.
+%\end{abbrev}
+%% The list will be included in the TOC as
+%% KEY TO SYMBOLS or KEY TO ABBREVIATIONS
 %%%%%%%%%%
 
 \newpage
 \pagenumbering{arabic}
 \begin{doublespace}
-%\linenumbers
+
+%% Put the body of your dissertation here. 
+%% DO NOT include the bibliography or any appendices.
+%% These topics will be discussed later.
 
 \input{Introduction}
 \input{Experiment}
@@ -177,64 +181,87 @@ line 912: this seems to repeat the beginning of section 6.3 -
 \input{ObjectReconstruction}
 \input{Analysis}
 \input{Results}
+\input{Conclusion}
 
-%\newpage
-%\vspace*{\fill}
-%\begin{center}
-%\Huge \textbf{APPENDICIES}
-%\end{center}
-%\vfill
-%\newpage
+%%%%%% LANDSCAPE PAGES  %%%%%%
+%% To produce graphics or tables in landscape mode,
+%% begin by removing the "%" in the next two lines.
+%\begin{landscape}
+%\thispagestyle{empty}
+%% The contents of the page can be centered using the center environment
+%% or the \centering command. Insert either a table with the tabular environment
+%% or input a graphics file.
+%% Use \captionof{table}{caption_text} (or figure in place of table) 
+%% to create the caption for a short table or a figure. 
+%% Insert a long table in a table environment. It disables double spacing
+%% which is permitted for long tables. Finally remove the "%" from the next line.
+%\end{landacape}
+
+%%%%%%%    APPENDICES    %%%%%%%%%%
+%% If you wish to include just one appendix, remove the "%" 
+%% in front of \appendix below. To include two or more appendices,
+%% remove the "%" in front of \appendices.
 %\appendix
-%\input{ControlRegions}
-%\input{BPrimeSearch}
-%\newpage
-%\appendix
-%\part*{Appendices}
-%\addcontentsline{toc}{part}{Appendices}
-%\input{ControlRegions}
-%\input{BPrimeSearch}
-%\clearpage
-%\newpage
-%% Put the body of your dissertation here. 
-%% DO NOT include  the bibliography
-%% If you wish to include one or more appendices, remove the "%" from the 
-%% following eight (8) lines.
-%\newpage
-%\vspace*{\fill}
-%\begin{center}
-%\Huge \textbf{APPENDICIES}
-%\end{center}
-%\vfill
-%\newpage
-%\appendix
-%%To start your first appendix, which will be labeled as Appendix A  
-%% just type \chapter{<appendix 1 name>}
+%\appendices
+
+%% In either cast to start your first appendix, which will be labeled
+%% as Appendix A, just type \chapter{<appendix 1 name>}
+%% and enter the text of the appendix as you would a chapter,
+%% with one exception. If you use any subdivisions, such as 
+%% section, subsection etc., use the starred version; that is,
+%% \section*{section name}.  Such subdivisions are not to be 
+%% listed in the Table of Contents.
+
 %%%%%%% A NOTE ABOUT APPENDICES %%%%%%%%%
-%% Some appendices may be single spaced such as survey examples or letters.
-%% Contact the Graduate School for details.
-%% To single space an appendix first remove the % from 
+%% Some appendices may be single-spaced such as survey examples
+%% or letters. See the Graduate School's formatting guide for details.
+%% To single space an appendix first remove the "%" from 
 %% the following two lines.
-% \end{doublespace}
-% \chapter{<appendix  name>}
-%% After entering the appendix remove the % from 
-%% the following line
-% \begin{doublespace}
+%\end{doublespace}
+%\chapter{<appendix name>}
+%% Insert the name of the appendix.
+%% Insert the text of the appendix.
+%% Remove the "%" from the following line.
+%\begin{doublespace}
 %% Any text entered now will be double spaced.
+
 \end{doublespace}
 
-%%Bibliography 
+%%%%%%  Bibliography %%%%%
+%% A bibliography is required. By default it is called, "Bibliography"
+%% You may use ÒLITERATURE CITEDÓ, ÒWORKS CITEDÓ or ÒREFERENCESÓ 
+%% instead of ÒBIBLIOGRAPHYÓ if that is the convention in your discipline. 
+%% To do so, copy and paste your choice into the empty argument 
+%% of the following command and remove the "%".
+%\renewcommand{\bibname}{}
+
 
 \bibliographystyle{atlasnote}
 %\bibliographystyle{unsrt}
 \bibliography{bibmain}
 
-%% A bibliography is required. It may be made using BibTeX.
-%% If it's made from scratch,
+
+%% The bibliography may be made using BibTeX.
+%% To do so the necessary commands must be entered in the 
+%% preamble and here.
+%% If the Bibliography is made from scratch,
 %% remove the "%" in front of \begin{thebibliography}{???}
 %% replacing the ??? with the appropriate entry and 
-%% remove the "%" in front of \end{thebibliography}
+%% remove the "%" in front of \end{thebibliography} below.
 % \begin{thebibliography}{???}
 %%  Enter the bibliography here.
 % \end{thebibliography}
+%% In either case, the bibliography is automatically entered
+%% in the Table of Contents.
 \end{document}
+
+%%%%%% FINAL COMMENTS %%%%
+%% Before submitting your dissertation to the Graduate School
+%% Make sure there isn't any text in the right margins. To do 
+%% in the .log file look for error messages beginning with, 
+%% "Overfull \hbox ". 
+
+%% Once your document has been filed with the Graduate School,
+%% if you wish to produce a single spaced version of your document, 
+%% find and remove the commands \begin{doublespace}
+%% and \end{doublespace} above.
